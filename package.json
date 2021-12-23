@@ -4,7 +4,9 @@
   "description": "front-end capstone - Overview   Creating the front-end of an online store that displays clothing for users to purchase. - Table of Contents",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "",
+    "react-dev": "webpack --config ./webpack.config.js --mode development -w",
+    "start": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,13 @@
   },
   "homepage": "https://github.com/Nanya-FEC/FEC#readme",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "babel-loader": "^8.2.3",
+    "nodemon": "^2.0.15",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
   },
   "dependencies": {
     "axios": "^0.24.0",
