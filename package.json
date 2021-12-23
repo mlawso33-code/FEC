@@ -1,0 +1,28 @@
+{
+  "name": "fec",
+  "version": "1.0.0",
+  "description": "front-end capstone - Overview   Creating the front-end of an online store that displays clothing for users to purchase. - Table of Contents",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nanya-FEC/FEC.git"
+  },
+  "author": "Marc Lawson, Mitchell Gardner, Sterling Muller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nanya-FEC/FEC/issues"
+  },
+  "homepage": "https://github.com/Nanya-FEC/FEC#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
