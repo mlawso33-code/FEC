@@ -1,7 +1,7 @@
 const express = require('express')
 const axios = require('axios')
-const token = require('../config.js');
-const { response } = require('express');
+const {API_URL, API_KEY} = require('../config.js');
+
 
 const app = express();
 
@@ -12,30 +12,15 @@ app.use(express.json())
 
 app.use('/', express.static(__dirname + '/../client/dist'))
 
-const api = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-den'
 
+// API Proxy
+app.use('/api/*', async (req, res) => {
+  const payload = await axios({
+    method: req.method.toLowerCase(),
+    url: API_URL + req.originalUrl.slice(4), // slice off the api
+    headers: {Authorization: API_KEY},
+    data: req.body
+  });
 
-//Sterling CRUD
-app.get('/products', (req, res) => {
-  let {page, count} = req.body;
-  const header = {headers: {
-    'Authorization': token.TOKEN
-  }}
-
-  if(!page) {
-    page = 1;
-  }
-  if (!count) {
-    count = 5;
-  }
-
-  axios.get(api + `/products?page=${page}&count=${count}`, header)
-    .then(response => {
-      res.send(response.data) })
-    .catch(err => res.status(400).send("ERROR", err))
-})
-
-//Marc CRUD
-
-
-//Mitchell CRUD
+  res.send(payload.data);
+});
