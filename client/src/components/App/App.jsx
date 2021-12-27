@@ -1,13 +1,39 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import AppContext from './AppContext.jsx';
+import axios from 'axios';
 
-const App = (props) => (
-  <div>
-    Hello World!!
-    {/* <Overview />
-    <RelatedItems />
-    <Questions />
-    <Ratings /> */}
-  </div>
-)
+import Overview from '../Overview/Overview.jsx';
+import Questions from '../Questions/Questions.jsx';
+import Ratings from '../Ratings/Ratings.jsx';
+import Related from '../Related/Related.jsx';
+
+
+const App = () => {
+  const [product, setProduct] = useState({});
+
+  function fetchProduct(product_id) {
+    axios.get(`/api/products/${product_id}`)
+      .then(response => setProduct(response.data))
+
+  }
+
+  useEffect(() => {
+    fetchProduct(44388)
+  }, [])
+
+
+  return (
+    <div>
+      <AppContext.Provider value={{
+        product
+      }} >
+        <Overview />
+        {/* <RelatedItems /> */}
+        <Questions />
+        <Ratings />
+      </AppContext.Provider>
+    </div>
+  )
+}
 
 export default App
