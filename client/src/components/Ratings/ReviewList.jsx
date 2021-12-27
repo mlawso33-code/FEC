@@ -6,29 +6,42 @@ import ReviewTile from './ReviewTile.jsx'
 
 const Ratings = () => {
   const { product } = useContext(AppContext)
+  const product_id = product.id
   const [reviews, setReviews] = useState([])
+  const [page, setPage]  = useState(1)
+  const [count, setCount] = useState(2)
+  const [sort, setSort] = useState('relevant')
 
-  function fetchReviews(page, count, sort, product_id) {
+  function fetchReviews() {
     axios.get(`/api/reviews/?page=${page}&count=${count}&sort=${sort}&product_id=${product_id}`)
       .then(response => setReviews(response.data.results))
   }
 
   useEffect(() => {
-    if(JSON.stringify(product) !== '{}')
-    fetchReviews(1, 5, 'relevant', product.id)
+    if(JSON.stringify(product) !== '{}') {
+      fetchReviews()
+    }
   }, [product])
 
   function handleMoreReviewsClick() {
-    console.log('I was clicked')
+    setCount(count + 2)
+    fetchReviews()
   }
 
   return (
     <div>
+      <div style={{maxHeight: "50vh", overflow: "scroll"}}>
       {reviews.map(review =>
         <ReviewTile key={review.review_id} review={review}/>)}
-      <button onClick={handleMoreReviewsClick}>More Reviews</button>
-    </div>
+      </div>
 
+      {reviews.length &&
+        <button onClick={handleMoreReviewsClick}>More Reviews</button>
+      }
+
+      <button>Add Review +</button>
+
+    </div>
   )
 }
 

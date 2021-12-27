@@ -48,6 +48,8 @@ const ReviewTile = (props) => {
         <span>{helpfulness}</span>
       </div>
 
+      <hr/>
+
     </div>
   )
 }
