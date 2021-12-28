@@ -21,8 +21,7 @@ const ReviewTile = (props) => {
         <StarRating rating={rating}/>
         {/* Conditionally render icon if user is verified */}
         <i className="fa fa-check-circle" aria-hidden="true"></i>
-        <span>{reviewer_name}</span>
-        <span>{moment(date).format('LL')}</span>
+        <span>{reviewer_name}, {moment(date).format('LL')} </span>
       </div>
 
       <div style={{fontWeight: "bold"}}>{summary}</div>
