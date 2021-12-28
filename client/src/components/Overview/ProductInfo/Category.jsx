@@ -8,7 +8,7 @@ const Category = () => {
 
   return (
     <div>
-
+      {product.category}
 
     </div>
   )

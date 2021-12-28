@@ -14,21 +14,33 @@ const ProductOverview = () => {
 
   return (
     <div>
-      <Ratings />
-      <Category />
-      <ProductName />
-      <Price />
+      <div style={infoStyle}>
+        <Ratings />
+        <Category />
+        <ProductName />
+        <Price />
 
-      <ProductStyles />
+        <ProductStyles />
 
-      <Share />
+        <Share />
+      </div>
 
       <div className='description' style={descriptionStyle}>
-
+        <h3>{product.slogan}</h3>
+        <p>{product.description}</p>
       </div>
 
     </div>
   )
+}
+
+let infoStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  float: 'right',
+  backgroundColor: 'gray',
+  width: 750,
+  height: 350
 }
 
 let descriptionStyle = {

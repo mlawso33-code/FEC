@@ -20,6 +20,8 @@ const MainImg = () => {
 }
 
 let imageStyle = {
+  display: 'flex',
+  margin: 'auto',
   width: 700,
   height: 600,
   border: '2px solid gray',
@@ -28,6 +30,8 @@ let imageStyle = {
 
 let carouselStyle = {
   position: 'absolute',
+  display: 'flex',
+  flexDirection: 'column',
   left: 20,
   top: 150
 

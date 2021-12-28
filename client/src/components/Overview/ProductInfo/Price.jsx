@@ -8,7 +8,7 @@ const Price = () => {
 
   return (
     <div>
-
+      {product.default_price}
 
     </div>
   )

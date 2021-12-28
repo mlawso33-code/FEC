@@ -26,8 +26,8 @@ const Overview = () => {
 
   return (
     <div>
-      hiya
       {console.log("PRODUCT:::", product)}
+      {console.log("StylesOVER:::", styles)}
       <OverviewContext.Provider value={{styles}}>
         <ProductOverview />
         <MainImg />
