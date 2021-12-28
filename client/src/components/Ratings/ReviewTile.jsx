@@ -24,7 +24,7 @@ const ReviewTile = (props) => {
         <span>{reviewer_name}, {moment(date).format('LL')} </span>
       </div>
 
-      <div style={{fontWeight: "bold"}}>{summary}</div>
+      <div style={summaryStyle}>{summary}</div>
 
       {/* Review body will need to be a free-form multimedia input to submit text and images */}
       <div>
@@ -61,3 +61,12 @@ const ReviewTile = (props) => {
 }
 
 export default ReviewTile
+
+
+const summaryStyle = {
+  fontWeight: "bold",
+  width: "100%",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis"
+}
