@@ -9,15 +9,15 @@ const IndividualQuestion = (props) => {
       return props.question.answers[`${i}`].body
     }
   }
-return (
-  <div style={{border:"solid"}}>
-    <div style={{ display:"flex", flexDirection: "row" }}>
-      Q: {props.question.question_body}
-      <span style={{ marginLeft: "auto" }}>Helpful? Yes(num) | Add Answer </span>
+  return (
+    <div style={{ border: "solid" }}>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        Q: {props.question.question_body}
+        <span style={{ marginLeft: "auto" }}>Helpful? Yes(num) | Add Answer </span>
+      </div>
+      <div style={{ marginTop: "10px" }}>A: {eachAnswer(answerObj)}</div>
     </div>
-      <div style={{marginTop:"10px"}}>A: {eachAnswer(answerObj)}</div>
-  </div>
-)
+  )
 }
 
 export default IndividualQuestion

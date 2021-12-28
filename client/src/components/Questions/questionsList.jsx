@@ -31,7 +31,7 @@ const QuestionsList = () => {
   return (
     <div>
       <AskQuestion />
-      <div>
+      <div style={{ marginTop: "20px" }}>
         {questions.map((question => {
           return (<IndividualQuestion key={question.question_id} question={question} />)
         }))}

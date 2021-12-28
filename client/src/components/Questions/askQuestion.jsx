@@ -10,8 +10,8 @@ const AskQuestion = () => {
     cursor: "pointer",
   }
   return (
-    <div style={{position:"relative"}}>
-      <input type="text" defaultValue="HAVE A QUESTION? SEARCH FOR ANSWERS..." style={inputStyle}/>
+    <div style={{ position: "relative" }}>
+      <input type="text" defaultValue="HAVE A QUESTION? SEARCH FOR ANSWERS..." style={inputStyle} />
       <button type="submit" style={buttonStyle}>Magnifying Glass</button>
     </div>
   )
