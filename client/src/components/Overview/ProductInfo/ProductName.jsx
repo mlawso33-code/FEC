@@ -8,6 +8,7 @@ const ProductName = () => {
 
   return (
     <div>
+      {product.name}
 
 
     </div>

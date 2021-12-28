@@ -8,7 +8,9 @@ const Ratings = () => {
 
   return (
     <div>
-
+      <p>Put stars here {' '}
+      <a href="localHost:3000">Read all reviews</a>
+      </p>
 
     </div>
   )
