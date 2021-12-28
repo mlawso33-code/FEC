@@ -5,11 +5,12 @@ import StarRating from './StarRating.jsx';
 
 const ReviewTile = (props) => {
   const { product } = useContext(AppContext)
-  const {review_id, rating, summary, recommended, response, body, date, reviewer_name, helpfulness, photos} = props.review
+  const {review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos} = props.review
 
 
-  function incrementHelpfullness() {
+  function incrementHelpfullness(event) {
     //Make api call to update helpfulness count
+    event.preventDefault()
     console.log(helpfulness)
   }
 
@@ -18,6 +19,7 @@ const ReviewTile = (props) => {
       <div>
         <StarRating rating={rating}/>
         {/* Conditionally render icon if user is verified */}
+        <i className="fa fa-check-circle" aria-hidden="true"></i>
         <span>{reviewer_name}</span>
         <span>{date.slice(0, 10)}</span>
       </div>
@@ -32,10 +34,12 @@ const ReviewTile = (props) => {
 
 
       {/* Conditionally render div if recommended */}
-      <div>
-        {/* Render checkmark icon */}
-        <span>{recommended}</span>
-      </div>
+      {recommend &&
+        <div>
+          <i className="fa fa-check" aria-hidden="true"></i>
+          <span>I recommend this product</span>
+        </div>
+      }
 
       <div>
         <div style={{fontWeight: "bold"}}>Response:</div>
@@ -44,8 +48,10 @@ const ReviewTile = (props) => {
 
       <div>
         <span>Helpful?</span>
-        <a onClick={incrementHelpfullness}>Yes</a>
+        <a href='' style={{color: "black"}} onClick={incrementHelpfullness}>Yes</a>
         <span>{helpfulness}</span>
+        |
+        <a href='' style={{color: "black"}} onClick={incrementHelpfullness}>Report</a>
       </div>
 
       <hr/>
