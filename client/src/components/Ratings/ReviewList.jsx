@@ -2,6 +2,8 @@ import React, {useState, useEffect, useContext} from 'react'
 import AppContext from '../App/AppContext.jsx'
 import axios from 'axios'
 import ReviewTile from './ReviewTile.jsx'
+import SortDropDown from './SortDropDown.jsx'
+import ReviewContext from './ReviewContext.jsx'
 
 
 const Ratings = () => {
@@ -29,19 +31,28 @@ const Ratings = () => {
   }
 
   return (
-    <div>
-      <div style={{maxHeight: "50vh", overflow: "scroll"}}>
-      {reviews.map(review =>
-        <ReviewTile key={review.review_id} review={review}/>)}
+    <ReviewContext.Provider value={{
+      sort,
+      setSort,
+    }}>
+      <div>
+        <div style={{marginBottom: "20px"}}>
+          {reviews.length} reviews, sorted by <SortDropDown />
+        </div>
+
+        <div style={{maxHeight: "50vh", overflow: "scroll"}}>
+        {reviews.map(review =>
+          <ReviewTile key={review.review_id} review={review}/>)}
+        </div>
+
+        {reviews.length &&
+          <button onClick={handleMoreReviewsClick}>More Reviews</button>
+        }
+
+        <button>Add Review +</button>
+
       </div>
-
-      {reviews.length &&
-        <button onClick={handleMoreReviewsClick}>More Reviews</button>
-      }
-
-      <button>Add Review +</button>
-
-    </div>
+    </ReviewContext.Provider>
   )
 }
 
