@@ -28,7 +28,7 @@ const App = () => {
         product
       }} >
         <Overview />
-        {/* <RelatedItems /> */}
+        <RelatedItems />
         <Questions />
         <Ratings />
       </AppContext.Provider>
