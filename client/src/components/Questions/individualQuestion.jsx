@@ -11,7 +11,7 @@ const IndividualQuestion = (props) => {
   }
   return (
     <div style={{ border: "solid" }}>
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <div style={{ display: "flex", flexDirection: "row", maxHeight:"50vh", overflow:"scroll"}}>
         Q: {props.question.question_body}
         <span style={{ marginLeft: "auto" }}>Helpful? Yes(num) | Add Answer </span>
       </div>
