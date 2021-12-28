@@ -1,10 +1,14 @@
-import React from "react";
+import React from "react"
+import Rating from 'react-rating'
 
 const StarRating = (props) => {
   return (
-    <span>
-      {props.rating}
-    </span>
+    <Rating
+      emptySymbol="fa fa-star-o"
+      fullSymbol="fa fa-star"
+      initialRating={props.rating}
+      readonly
+    />
   )
 }
 

@@ -49,7 +49,7 @@ const ReviewTile = (props) => {
       <div>
         <span>Helpful?</span>
         <a href='' style={{color: "black"}} onClick={incrementHelpfullness}>Yes</a>
-        <span>{helpfulness}</span>
+        <span>({helpfulness})</span>
         |
         <a href='' style={{color: "black"}} onClick={incrementHelpfullness}>Report</a>
       </div>
