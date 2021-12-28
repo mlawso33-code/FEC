@@ -11,9 +11,13 @@ const QuestionsList = () => {
   const { product } = useContext(AppContext)
   const { id } = product
 
+  const [page, setPage]  = useState(1)
+  const [count, setCount] = useState(2)
+  const [sort, setSort] = useState('relevant')
+
   function fetchQuestions(product_id) {
     axios
-      .get(`/api/qa/questions?product_id=${product_id}`)
+      .get(`/api/qa/questions/?page=${page}&count=${count}&sort=${sort}&product_id=${product_id}`)
       .then(res => setQuestions(res.data.results))
   }
 
