@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import AppContext from '../App/AppContext.jsx';
 import axios from 'axios';
+import StarRating from './StarRating.jsx';
 
 const ReviewTile = (props) => {
   const { product } = useContext(AppContext)
@@ -14,9 +15,8 @@ const ReviewTile = (props) => {
 
   return (
     <div>
-      {/* <StarRating /> */}
-
       <div>
+        <StarRating rating={rating}/>
         {/* Conditionally render icon if user is verified */}
         <span>{reviewer_name}</span>
         <span>{date.slice(0, 10)}</span>
