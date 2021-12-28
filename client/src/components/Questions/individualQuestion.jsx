@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../App/AppContext.jsx';
 
+import Answers from './answers.jsx';
+
 
 const IndividualQuestion = (props) => {
-  const answerObj = props.question.answers
-  function eachAnswer(obj) {
-    for (var i in obj) {
-      return props.question.answers[`${i}`].body
-    }
-  }
   return (
     <div style={{ maxHeight: "50vh", overflow: "scroll" }}>
       <div style={{ border: "solid" }}>
@@ -16,7 +12,7 @@ const IndividualQuestion = (props) => {
           Q: {props.question.question_body}
           <span style={{ marginLeft: "auto" }}>Helpful? Yes(num) | Add Answer </span>
         </div>
-        <div style={{ marginTop: "10px" }}>A: {eachAnswer(answerObj)}</div>
+        <Answers answer={props.question.answers}/>
       </div>
     </div>
   )
