@@ -12,7 +12,7 @@ const AskQuestion = () => {
   return (
     <div style={{ position: "relative" }}>
       <input type="text" defaultValue="HAVE A QUESTION? SEARCH FOR ANSWERS..." style={inputStyle} />
-      <button type="submit" style={buttonStyle}>Magnifying Glass</button>
+      <button type="submit" style={buttonStyle}><i className="fas fa-search"></i></button>
     </div>
   )
 }
