@@ -3,10 +3,16 @@ import AppContext from '../App/AppContext.jsx';
 
 
 const AskQuestion = () => {
+  const inputStyle = {
+    width: "70%",
+  }
+  const buttonStyle = {
+    cursor: "pointer",
+  }
   return (
-    <div>
-      <input type="text" defaultValue="HAVE A QUESTION? SEARCH FOR ANSWERS..." style={{width: "70%"}}/>
-      <button type="submit">Magnifying Glass</button>
+    <div style={{position:"relative"}}>
+      <input type="text" defaultValue="HAVE A QUESTION? SEARCH FOR ANSWERS..." style={inputStyle}/>
+      <button type="submit" style={buttonStyle}>Magnifying Glass</button>
     </div>
   )
 }
