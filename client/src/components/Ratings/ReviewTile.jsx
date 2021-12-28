@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import AppContext from '../App/AppContext.jsx';
 import axios from 'axios';
 import StarRating from './StarRating.jsx';
+import moment from 'moment';
 
 const ReviewTile = (props) => {
   const { product } = useContext(AppContext)
@@ -21,7 +22,7 @@ const ReviewTile = (props) => {
         {/* Conditionally render icon if user is verified */}
         <i className="fa fa-check-circle" aria-hidden="true"></i>
         <span>{reviewer_name}</span>
-        <span>{date.slice(0, 10)}</span>
+        <span>{moment(date).format('LL')}</span>
       </div>
 
       <div style={{fontWeight: "bold"}}>{summary}</div>
