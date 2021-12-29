@@ -8,11 +8,10 @@ const StyleOptions = () => {
 
   return (
     <div>
-      {console.log("StOPt:::", styles)}
       Options!
       {styles.length &&
       <>
-      <div className='stylePics' stlye={stylePics}>
+      <div className='stylePics'>
        {styles.map(style => <StylePic pic={style.photos[0]}/>)}
       </div>
       </>

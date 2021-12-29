@@ -25,10 +25,10 @@ const ProductOverview = () => {
         <Share />
       </div>
 
-      {/* <div className='description' style={descriptionStyle}>
+      <div className='description' style={descriptionStyle}>
         <h3>{product.slogan}</h3>
         <p>{product.description}</p>
-      </div> */}
+      </div>
 
     </div>
   )
