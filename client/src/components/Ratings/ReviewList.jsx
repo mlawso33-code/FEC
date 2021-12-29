@@ -11,7 +11,7 @@ const Ratings = () => {
   const product_id = product.id
   const [reviews, setReviews] = useState([])
   const [page, setPage]  = useState(1)
-  const [count, setCount] = useState(2)
+  const [count, setCount] = useState(100)
   const [sort, setSort] = useState('relevant')
 
   function fetchReviews() {

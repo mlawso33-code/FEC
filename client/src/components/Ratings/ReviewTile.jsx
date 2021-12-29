@@ -3,16 +3,21 @@ import AppContext from '../App/AppContext.jsx';
 import axios from 'axios';
 import StarRating from './StarRating.jsx';
 import moment from 'moment';
+import ReviewPhoto from './ReviewPhoto.jsx';
 
-const ReviewTile = (props) => {
+const ReviewTile = ({review}) => {
   const { product } = useContext(AppContext)
-  const {review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos} = props.review
+  const {review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos} = review
 
 
   function incrementHelpfullness(event) {
     //Make api call to update helpfulness count
     event.preventDefault()
     console.log(helpfulness)
+  }
+
+  function showMoreClick() {
+
   }
 
   return (
@@ -30,6 +35,11 @@ const ReviewTile = (props) => {
       <div>
         <p>{body}</p>
         {/* Need to render photos here */}
+        <div>
+          {photos.map(photo =>
+            <ReviewPhoto key={photo.id} photo={photo}/>)
+          }
+        </div>
       </div>
 
 
@@ -41,10 +51,12 @@ const ReviewTile = (props) => {
         </div>
       }
 
+      {response &&
       <div>
         <div style={{fontWeight: "bold"}}>Response:</div>
         <p>{response}</p>
       </div>
+      }
 
       <div>
         <span>Helpful?</span>
