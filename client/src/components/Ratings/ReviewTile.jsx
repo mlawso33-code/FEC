@@ -17,7 +17,8 @@ const ReviewTile = ({review}) => {
     console.log(helpfulness)
   }
 
-  function showMoreClick() {
+  function showMoreClick(event) {
+    event.preventDefault()
     setFullReview(true)
   }
 
@@ -40,7 +41,7 @@ const ReviewTile = ({review}) => {
           : <p style={bodyStyle}>{body}</p>
         }
 
-        {(body.length > 250 && !fullReview) &&
+        {body.length > 250 && !fullReview &&
           <a href='' style={{color: "black"}} onClick={showMoreClick}>Show more</a>
         }
 
