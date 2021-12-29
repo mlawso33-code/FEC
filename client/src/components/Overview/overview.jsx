@@ -25,15 +25,17 @@ const Overview = () => {
 
 
   return (
-    <div>
+    <div style={{display: 'grid', gridTemplateColumns: '600 400'}}>
       {console.log("PRODUCT:::", product)}
       {console.log("StylesOVER:::", styles)}
       <OverviewContext.Provider value={{styles}}>
-        <ProductOverview />
         <MainImg />
+        <ProductOverview />
       </OverviewContext.Provider>
     </div>
   )
 }
+
+// {display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}
 
 export default Overview

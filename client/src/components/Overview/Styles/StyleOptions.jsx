@@ -10,11 +10,21 @@ const StyleOptions = () => {
     <div>
       {console.log("StOPt:::", styles)}
       Options!
-      {styles.map((style) => {
-        <StylePic pic={style}/>
-      })}
+      {styles.length &&
+      <>
+      <div stlye={stylePics}>
+       {styles.map(style => <StylePic pic={style.photos[0]}/>
+      )}
+      </div>
+      </>}
     </div>
   )
+}
+
+let stylePics = {
+  position: 'absolute',
+  height: 40
+
 }
 
 export default StyleOptions

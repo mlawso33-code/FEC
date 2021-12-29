@@ -8,32 +8,33 @@ const MainImg = () => {
   // const { products, styles } = useContext(AppContext);
 
   return (
-    <div>
+    <div style={{position: 'absolute'}}>
       {console.log("MAIN IMG STYLES:::", styles[0])}
       {styles.length &&
-      <><img src={styles[0].photos[0].url} style={imageStyle} /><div className='carousel' style={carouselStyle}>
+      <>
+        <img src={styles[0].photos[0].url} style={imageStyle}/>
+        <div className='carousel' style={carouselStyle}>
           {styles[0].photos.map(pic => <Carousel pic={pic} key={pic.url.slice(33, 40)} />)}
-        </div></>
+        </div>
+      </>
         }
     </div>
   )
 }
 
 let imageStyle = {
-  display: 'flex',
-  margin: 'auto',
-  width: 700,
-  height: 600,
+  position: 'relative',
   border: '2px solid gray',
+  width: '60%',
+  height: '50%',
   borderRadius: 5
 }
 
 let carouselStyle = {
   position: 'absolute',
-  display: 'flex',
   flexDirection: 'column',
-  left: 20,
-  top: 150
+  left: 15,
+  top: 50
 
 }
 

@@ -35,11 +35,11 @@ const ProductOverview = () => {
 }
 
 let infoStyle = {
-  display: 'flex',
+  position: 'relative',
   flexDirection: 'column',
   float: 'right',
   backgroundColor: 'gray',
-  width: 750,
+  width: '50%',
   height: 350
 }
 
