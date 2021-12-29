@@ -8,6 +8,7 @@ import ReviewPhoto from './ReviewPhoto.jsx';
 const ReviewTile = ({review}) => {
   const { product } = useContext(AppContext)
   const {review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos} = review
+  const [fullReview, setFullReview] = useState(false)
 
 
   function incrementHelpfullness(event) {
@@ -17,11 +18,12 @@ const ReviewTile = ({review}) => {
   }
 
   function showMoreClick() {
-
+    setFullReview(true)
   }
 
   return (
     <div>
+      {/* Review head */}
       <div>
         <StarRating rating={rating}/>
         {/* Conditionally render icon if user is verified */}
@@ -31,10 +33,17 @@ const ReviewTile = ({review}) => {
 
       <div style={summaryStyle}>{summary}</div>
 
-      {/* Review body will need to be a free-form multimedia input to submit text and images */}
+      {/* Review body */}
       <div>
-        <p>{body}</p>
-        {/* Need to render photos here */}
+        {fullReview
+          ? <p>{body}</p>
+          : <p style={bodyStyle}>{body}</p>
+        }
+
+        {(body.length > 250 && !fullReview) &&
+          <a href='' style={{color: "black"}} onClick={showMoreClick}>Show more</a>
+        }
+
         <div>
           {photos.map(photo =>
             <ReviewPhoto key={photo.id} photo={photo}/>)
@@ -51,13 +60,15 @@ const ReviewTile = ({review}) => {
         </div>
       }
 
+      {/* Conditionally render if response from seller */}
       {response &&
       <div>
-        <div style={{fontWeight: "bold"}}>Response:</div>
+        <div style={{fontWeight: "bold"}}>Response from seller:</div>
         <p>{response}</p>
       </div>
       }
 
+      {/* Review footer */}
       <div>
         <span>Helpful?</span>
         <a href='' style={{color: "black"}} onClick={incrementHelpfullness}>Yes</a>
@@ -81,4 +92,11 @@ const summaryStyle = {
   whiteSpace: "nowrap",
   overflow: "hidden",
   textOverflow: "ellipsis"
+}
+
+const bodyStyle = {
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  maxWidth: "250ch"
 }

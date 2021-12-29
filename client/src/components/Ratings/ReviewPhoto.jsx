@@ -47,7 +47,6 @@ const modalStyle = {
 
 const modalContentStyle = {
   margin: "auto",
-  top: "50%",
   display: "block",
   width: "80%",
   maxWidth: "1000px"
