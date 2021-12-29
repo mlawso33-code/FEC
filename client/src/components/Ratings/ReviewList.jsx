@@ -10,24 +10,28 @@ const Ratings = () => {
   const { product } = useContext(AppContext)
   const product_id = product.id
   const [reviews, setReviews] = useState([])
-  const [page, setPage]  = useState(1)
-  const [count, setCount] = useState(2)
+  // const [page, setPage]  = useState(1)
+  // const [count, setCount] = useState(100)
   const [sort, setSort] = useState('relevant')
 
+  const [numOfDisplayed, setNumOfDisplayed] = useState(2)
+
+  let displayedReviews = reviews.slice(0, numOfDisplayed)
+
   function fetchReviews() {
-    axios.get(`/api/reviews/?page=${page}&count=${count}&sort=${sort}&product_id=${product_id}`)
+    axios.get(`/api/reviews/?page=1&count=100&sort=${sort}&product_id=${product_id}`)
       .then(response => setReviews(response.data.results))
   }
 
   useEffect(() => {
     if(JSON.stringify(product) !== '{}') {
       fetchReviews()
+      // setNumOfDisplayed(2)
     }
   }, [product])
 
   function handleMoreReviewsClick() {
-    setCount(count + 2)
-    fetchReviews()
+    setNumOfDisplayed(numOfDisplayed + 2)
   }
 
   function handleSortChange(event) {
@@ -45,11 +49,11 @@ const Ratings = () => {
         </div>
 
         <div style={{maxHeight: "50vh", overflow: "scroll"}}>
-        {reviews.map(review =>
+        {displayedReviews.map(review =>
           <ReviewTile key={review.review_id} review={review}/>)}
         </div>
 
-        {reviews.length &&
+        {numOfDisplayed < reviews.length &&
           <button onClick={handleMoreReviewsClick}>More Reviews</button>
         }
 
