@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../App/AppContext.jsx';
 
-import Answers from './answers.jsx';
+import AnswersList from './answersList.jsx';
 
 
 const IndividualQuestion = (props) => {
@@ -12,7 +12,7 @@ const IndividualQuestion = (props) => {
           Q: {props.question.question_body}
           <span style={{ marginLeft: "auto" }}>Helpful? Yes(num) | Add Answer </span>
         </div>
-        <Answers question_id={props.question.questions_id} answer={props.question.answers}/>
+        <AnswersList question_id={props.question.questions_id} question={props.question}/>
       </div>
     </div>
   )
