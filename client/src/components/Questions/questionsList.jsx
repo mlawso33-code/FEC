@@ -39,19 +39,14 @@ const QuestionsList = () => {
   }
 
   function addQuestion() {
-    console.log('add question triggered')
-    setFlag(true)
+    setFlag(!flag)
   }
 
   function handleSort() {
     setSort(event.target.value)
     fetchQuestions()
   }
-  const flexRow = {
-    display: "flex",
-    flexDirection: "row",
-    marginTop: "10px",
-  }
+
   return (
     <div>
       <SearchQuestion />
@@ -61,9 +56,16 @@ const QuestionsList = () => {
         }))}
       </div>
       <span><button onClick={handleMoreQuestions}>MORE ANSWERED QUESTIONS</button>
-        <button onClick={addQuestion}>{flag ? <QuestionModal toggle={flag} />: null} ADD A QUESTION + </button></span>
+        <button onClick={addQuestion}> ADD A QUESTION + </button>
+        <div>{flag ? <QuestionModal toggle={addQuestion} /> : null}</div></span>
     </div>
   )
 }
 
 export default QuestionsList
+
+const flexRow = {
+  display: "flex",
+  flexDirection: "row",
+  marginTop: "10px",
+}
