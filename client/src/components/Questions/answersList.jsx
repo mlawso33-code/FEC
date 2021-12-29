@@ -7,7 +7,7 @@ import IndividualQuestion from './individualQuestion.jsx';
 import Answers from './answers.jsx';
 
 
-//need to refactor answers to use API request for each answer
+
 const AnswersList = (props) => {
   const [answers, setAnswers] = useState([])
   const [count, setCounter] = useState(1)
@@ -26,6 +26,11 @@ const AnswersList = (props) => {
     fetchAnswers()
   }, [])
 
+  function increaseAnswers() {
+    setCounter(count + 1)
+    fetchAnswers()
+  }
+
   return (
     <div>
       <div style={{ marginTop: "10px" }}>
@@ -33,6 +38,7 @@ const AnswersList = (props) => {
           return (<Answers key={answer.answer_id} answer={answer} />)
         }))}
       </div>
+      <button style={{ cursor: "pointer" }} onClick={increaseAnswers}>Load More Answers</button>
     </div>
   )
 }

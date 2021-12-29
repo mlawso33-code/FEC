@@ -6,12 +6,14 @@ import moment from 'moment';
 import AnswersList from './answersList.jsx';
 
 const Answers = (props) => {
-  const { body, date, answerer_name } = props.answer
+  const { body, date, answerer_name, helpfulness } = props.answer
 
   return (
     <div>
       <div>A: {body}</div>
-      <span style={{ marginLeft: "10px", fontSize: "15px", fontStyle: "italic" }}> by {answerer_name}, {moment(date).format('LL')}</span>
+      <span style={{ marginLeft: "10px", fontSize: "15px", fontStyle: "italic" }}>
+        by {answerer_name}, {moment(date).format('LL')} | Helpful? Yes({helpfulness}) | Report
+      </span>
     </div>
   )
 }

@@ -2,9 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 import AppContext from '../App/AppContext.jsx';
+import { HelpfulContext } from './QuestionContext.jsx';
 
-import AskQuestion from './askQuestion.jsx';
+import SearchQuestion from './searchQuestion.jsx';
 import IndividualQuestion from './individualQuestion.jsx';
+import QuestionModal from './questionModal.jsx';
 
 const QuestionsList = () => {
   const { product } = useContext(AppContext)
@@ -12,8 +14,9 @@ const QuestionsList = () => {
 
   const [questions, setQuestions] = useState([])
   const [page, setPage] = useState(1)
-  const [count, setCounter] = useState(2)
+  const [count, setCounter] = useState(4)
   const [sort, setSort] = useState('helpfulness')
+  const [flag, setFlag] = useState(false)
 
   function fetchQuestions() {
     axios
@@ -31,10 +34,13 @@ const QuestionsList = () => {
 
 
   const handleMoreQuestions = () => {
-    //console.log('triggered')
     setCounter(count + 2)
-    //console.log('count:::', count)
     fetchQuestions()
+  }
+
+  function addQuestion() {
+    console.log('add question triggered')
+    setFlag(true)
   }
 
   function handleSort() {
@@ -48,14 +54,14 @@ const QuestionsList = () => {
   }
   return (
     <div>
-      <AskQuestion />
+      <SearchQuestion />
       <div style={{ marginTop: "20px", maxHeight: "50vh", overflow: "scroll" }}>
         {questions.map((question => {
           return (<IndividualQuestion key={question.question_id} question={question} />)
         }))}
       </div>
       <span><button onClick={handleMoreQuestions}>MORE ANSWERED QUESTIONS</button>
-        <button>ADD A QUESTION +</button></span>
+        <button onClick={addQuestion}>{flag ? <QuestionModal toggle={flag} />: null} ADD A QUESTION + </button></span>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../App/AppContext.jsx';
 
 
-const AskQuestion = () => {
+const SearchQuestion = () => {
   const inputStyle = {
     width: "70%",
   }
@@ -17,4 +17,4 @@ const AskQuestion = () => {
   )
 }
 
-export default AskQuestion
+export default SearchQuestion
