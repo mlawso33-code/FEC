@@ -63,7 +63,7 @@ const ReviewTile = ({review}) => {
 
       {/* Conditionally render if response from seller */}
       {response &&
-      <div>
+      <div style={{backgroundColor: "grey"}}>
         <div style={{fontWeight: "bold"}}>Response from seller:</div>
         <p>{response}</p>
       </div>
