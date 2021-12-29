@@ -5,18 +5,16 @@ const Carousel = (props) => {
 
 
   return (
-    <div>
-      <img src={props.pic.url} style={carouselItem}/>
-    </div>
+      <img src={props.pic.url} className='carouselItem'/>
   )
 }
 
-let carouselItem = {
-  width: 100,
-  height: 75,
-  border: '2px solid white',
-  borderRadius: 10,
-  outline: 5
-}
+// let carouselItem = {
+//   width: 100,
+//   height: 75,
+//   border: '2px solid white',
+//   borderRadius: 10,
+//   outline: 5
+// }
 
 export default Carousel;
