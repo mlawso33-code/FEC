@@ -13,7 +13,7 @@ const MainImg = () => {
       {styles.length &&
       <>
         <img src={styles[0].photos[0].url} className='mainImage'/>
-        <div className='carousel' style={carouselStyle}>
+        <div className='carousel'>
           {styles[0].photos.map(pic => <Carousel pic={pic} key={pic.url.slice(33, 40)} />)}
         </div>
       </>
