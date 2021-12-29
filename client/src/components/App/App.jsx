@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import AppContext from './AppContext.jsx';
 import axios from 'axios';
-
 import Overview from '../Overview/Overview.jsx';
 import Questions from '../Questions/Questions.jsx';
 import Ratings from '../Ratings/ReviewList.jsx';
@@ -27,9 +26,15 @@ const App = () => {
       <AppContext.Provider value={{
         product
       }} >
+<<<<<<< HEAD
         {/* <Overview />
         <RelatedItems />
         <Questions /> */}
+=======
+        <Overview />
+        {/* <RelatedItems /> */}
+        {/* <Questions /> */}
+>>>>>>> 790e6b15b9a907ddf17b602fc6d41127b0349a75
         <Ratings />
       </AppContext.Provider>
     </div>
