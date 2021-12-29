@@ -2,42 +2,70 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 import AppContext from '../App/AppContext.jsx';
+import { HelpfulContext } from './QuestionContext.jsx';
 
-import AskQuestion from './askQuestion.jsx';
+import SearchQuestion from './searchQuestion.jsx';
 import IndividualQuestion from './individualQuestion.jsx';
+import QuestionModal from './questionModal.jsx';
 
 const QuestionsList = () => {
-  const [questions, setQuestions] = useState([])
   const { product } = useContext(AppContext)
-  const { id } = product
+  const product_id = product.id
 
-  function fetchQuestions(product_id) {
+  const [questions, setQuestions] = useState([])
+  const [page, setPage] = useState(1)
+  const [count, setCounter] = useState(4)
+  const [sort, setSort] = useState('helpfulness')
+  const [flag, setFlag] = useState(false)
+
+  function fetchQuestions() {
     axios
-      .get(`/api/qa/questions?product_id=${product_id}`)
+      .get(`/api/qa/questions/?page=${page}&count=${count}&sort=${sort}&product_id=${product_id}`)
       .then(res => setQuestions(res.data.results))
+
   }
 
   useEffect(() => {
     if (JSON.stringify(product) !== '{}') {
-      fetchQuestions(id)
+      fetchQuestions()
     }
-  }, [id])
+  }, [product])
 
-  const flexRow = {
-    display: "flex",
-    flexDirection: "row",
-    marginTop: "10px",
+
+
+  const handleMoreQuestions = () => {
+    setCounter(count + 2)
+    fetchQuestions()
   }
+
+  function addQuestion() {
+    setFlag(!flag)
+  }
+
+  function handleSort() {
+    setSort(event.target.value)
+    fetchQuestions()
+  }
+
   return (
     <div>
-      <AskQuestion />
-      <div style={{ marginTop: "20px" }}>
+      <SearchQuestion />
+      <div style={{ marginTop: "20px", maxHeight: "50vh", overflow: "scroll" }}>
         {questions.map((question => {
           return (<IndividualQuestion key={question.question_id} question={question} />)
         }))}
       </div>
+      <span><button onClick={handleMoreQuestions}>MORE ANSWERED QUESTIONS</button>
+        <button onClick={addQuestion}> ADD A QUESTION + </button>
+        <div>{flag ? <QuestionModal toggle={addQuestion} /> : null}</div></span>
     </div>
   )
 }
 
 export default QuestionsList
+
+const flexRow = {
+  display: "flex",
+  flexDirection: "row",
+  marginTop: "10px",
+}
