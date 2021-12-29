@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #b8c4d4;
+  color: black;
+}
+
+#app {
+  width: 80%;
+  margin: auto;
+  /* text-align: center; */
+}
+
+/* //Overview// */
+
+.overviewDiv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 500px;
+  grid-gap: 10px;
+}
+
+.overviewBox1 {
+  background-color: white;
+  border: 2px solid teal;
+}
+
+.overviewBox2 {
+  /* position: 'relative'; */
+  /* float: 'right'; */
+  background-color: gray;
+  border: 2px solid teal;
+}
+
+.overviewBox1 .mainImage {
+  /* position: 'relative'; */
+  display: inline-block;
+  border: '2px solid gray';
+  width: '60%';
+  height: '50%';
+  border-radius: 5;
+}

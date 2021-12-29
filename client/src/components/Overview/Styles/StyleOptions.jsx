@@ -12,19 +12,17 @@ const StyleOptions = () => {
       Options!
       {styles.length &&
       <>
-      <div stlye={stylePics}>
-       {styles.map(style => <StylePic pic={style.photos[0]}/>
-      )}
+      <div className='stylePics' stlye={stylePics}>
+       {styles.map(style => <StylePic pic={style.photos[0]}/>)}
       </div>
-      </>}
+      </>
+      }
     </div>
   )
 }
 
 let stylePics = {
-  position: 'absolute',
-  height: 40
-
+  height: 5
 }
 
 export default StyleOptions

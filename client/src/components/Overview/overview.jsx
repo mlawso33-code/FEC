@@ -25,7 +25,7 @@ const Overview = () => {
 
 
   return (
-    <div style={{display: 'grid', gridTemplateColumns: '600 400'}}>
+    <div className='overviewDiv'>
       {console.log("PRODUCT:::", product)}
       {console.log("StylesOVER:::", styles)}
       <OverviewContext.Provider value={{styles}}>

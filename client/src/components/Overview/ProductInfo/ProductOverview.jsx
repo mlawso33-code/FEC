@@ -14,7 +14,7 @@ const ProductOverview = () => {
 
   return (
     <div>
-      <div style={infoStyle}>
+      <div className='overviewBox2'>
         <Ratings />
         <Category />
         <ProductName />
@@ -25,23 +25,23 @@ const ProductOverview = () => {
         <Share />
       </div>
 
-      <div className='description' style={descriptionStyle}>
+      {/* <div className='description' style={descriptionStyle}>
         <h3>{product.slogan}</h3>
         <p>{product.description}</p>
-      </div>
+      </div> */}
 
     </div>
   )
 }
 
-let infoStyle = {
-  position: 'relative',
-  flexDirection: 'column',
-  float: 'right',
-  backgroundColor: 'gray',
-  width: '50%',
-  height: 350
-}
+// let infoStyle = {
+//   position: 'relative',
+//   flexDirection: 'column',
+//   float: 'right',
+//   backgroundColor: 'gray',
+//   width: '50%',
+//   height: 350
+// }
 
 let descriptionStyle = {
   position: 'relative'
