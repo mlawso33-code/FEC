@@ -10,14 +10,13 @@ const ReviewTile = ({review}) => {
   const {review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos} = review
   const [fullReview, setFullReview] = useState(false)
   const [reported, setReported] = useState(false)
+  const [helpful, setHelpful] = useState(helpfulness)
 
 
-  function incrementHelpfullness(event) {
-    //Make api call to update helpfulness count
+  function incrementHelpful(event) {
     event.preventDefault()
-    console.log(helpfulness)
     axios.put(`/api/reviews/${review_id}/helpful`)
-      .then(fetchReviews)
+      .then(setHelpful(helpful + 1))
   }
 
   function reportReview(event) {
@@ -81,8 +80,8 @@ const ReviewTile = ({review}) => {
       {/* Review footer */}
       <div>
         <span>Helpful?</span>
-        <a href='' style={{color: "black"}} onClick={incrementHelpfullness}>Yes</a>
-        <span>({helpfulness})</span>
+        <a href='' style={{color: "black"}} onClick={incrementHelpful}>Yes</a>
+        <span>({helpful})</span>
         |
         <a href='' style={{color: "black"}} onClick={reportReview}>{reported ? 'Reported' : 'Report'}</a>
       </div>
