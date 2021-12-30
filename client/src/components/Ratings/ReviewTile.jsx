@@ -15,14 +15,18 @@ const ReviewTile = ({review}) => {
 
   function incrementHelpful(event) {
     event.preventDefault()
+
     axios.put(`/api/reviews/${review_id}/helpful`)
       .then(setHelpful(helpful + 1))
   }
 
   function reportReview(event) {
     event.preventDefault()
-    axios.put(`/api/reviews/${review_id}/report`)
+    if(!reported) {
+      console.log('clicked once')
+      axios.put(`/api/reviews/${review_id}/report`)
       .then(setReported(true))
+    }
   }
 
   function showMoreClick(event) {
