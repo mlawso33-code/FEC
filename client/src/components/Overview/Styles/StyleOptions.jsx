@@ -4,7 +4,7 @@ import OverviewContext from '../OverviewContext.jsx';
 import StylePic from './StylePic.jsx';
 
 const StyleOptions = () => {
-  const { styles} = useContext(OverviewContext);
+  const { styles } = useContext(OverviewContext);
 
   return (
     <div>

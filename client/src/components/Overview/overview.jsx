@@ -13,6 +13,7 @@ const Overview = () => {
   // }
 
   const [currentStyle, setCurrentStyle] = useState();
+  const [currentPic, setCurrentPic] = useState();
   // const [related, setRelated] = useState([]);
 
   function fetchStyles() {
@@ -37,9 +38,15 @@ const Overview = () => {
     }
   }, [product])
 
+  useEffect(() => {
+    if(currentStyle) {
+      setCurrentPic(currentStyle.photos[0].url)
+    }
+  }, [currentStyle])
+
   return (
     <div className='overviewDiv'>
-      <OverviewContext.Provider value={{styles, currentStyle, setCurrentStyle}}>
+      <OverviewContext.Provider value={{styles, currentStyle, setCurrentStyle, currentPic, setCurrentPic}}>
         <MainImg />
         <ProductOverview />
       </OverviewContext.Provider>

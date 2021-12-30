@@ -670,3 +670,11 @@ Mitchell 13*/
     outline: 5px;
 }
 
+.selectedCarouselItem {
+  position: relative;
+    width: 100px;
+    height: 75px;
+    border: 2px solid gold;
+    border-radius: 10px;
+    outline: 5px;
+}
