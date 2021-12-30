@@ -1,20 +1,34 @@
-import React, {useState, useEffect, useContext} from 'react';
-import AppContext from '../App/AppContext.jsx';
+import React, {useState, useContext} from 'react';
+import ReviewContext from './ReviewContext.jsx';
 import axios from 'axios';
 import StarRating from './StarRating.jsx';
 import moment from 'moment';
 import ReviewPhoto from './ReviewPhoto.jsx';
 
 const ReviewTile = ({review}) => {
-  const { product } = useContext(AppContext)
+  const {fetchReviews} = useContext(ReviewContext)
   const {review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos} = review
   const [fullReview, setFullReview] = useState(false)
+  const [reported, setReported] = useState(false)
+  const [helpful, setHelpful] = useState(helpfulness)
+  const [helpfulClicked, setHelpfulClicked] = useState(false)
 
 
-  function incrementHelpfullness(event) {
-    //Make api call to update helpfulness count
+  function incrementHelpful(event) {
     event.preventDefault()
-    console.log(helpfulness)
+    if (!helpfulClicked) {
+      axios.put(`/api/reviews/${review_id}/helpful`)
+      .then(setHelpful(helpful + 1))
+      .then(setHelpfulClicked(true))
+    }
+  }
+
+  function reportReview(event) {
+    event.preventDefault()
+    if(!reported) {
+      axios.put(`/api/reviews/${review_id}/report`)
+      .then(setReported(true))
+    }
   }
 
   function showMoreClick(event) {
@@ -63,7 +77,7 @@ const ReviewTile = ({review}) => {
 
       {/* Conditionally render if response from seller */}
       {response &&
-      <div>
+      <div style={{backgroundColor: "grey"}}>
         <div style={{fontWeight: "bold"}}>Response from seller:</div>
         <p>{response}</p>
       </div>
@@ -72,10 +86,10 @@ const ReviewTile = ({review}) => {
       {/* Review footer */}
       <div>
         <span>Helpful?</span>
-        <a href='' style={{color: "black"}} onClick={incrementHelpfullness}>Yes</a>
-        <span>({helpfulness})</span>
+        <a href='' style={{color: "black"}} onClick={incrementHelpful}>Yes</a>
+        <span>({helpful})</span>
         |
-        <a href='' style={{color: "black"}} onClick={incrementHelpfullness}>Report</a>
+        <a href='' style={{color: "black"}} onClick={reportReview}>{reported ? 'Reported' : 'Report'}</a>
       </div>
 
       <hr/>
