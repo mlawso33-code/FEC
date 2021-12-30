@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import ReviewContext from './ReviewContext.jsx';
 import axios from 'axios';
 import StarRating from './StarRating.jsx';
@@ -11,19 +11,21 @@ const ReviewTile = ({review}) => {
   const [fullReview, setFullReview] = useState(false)
   const [reported, setReported] = useState(false)
   const [helpful, setHelpful] = useState(helpfulness)
+  const [helpfulClicked, setHelpfulClicked] = useState(false)
 
 
   function incrementHelpful(event) {
     event.preventDefault()
-
-    axios.put(`/api/reviews/${review_id}/helpful`)
+    if (!helpfulClicked) {
+      axios.put(`/api/reviews/${review_id}/helpful`)
       .then(setHelpful(helpful + 1))
+      .then(setHelpfulClicked(true))
+    }
   }
 
   function reportReview(event) {
     event.preventDefault()
     if(!reported) {
-      console.log('clicked once')
       axios.put(`/api/reviews/${review_id}/report`)
       .then(setReported(true))
     }

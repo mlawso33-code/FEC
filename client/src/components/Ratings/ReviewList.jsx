@@ -41,7 +41,7 @@ const Ratings = () => {
 
   return (
     <ReviewContext.Provider value={{
-      handleSortChange, fetchReviews
+      handleSortChange
     }}>
       <div>
         <div style={{marginBottom: "20px"}}>
