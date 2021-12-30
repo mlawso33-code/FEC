@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useContext} from "react"
-import Rating from 'react-rating'
 import axios from "axios"
 import AppContext from '../App/AppContext.jsx'
 import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
@@ -8,12 +7,13 @@ import AvgStarRating from "./AvgStarRating.jsx"
 const RatingBreakdown = () => {
   const { product } = useContext(AppContext)
   const {product_id} = useContext(RatingsAndReviewsContext)
-  const [ratingSummary, setRatingSummary] = useState({})
-  const averageRating = avgRating(ratingSummary)
+  const [metaData, setMetaData] = useState({})
+  const averageRating = avgRating(metaData.ratings)
+  const percentRecommend = perRecommend(metaData.recommended)
 
   function fetchMetaData() {
     axios.get(`/api/reviews/meta/?product_id=${product_id}`)
-      .then(response => setRatingSummary(response.data.ratings))
+      .then(response => setMetaData(response.data))
   }
 
   useEffect(() => {
@@ -34,12 +34,27 @@ const RatingBreakdown = () => {
     return (Math.round((totalStars / totalRatings) * 10) / 10).toString()
   }
 
+  function perRecommend(recommendRes) {
+    if (recommendRes) {
+      let notRecommended = Number(recommendRes.false)
+      let recommended = Number(recommendRes.true)
+      let totalResponse = notRecommended + recommended
+
+      return Math.round((recommended / totalResponse) * 100).toString()
+    }
+  }
+
   return (
     <div>
       {/* Rating Summary */}
       <div>
         <span>{averageRating}</span>
         <AvgStarRating rating={averageRating}/>
+      </div>
+
+      {/* Recommendations Percentage */}
+      <div>
+        {percentRecommend}% of reviews recommend this product
       </div>
     </div>
   )
