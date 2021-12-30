@@ -14,7 +14,7 @@ const IndividualQuestion = (props) => {
           Q: {props.question.question_body}
           <span style={{ marginLeft: "auto" }}>Helpful? Yes({helpfulNum}) | Add Answer </span>
         </div>
-        <AnswersList question_id={props.question.questions_id} question={props.question} />
+        <AnswersList question_id={props.question.questions_id} question={props.question} fetchQuestions={props.fetchQuestions} />
       </div>
     </div>
   )

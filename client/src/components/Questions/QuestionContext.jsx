@@ -2,10 +2,10 @@ import React from 'react';
 
 
 
-const SearchContext = React.createContext();
+const QuestionContext = React.createContext();
 
 
-export default SearchContext
+export default QuestionContext
 
 
 

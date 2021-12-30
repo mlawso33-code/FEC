@@ -35,9 +35,9 @@ const AnswersList = (props) => {
   return (
     <div>
       <div style={{ marginTop: "10px" }}>
-        {displayedAnswers.map((answer => {
-          return (<Answers key={answer.answer_id} answer={answer} />)
-        }))}
+        {displayedAnswers.map((answer =>
+          <Answers key={answer.answer_id} answer={answer} />
+        ))}
       </div>
       {numOfAnswers < answers.length &&
         <button style={{ cursor: "pointer" }} onClick={increaseAnswers}>Load More Answers</button>}

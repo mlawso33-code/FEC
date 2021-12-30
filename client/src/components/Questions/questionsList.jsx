@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 import AppContext from '../App/AppContext.jsx';
-//import { SearchContext} from './QuestionContext.jsx';
+import QuestionContext from './QuestionContext.jsx';
 
 //import SearchQuestion from './searchQuestion.jsx';
 import IndividualQuestion from './individualQuestion.jsx';
@@ -87,16 +87,16 @@ const QuestionsList = () => {
           } else if (val.question_body.toLowerCase().includes(afterThree.toLowerCase())) {
             return val
           }
-        }).map((question => {
-          return (<IndividualQuestion key={question.question_id} question={question} />)
-        }))
+        }).map((question =>
+          <IndividualQuestion key={question.question_id} question={question} />
+        ))
         }
       </div>
       <span>
         {numOfQuestions < questions.length &&
           <button onClick={handleMoreQuestions}>{more}</button>}
         <button onClick={addQuestion}> ADD A QUESTION + </button>
-        <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} /> : null}</div></span>
+        <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} fetchQuestions={fetchQuestions} /> : null}</div></span>
     </div>
   )
 }

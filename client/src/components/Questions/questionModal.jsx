@@ -26,6 +26,7 @@ const QuestionModal = (props) => {
       axios
         .post('/api/qa/questions', valueObj)
         .then(res => alert('Question submitted!'))
+        .then(res => props.fetchQuestions)
         .then(props.toggle)
     }
   }
