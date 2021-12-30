@@ -1,20 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import OverviewContext from '../OverviewContext.jsx';
 
 const Carousel = (props) => {
+  const{setCurrentPic} = useContext(OverviewContext);
 
+  function handleClick (event) {
+    setCurrentPic(props.pic.url)
+  }
 
 
   return (
-      <img src={props.pic.url} className='carouselItem'/>
+      <img src={props.pic.url} className='carouselItem' onClick={event => handleClick(event)}/>
   )
 }
-
-// let carouselItem = {
-//   width: 100,
-//   height: 75,
-//   border: '2px solid white',
-//   borderRadius: 10,
-//   outline: 5
-// }
 
 export default Carousel;
