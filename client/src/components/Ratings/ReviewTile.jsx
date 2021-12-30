@@ -9,6 +9,7 @@ const ReviewTile = ({review}) => {
   const {fetchReviews} = useContext(ReviewContext)
   const {review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos} = review
   const [fullReview, setFullReview] = useState(false)
+  const [reported, setReported] = useState(false)
 
 
   function incrementHelpfullness(event) {
@@ -17,6 +18,12 @@ const ReviewTile = ({review}) => {
     console.log(helpfulness)
     axios.put(`/api/reviews/${review_id}/helpful`)
       .then(fetchReviews)
+  }
+
+  function reportReview(event) {
+    event.preventDefault()
+    axios.put(`/api/reviews/${review_id}/report`)
+      .then(setReported(true))
   }
 
   function showMoreClick(event) {
@@ -77,7 +84,7 @@ const ReviewTile = ({review}) => {
         <a href='' style={{color: "black"}} onClick={incrementHelpfullness}>Yes</a>
         <span>({helpfulness})</span>
         |
-        <a href='' style={{color: "black"}} onClick={incrementHelpfullness}>Report</a>
+        <a href='' style={{color: "black"}} onClick={reportReview}>{reported ? 'Reported' : 'Report'}</a>
       </div>
 
       <hr/>
