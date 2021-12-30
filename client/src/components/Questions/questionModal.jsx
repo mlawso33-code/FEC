@@ -6,7 +6,6 @@ import moment from 'moment';
 import QuestionsList from './questionsList.jsx';
 
 const QuestionModal = (props) => {
-  //const [submitQuestion, setSubmitQuestion] = useState({})
   const [name, setUser] = useState('')
   const [email, setEmail] = useState('')
   const [body, setBody] = useState('')
@@ -21,12 +20,14 @@ const QuestionModal = (props) => {
       'email': email,
       'product_id': product_id
     }
-    var userMatch = /[^a-z|A-Z|]/g
-
-
-    axios
-      .post('/api/qa/questions', valueObj)
-      .then(res => console.log("Question submitted!"))
+    if (!valueObj.email || valueObj.name.length === 0 || valueObj.body.length === 0) {
+      alert('One or more mandatory fields are missing!')
+    } else {
+      axios
+        .post('/api/qa/questions', valueObj)
+        .then(res => alert('Question submitted!'))
+        .then(props.toggle)
+    }
   }
 
 
@@ -39,16 +40,16 @@ const QuestionModal = (props) => {
           <label style={{ color: "grey", fontSize: "10px" }}>* are mandatory</label>
           <br />
           <label>Username<span style={{ color: "red" }}>*</span>:
-            <input type="text" value={name} placeholder="Example: jack543!" onChange={e => setUser(e.target.value)} /></label>
+            <input type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
           <br />
           <label>Email<span style={{ color: "red" }}>*</span>:
-            <input type="email" value={email} placeholder="Example: jack@email.com" onChange={e => setEmail(e.target.value)} /> </label>
+            <input type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
           <br />
           <label>Question<span style={{ color: "red" }}>*</span>:
-            <input style={{height:"50%"}} type="text" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
+            <input type="text" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
           <input type="submit" value="Submit Question" />
-          <input type="reset" value="Reset"/>
+          <input type="reset" value="Reset" />
         </form>
       </div>
     </div>
