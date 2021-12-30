@@ -1,11 +1,8 @@
-import React, {useContext} from "react"
-import ReviewContext from './ReviewContext.jsx'
+import React from "react"
 
-const SortDropDown = () => {
-  const {handleSortChange} = useContext(ReviewContext)
-
+const SortDropDown = (props) => {
   return (
-    <select onChange={event => handleSortChange(event)}>
+    <select onChange={event => props.handleSortChange(event)}>
       <option value="relevant">Relevant</option>
       <option value="helpful">Helpful</option>
       <option value="newest">Newest</option>
