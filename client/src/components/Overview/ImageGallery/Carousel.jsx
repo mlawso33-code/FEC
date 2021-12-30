@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import OverviewContext from '../OverviewContext.jsx';
 
 const Carousel = (props) => {
-  const{setCurrentPic} = useContext(OverviewContext);
+  const{currentPic, setCurrentPic} = useContext(OverviewContext);
 
   function handleClick (event) {
     setCurrentPic(props.pic.url)
@@ -10,8 +10,9 @@ const Carousel = (props) => {
 
 
   return (
-      <img src={props.pic.url} className='carouselItem' onClick={event => handleClick(event)}/>
+      <img src={props.pic.url} className={currentPic === props.pic.url ? 'selectedCarouselItem' :'carouselItem'} onClick={event => handleClick(event)}/>
   )
 }
+//there's got to be a cleaner way to highlight?
 
 export default Carousel;
