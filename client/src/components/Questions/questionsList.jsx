@@ -13,14 +13,15 @@ const QuestionsList = () => {
   const product_id = product.id
 
   const [questions, setQuestions] = useState([])
-  const [page, setPage] = useState(1)
-  const [count, setCounter] = useState(4)
   const [sort, setSort] = useState('helpfulness')
   const [flag, setFlag] = useState(false)
+  const [numOfQuestions, setNumOfQuestions] = useState(4)
+
+  const displayedQuestions = questions.slice(0, numOfQuestions)
 
   function fetchQuestions() {
     axios
-      .get(`/api/qa/questions/?page=${page}&count=${count}&sort=${sort}&product_id=${product_id}`)
+      .get(`/api/qa/questions/?page=1&count=100&sort=${sort}&product_id=${product_id}`)
       .then(res => setQuestions(res.data.results))
 
   }
@@ -34,8 +35,7 @@ const QuestionsList = () => {
 
 
   const handleMoreQuestions = () => {
-    setCounter(count + 2)
-    fetchQuestions()
+    setNumOfQuestions(numOfQuestions + 2)
   }
 
   function addQuestion() {
@@ -51,11 +51,13 @@ const QuestionsList = () => {
     <div>
       <SearchQuestion />
       <div style={{ marginTop: "20px", maxHeight: "50vh", overflow: "scroll" }}>
-        {questions.map((question => {
+        {displayedQuestions.map((question => {
           return (<IndividualQuestion key={question.question_id} question={question} />)
         }))}
       </div>
-      <span><button onClick={handleMoreQuestions}>MORE ANSWERED QUESTIONS</button>
+      <span>
+        {numOfQuestions < questions.length &&
+          <button onClick={handleMoreQuestions}>MORE ANSWERED QUESTIONS</button>}
         <button onClick={addQuestion}> ADD A QUESTION + </button>
         <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} /> : null}</div></span>
     </div>

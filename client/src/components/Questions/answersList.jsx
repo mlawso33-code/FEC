@@ -10,14 +10,16 @@ import Answers from './answers.jsx';
 
 const AnswersList = (props) => {
   const [answers, setAnswers] = useState([])
-  const [count, setCounter] = useState(1)
   const [page, setPage] = useState(1)
+  const [numOfAnswers, setNumOfAnswers] = useState(2)
 
   const { question_id } = props.question
 
+  const displayedAnswers = answers.slice(0, numOfAnswers)
+
   function fetchAnswers() {
     axios
-      .get(`/api/qa/questions/${question_id}/answers?page=${page}&count=${count}`)
+      .get(`/api/qa/questions/${question_id}/answers?page=1&count=100`)
       .then(res => setAnswers(res.data.results))
 
   }
@@ -27,18 +29,18 @@ const AnswersList = (props) => {
   }, [])
 
   function increaseAnswers() {
-    setCounter(count + 1)
-    fetchAnswers()
+    setNumOfAnswers(numOfAnswers + 1)
   }
 
   return (
     <div>
       <div style={{ marginTop: "10px" }}>
-        {answers.map((answer => {
+        {displayedAnswers.map((answer => {
           return (<Answers key={answer.answer_id} answer={answer} />)
         }))}
       </div>
-      <button style={{ cursor: "pointer" }} onClick={increaseAnswers}>Load More Answers</button>
+      {numOfAnswers < answers.length &&
+        <button style={{ cursor: "pointer" }} onClick={increaseAnswers}>Load More Answers</button>}
     </div>
   )
 }
