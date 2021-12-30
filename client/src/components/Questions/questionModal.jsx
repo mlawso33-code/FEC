@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import AppContext from '../App/AppContext.jsx';
 import axios from 'axios';
 import moment from 'moment';
@@ -6,30 +6,49 @@ import moment from 'moment';
 import QuestionsList from './questionsList.jsx';
 
 const QuestionModal = (props) => {
-  const [question, setQuestion] = useState({})
-  const [username, setUser] = useState('')
+  //const [submitQuestion, setSubmitQuestion] = useState({})
+  const [name, setUser] = useState('')
   const [email, setEmail] = useState('')
   const [body, setBody] = useState('')
+  const product_id = props.product_id
 
-  function handleSubmitQuestion() {
-    console.log('submit triggered')
+
+  function handleSubmitQuestion(event) {
+    event.preventDefault()
+    var valueObj = {
+      'body': body,
+      'name': name,
+      'email': email,
+      'product_id': product_id
+    }
+    var userMatch = /[^a-z|A-Z|]/g
+
+
+    axios
+      .post('/api/qa/questions', valueObj)
+      .then(res => console.log("Question submitted!"))
   }
+
 
   return (
     <div>
       <div style={modal_content}>
-        <form>
+        <form onSubmit={handleSubmitQuestion}>
           <span style={close} onClick={props.toggle}>X</span>
           <h3>Ask a question!</h3>
           <label style={{ color: "grey", fontSize: "10px" }}>* are mandatory</label>
           <br />
-          <label>Username<span style={{ color: "red" }}>*</span>: <input type="text" name="name" defaultValue="Example: jack543!"></input></label>
+          <label>Username<span style={{ color: "red" }}>*</span>:
+            <input type="text" value={name} placeholder="Example: jack543!" onChange={e => setUser(e.target.value)} /></label>
           <br />
-          <label>Email<span style={{ color: "red" }}>*</span>: <input type="text" name="email" defaultValue="Example: jack@email.com"></input> </label>
+          <label>Email<span style={{ color: "red" }}>*</span>:
+            <input type="email" value={email} placeholder="Example: jack@email.com" onChange={e => setEmail(e.target.value)} /> </label>
           <br />
-          <label>Question<span style={{ color: "red" }}>*</span>: <input type="text" name="question" defaultValue="Type question here..." max="1000"></input></label>
+          <label>Question<span style={{ color: "red" }}>*</span>:
+            <input style={{height:"50%"}} type="text" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
-          <button onClick={handleSubmitQuestion}>Submit Question</button>
+          <input type="submit" value="Submit Question" />
+          <input type="reset" value="Reset"/>
         </form>
       </div>
     </div>
@@ -37,6 +56,8 @@ const QuestionModal = (props) => {
 }
 
 export default QuestionModal
+
+
 
 // const modal = {
 //   position: "relative",

@@ -57,7 +57,7 @@ const QuestionsList = () => {
       </div>
       <span><button onClick={handleMoreQuestions}>MORE ANSWERED QUESTIONS</button>
         <button onClick={addQuestion}> ADD A QUESTION + </button>
-        <div>{flag ? <QuestionModal toggle={addQuestion} /> : null}</div></span>
+        <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} /> : null}</div></span>
     </div>
   )
 }
