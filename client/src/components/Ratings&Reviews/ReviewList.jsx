@@ -6,7 +6,7 @@ import SortDropDown from './SortDropDown.jsx'
 import ReviewContext from './ReviewContext.jsx'
 
 
-const Ratings = () => {
+const ReviewList = () => {
   const { product } = useContext(AppContext)
   const product_id = product.id
   const [reviews, setReviews] = useState([])
@@ -65,4 +65,4 @@ const Ratings = () => {
   )
 }
 
-export default Ratings
+export default ReviewList
