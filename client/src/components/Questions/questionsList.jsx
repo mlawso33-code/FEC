@@ -18,8 +18,10 @@ const QuestionsList = () => {
   const [flag, setFlag] = useState(false)
   const [numOfQuestions, setNumOfQuestions] = useState(4)
   const [search, setSearch] = useState('')
+  const [more, setMore] = useState('MORE ANSWERED QUESTIONS')
 
-  const displayedQuestions = questions.slice(0, numOfQuestions)
+  var displayedQuestions = questions.slice(0, numOfQuestions)
+
   const afterThree = search.split('').slice(3, search.length - 1).join('')
 
   function fetchQuestions() {
@@ -37,7 +39,23 @@ const QuestionsList = () => {
 
 
 
+  //need to remove duplicate questions
   const handleMoreQuestions = () => {
+    // displayedQuestions.map((val => {
+    //   if (val.question_body === 'test question 123') {
+    //     setMore('NO MORE QUESTIONS')
+    //     setNumOfQuestions(4)
+    //   } else {
+    //     setNumOfQuestions(numOfQuestions + 2)
+    //   }
+    // }))
+    // for (var i = 0; i < displayedQuestions; i++) {
+    //   if (displayedQuestions[i].question_body === displayedQuestions[i+1].question_body) {
+    //     displayedQuestions = displayedQuestions.slice(i, 1);
+    //   } else {
+    //     return displayedQuestions
+    //   }
+    // }
     setNumOfQuestions(numOfQuestions + 2)
   }
 
@@ -64,19 +82,19 @@ const QuestionsList = () => {
       </div>
       <div style={{ display: "block", marginTop: "20px", maxHeight: "50vh", overflow: "scroll" }}>
         {displayedQuestions.filter((val) => {
-            if (search === '') {
-              return val
-            } else if (val.question_body.toLowerCase().includes(afterThree.toLowerCase())) {
-              return val
-            }
-          }).map((question => {
-            return (<IndividualQuestion key={question.question_id} question={question} />)
-          }))
+          if (search === '') {
+            return val
+          } else if (val.question_body.toLowerCase().includes(afterThree.toLowerCase())) {
+            return val
+          }
+        }).map((question => {
+          return (<IndividualQuestion key={question.question_id} question={question} />)
+        }))
         }
       </div>
       <span>
         {numOfQuestions < questions.length &&
-          <button onClick={handleMoreQuestions}>MORE ANSWERED QUESTIONS</button>}
+          <button onClick={handleMoreQuestions}>{more}</button>}
         <button onClick={addQuestion}> ADD A QUESTION + </button>
         <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} /> : null}</div></span>
     </div>
