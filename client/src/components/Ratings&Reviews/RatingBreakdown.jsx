@@ -3,6 +3,7 @@ import Rating from 'react-rating'
 import axios from "axios"
 import AppContext from '../App/AppContext.jsx'
 import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
+import AvgStarRating from "./AvgStarRating.jsx"
 
 const RatingBreakdown = () => {
   const { product } = useContext(AppContext)
@@ -38,7 +39,7 @@ const RatingBreakdown = () => {
       {/* Rating Summary */}
       <div>
         <span>{averageRating}</span>
-        <Rating />
+        <AvgStarRating rating={averageRating}/>
       </div>
     </div>
   )
