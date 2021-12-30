@@ -35,8 +35,9 @@ const Ratings = () => {
   }
 
   function handleSortChange(event) {
-    setSort(event.target.value)
-    fetchReviews()
+    axios.get(`/api/reviews/?page=1&count=100&sort=${event.target.value}&product_id=${product_id}`)
+      .then(response => setReviews(response.data.results))
+      .then(setSort(event.target.value))
   }
 
   return (
