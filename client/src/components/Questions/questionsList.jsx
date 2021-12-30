@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 import AppContext from '../App/AppContext.jsx';
-import { HelpfulContext } from './QuestionContext.jsx';
+//import { SearchContext} from './QuestionContext.jsx';
 
-import SearchQuestion from './searchQuestion.jsx';
+//import SearchQuestion from './searchQuestion.jsx';
 import IndividualQuestion from './individualQuestion.jsx';
 import QuestionModal from './questionModal.jsx';
 
@@ -12,12 +12,15 @@ const QuestionsList = () => {
   const { product } = useContext(AppContext)
   const product_id = product.id
 
+
   const [questions, setQuestions] = useState([])
   const [sort, setSort] = useState('helpfulness')
   const [flag, setFlag] = useState(false)
   const [numOfQuestions, setNumOfQuestions] = useState(4)
+  const [search, setSearch] = useState('')
 
   const displayedQuestions = questions.slice(0, numOfQuestions)
+  const afterThree = search.split('').slice(3, search.length - 1).join('')
 
   function fetchQuestions() {
     axios
@@ -49,11 +52,27 @@ const QuestionsList = () => {
 
   return (
     <div>
-      <SearchQuestion />
-      <div style={{ marginTop: "20px", maxHeight: "50vh", overflow: "scroll" }}>
-        {displayedQuestions.map((question => {
-          return (<IndividualQuestion key={question.question_id} question={question} />)
-        }))}
+      <div>
+        {/* find a way to make search filter into a component */}
+        <form>
+          <input style={inputStyle} type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={search}
+            onChange={(e) => {
+              setSearch(event.target.value)
+            }} />
+          <button type="submit" style={buttonStyle}><i className="fas fa-search"></i></button>
+        </form>
+      </div>
+      <div style={{ display: "block", marginTop: "20px", maxHeight: "50vh", overflow: "scroll" }}>
+        {displayedQuestions.filter((val) => {
+            if (search === '') {
+              return val
+            } else if (val.question_body.toLowerCase().includes(afterThree.toLowerCase())) {
+              return val
+            }
+          }).map((question => {
+            return (<IndividualQuestion key={question.question_id} question={question} />)
+          }))
+        }
       </div>
       <span>
         {numOfQuestions < questions.length &&
@@ -66,8 +85,25 @@ const QuestionsList = () => {
 
 export default QuestionsList
 
+
 const flexRow = {
   display: "flex",
   flexDirection: "row",
   marginTop: "10px",
+}
+const inputStyle = {
+  padding: "10px",
+  fontSize: "17px",
+  border: "1px solid grey",
+  width: "80%",
+  background: "#f1f1f1"
+
+}
+const buttonStyle = {
+  width: "auto",
+  padding: "10px",
+  background: "black",
+  color: "white",
+  fontSize: "17px",
+  cursor: "pointer"
 }

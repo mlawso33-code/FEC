@@ -2,10 +2,10 @@ import React from 'react';
 
 
 
-const HelpfulContext = React.createContext();
+const SearchContext = React.createContext();
 
 
-export default HelpfulContext
+export default SearchContext
 
 
 
