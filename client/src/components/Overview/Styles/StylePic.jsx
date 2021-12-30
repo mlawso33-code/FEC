@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import OverviewContext from '../OverviewContext.jsx';
 
 const StylePic = (props) => {
+  const { currentStyle, setCurrentStyle} = useContext(OverviewContext);
+
+  function handleClick(event) {
+    event.preventDefault();
+    console.log('STYLE CLICKED ON:::', event.target);
+    setCurrentStyle(props.style);
+    console.log('NEW CURRENT STYLE:::', currentStyle)
+  }
 
   return (
-      <img src={props.pic.thumbnail_url} className='stylePic'/>
+      <img src={props.style.photos[0].thumbnail_url} className='stylePic' onClick={event => handleClick(event)}/>
   )
 }
 
