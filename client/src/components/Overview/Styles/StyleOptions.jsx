@@ -4,7 +4,7 @@ import OverviewContext from '../OverviewContext.jsx';
 import StylePic from './StylePic.jsx';
 
 const StyleOptions = () => {
-  const { styles } = useContext(OverviewContext);
+  const { styles} = useContext(OverviewContext);
 
   return (
     <div>
@@ -12,7 +12,7 @@ const StyleOptions = () => {
       {styles.length &&
       <>
       <div className='stylePics'>
-       {styles.map(style => <StylePic pic={style.photos[0]}/>)}
+       {styles.map(style => <StylePic key={style.name} style={style}/>)}
       </div>
       </>
       }
