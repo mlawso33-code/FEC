@@ -678,3 +678,16 @@ Mitchell 13*/
     border-radius: 10px;
     outline: 5px;
 }
+
+.salePrice {
+  color: #821b1b;
+  font-weight: bold;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.price {
+  color: black;
+}

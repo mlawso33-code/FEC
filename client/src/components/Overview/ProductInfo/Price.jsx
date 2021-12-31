@@ -1,14 +1,26 @@
 import React, {useState, useContext} from 'react';
 import OverviewContext from '../OverviewContext.jsx';
-import AppContext from '../../App/AppContext.jsx';
 
 const Price = () => {
-  const { styles } = useContext(OverviewContext);
-  const { product } = useContext(AppContext);
+  const { currentStyle, price, sale } = useContext(OverviewContext);
 
   return (
     <div>
-      {product.default_price}
+      {sale &&
+      <>
+        <span className='salePrice'>{price} </span>
+        <span className='oldPrice'>{currentStyle.original_price}</span>
+      </>
+      }
+      {currentStyle &&
+      <>
+        {sale === false &&
+        <>
+          <span className='price'>{currentStyle.original_price}</span>
+        </>
+        }
+      </>
+      }
 
     </div>
   )
