@@ -10,6 +10,18 @@ const RatingsAndReviews = () => {
   const product_id = product.id
   const [reviews, setReviews] = useState([])
   const [metaData, setMetaData] = useState({})
+  const [filteredReviews, setFilteredReviews] = useState([])
+  const [filtering, setFiltering] = useState(false)
+
+  function filterList(event, toggleOn) {
+    const matchingReviews = reviews.filter(review => review.rating === Number(event.target.id))
+    let newFilteredReviews = filteredReviews.filter(review => review.rating !== Number(event.target.id))
+    if (toggleOn) {
+      setFilteredReviews(newFilteredReviews.concat(matchingReviews))
+      return;
+    }
+    setFilteredReviews(newFilteredReviews)
+  }
 
 
   function fetchReviews() {
@@ -36,7 +48,7 @@ const RatingsAndReviews = () => {
 
   return (
     <RatingsAndReviewsContext.Provider value={{
-      product_id, reviews, handleSortChange, metaData
+      product_id, reviews, handleSortChange, metaData, filterList, filteredReviews, filtering
     }}>
       <div>
       <h1>Ratings &amp; Reviews</h1>

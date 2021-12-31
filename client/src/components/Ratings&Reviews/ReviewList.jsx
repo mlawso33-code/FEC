@@ -5,10 +5,17 @@ import SortDropDown from './SortDropDown.jsx'
 
 
 const ReviewList = () => {
-  const { reviews } = useContext(RatingsAndReviewsContext)
+  const { reviews, filteredReviews, filtering } = useContext(RatingsAndReviewsContext)
   const [numOfDisplayed, setNumOfDisplayed] = useState(2)
+  let allReviews = []
 
-  let displayedReviews = reviews.slice(0, numOfDisplayed)
+  if (JSON.stringify(filteredReviews) === '[]') {
+    allReviews = reviews
+  } else {
+    allReviews = filteredReviews
+  }
+
+  let displayedReviews = allReviews.slice(0, numOfDisplayed)
 
   function handleMoreReviewsClick() {
     setNumOfDisplayed(numOfDisplayed + 2)
@@ -25,7 +32,7 @@ const ReviewList = () => {
         <ReviewTile key={review.review_id} review={review}/>)}
       </div>
 
-      {numOfDisplayed < reviews.length &&
+      {numOfDisplayed < allReviews.length &&
         <button onClick={handleMoreReviewsClick}>More Reviews</button>
       }
 
