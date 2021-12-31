@@ -5,7 +5,7 @@ import SizeSelect from './SizeSelect.jsx';
 import OverviewContext from '../OverviewContext.jsx';
 
 const Bag = () => {
-  const [selectedSize, setSelectedSize] = useState();
+  const [selectedSize, setSelectedSize] = useState({});
   const { currentStyle } = useContext(OverviewContext);
 
   return (

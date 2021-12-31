@@ -1,16 +1,24 @@
 import React, {useContext} from 'react';
+import OverviewContext from '../OverviewContext.jsx';
 
 const Quantity = (props) => {
 
-  function range (max) {
+  const{selectedSize} = useContext(OverviewContext);
+
+  function range () {
     let options = [];
+    if (!selectedSize.quantity) {
+      return ['...']
+    }
+    let max = (selectedSize.quantity <= 15 ? selectedSize.quantity : 15);
+    // let max = selectedSize
     for (let i = 1; i <= max; i++) {
       options.push(i);
     }
     return options;
   }
 
-  let optionsArr = range(15);
+  let optionsArr = range();
 
   return (
     <span>
