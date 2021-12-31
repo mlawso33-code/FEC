@@ -3,9 +3,8 @@ import AppContext from './AppContext.jsx';
 import axios from 'axios';
 import Overview from '../Overview/Overview.jsx';
 import Questions from '../Questions/Questions.jsx';
-import Ratings from '../Ratings&Reviews/Ratings&Reviews.jsx';
-import Related from '../Related/Related.jsx';
 import RatingsAndReviews from '../Ratings&Reviews/Ratings&Reviews.jsx';
+import Related from '../Related/Related.jsx';
 
 
 const App = () => {
@@ -29,13 +28,8 @@ const App = () => {
       }} >
         <Overview />
         {/* <RelatedItems /> */}
-<<<<<<< HEAD
-        {/* <Questions /> */}
-        <RatingsAndReviews />
-=======
         <Questions />
         <Ratings />
->>>>>>> a04b049f691b71dd3f50b684ddda8b2576fbf500
       </AppContext.Provider>
     </div>
   )
