@@ -4,6 +4,7 @@ import axios from 'axios';
 import moment from 'moment';
 
 import IndividualQuestion from './individualQuestion.jsx';
+import UploadPhoto from './uploadPhoto.jsx';
 
 
 const AnswerModal = (props) => {
@@ -58,8 +59,7 @@ const AnswerModal = (props) => {
           <span style={{ color: "red" }}>*</span><label>Answer:
             <input type="text" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
-          <label>Upload Photo<span style={{ color: "red" }}>*</span>:
-            <input type="text" value='' placeholder="Type question here..." max="1000" onChange={handleSubmitAnswer} /></label>
+          <UploadPhoto />
           <br />
           <input type="submit" value="Submit Answer" />
         </form>
