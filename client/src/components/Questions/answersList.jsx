@@ -39,10 +39,16 @@ const AnswersList = (props) => {
           <Answers key={answer.answer_id} answer={answer} />
         ))}
       </div>
-      {(numOfAnswers < answers.length || numOfAnswers > 1) &&
+      {(numOfAnswers < answers.length || answers.length >= 1) &&
         <button style={{ cursor: "pointer" }} onClick={increaseAnswers}>Load More Answers</button>}
+      {answers.length === 0 &&
+        <p style={{color:"yellow", fontSize:"10px"}}>No answers for this question. Click <span style={{color:"green"}}>Add Answer</span> button on the right!</p>}
     </div>
   )
 }
 
 export default AnswersList
+
+/* Notes:::
+  -need to make new answer render on submit
+*/
