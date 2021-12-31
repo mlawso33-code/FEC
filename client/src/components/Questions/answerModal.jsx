@@ -59,7 +59,7 @@ const AnswerModal = (props) => {
           <span style={{ color: "red" }}>*</span><label>Answer:
             <input type="text" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
-          <UploadPhoto />
+          <UploadPhoto photo={photos}/>
           <br />
           <input type="submit" value="Submit Answer" />
         </form>
