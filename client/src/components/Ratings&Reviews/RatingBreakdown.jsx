@@ -56,6 +56,11 @@ const RatingBreakdown = () => {
       <div>
         {percentRecommend}% of reviews recommend this product
       </div>
+
+      {/* Breakdown/Filter Section */}
+      <div>
+
+      </div>
     </div>
   )
 }

@@ -13,6 +13,10 @@ const RatingsAndReviews = () => {
       product_id
     }}>
       <div>
+      <h1>Ratings &amp; Reviews</h1>
+      </div>
+
+      <div>
         <RatingBreakdown />
         <ReviewList />
       </div>
