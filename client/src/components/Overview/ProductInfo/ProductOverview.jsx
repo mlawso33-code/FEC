@@ -7,9 +7,10 @@ import ProductName from './ProductName.jsx';
 import Ratings from './Ratings.jsx';
 import Share from './Share.jsx';
 import ProductStyles from '../Styles/ProductStyles.jsx';
+import Bag from '../Bag/Bag.jsx';
+
 
 const ProductOverview = () => {
-  const { styles } = useContext(OverviewContext);
   const { product } = useContext(AppContext);
 
   return (
@@ -21,6 +22,7 @@ const ProductOverview = () => {
         <Price />
 
         <ProductStyles />
+        <Bag />
 
         <Share />
       </div>
