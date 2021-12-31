@@ -39,7 +39,7 @@ const AnswersList = (props) => {
           <Answers key={answer.answer_id} answer={answer} />
         ))}
       </div>
-      {numOfAnswers < answers.length &&
+      {(numOfAnswers < answers.length || numOfAnswers > 1) &&
         <button style={{ cursor: "pointer" }} onClick={increaseAnswers}>Load More Answers</button>}
     </div>
   )
