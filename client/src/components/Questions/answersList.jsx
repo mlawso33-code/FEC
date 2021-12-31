@@ -36,7 +36,7 @@ const AnswersList = (props) => {
     <div>
       <div style={{ marginTop: "10px" }}>
         {displayedAnswers.map((answer =>
-          <Answers key={answer.answer_id} answer={answer} />
+          <Answers key={answer.answer_id} answer={answer} question_id={question_id}/>
         ))}
       </div>
       {(numOfAnswers < answers.length || answers.length >= 1) &&

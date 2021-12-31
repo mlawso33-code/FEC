@@ -32,8 +32,7 @@ const IndividualQuestion = (props) => {
         <div style={{ display: "flex", flexDirection: "row" }}>
           Q: {question_body}
           <div style={{ marginLeft: "auto" }}>
-            <span>Helpful?</span>
-            <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
+            <span>Helpful?</span> <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
             <span>({helpful})</span>
             |
             {/* need to change button back to text*/}
