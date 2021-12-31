@@ -12,7 +12,7 @@ const StyleOptions = () => {
       {styles.length &&
       <>
       <div className='stylePics'>
-       {styles.map(style => <StylePic pic={style.photos[0]}/>)}
+       {styles.map(style => <StylePic key={style.name} style={style}/>)}
       </div>
       </>
       }
