@@ -3,7 +3,7 @@ import OverviewContext from '../OverviewContext.jsx';
 
 const Quantity = (props) => {
 
-  const{selectedSize} = useContext(OverviewContext);
+  const{selectedSize, setSelectedQuantity} = useContext(OverviewContext);
 
   function range () {
     let options = [];
@@ -20,9 +20,13 @@ const Quantity = (props) => {
 
   let optionsArr = range();
 
+  function handleChange(event) {
+    setSelectedQuantity(event.target.value);
+  }
+
   return (
     <span>
-      <select name='QuantitySelect'>
+      <select name='QuantitySelect' onChange={event => handleChange(event)}>
         {optionsArr.map(opt => <option value={opt} key={opt}>{opt}</option>)}
       </select>
     </span>

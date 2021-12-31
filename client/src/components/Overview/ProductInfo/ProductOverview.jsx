@@ -11,7 +11,6 @@ import Bag from '../Bag/Bag.jsx';
 
 
 const ProductOverview = () => {
-  const { styles } = useContext(OverviewContext);
   const { product } = useContext(AppContext);
 
   return (
