@@ -6,7 +6,7 @@ const BreakDown = ({ star, count, totalRatings }) => {
 
   return (
     <div>
-      <span>{star} stars </span>
+      <a href="" style={{color: "black"}}>{star} stars </a>
       <ProgressBar bgcolor={'green'} percent={percent}/>
       <span>({count})</span>
     </div>
