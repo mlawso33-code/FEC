@@ -11,16 +11,25 @@ const RatingsAndReviews = () => {
   const [reviews, setReviews] = useState([])
   const [metaData, setMetaData] = useState({})
   const [filteredReviews, setFilteredReviews] = useState([])
-  const [filtering, setFiltering] = useState(false)
+  const [filtersApplied, setFiltersApplied] = useState([])
 
   function filterList(event, toggleOn) {
     const matchingReviews = reviews.filter(review => review.rating === Number(event.target.id))
     let newFilteredReviews = filteredReviews.filter(review => review.rating !== Number(event.target.id))
+    let currentFilters = filtersApplied.filter(rating => rating !== event.target.id)
     if (toggleOn) {
       setFilteredReviews(newFilteredReviews.concat(matchingReviews))
+      setFiltersApplied(currentFilters.concat([event.target.id]))
       return;
     }
     setFilteredReviews(newFilteredReviews)
+    setFiltersApplied(currentFilters)
+  }
+
+  function clearAllFilters(e) {
+    e.preventDefault()
+    setFilteredReviews([])
+    setFiltersApplied([])
   }
 
 
@@ -48,7 +57,7 @@ const RatingsAndReviews = () => {
 
   return (
     <RatingsAndReviewsContext.Provider value={{
-      product_id, reviews, handleSortChange, metaData, filterList, filteredReviews, filtering
+      product_id, reviews, handleSortChange, metaData, filterList, filteredReviews, filtersApplied, clearAllFilters
     }}>
       <div>
       <h1>Ratings &amp; Reviews</h1>

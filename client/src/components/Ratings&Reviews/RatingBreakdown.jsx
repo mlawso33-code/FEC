@@ -4,10 +4,11 @@ import AvgStarRating from "./AvgStarRating.jsx"
 import BreakDown from "./BreakDown.jsx"
 
 const RatingBreakdown = () => {
-  const { metaData } = useContext(RatingsAndReviewsContext)
+  const { metaData, filtersApplied, clearAllFilters } = useContext(RatingsAndReviewsContext)
   const averageRating = getAvgRating(metaData.ratings)
   const percentRecommend = getPerRecommend(metaData.recommended)
   const breakDown = getBreakDown(metaData.ratings)
+  const filteringOn = getFilteringOn()
 
   function getAvgRating(ratings) {
     let totalStars = 0
@@ -46,6 +47,18 @@ const RatingBreakdown = () => {
     }
   }
 
+  function getFilteringOn() {
+    let filters = []
+
+    for (let filter of filtersApplied) {
+      filters.push(
+        <div>{filter} stars</div>
+      )
+    }
+
+    return filters
+  }
+
   return (
     <div>
       {/* Rating Summary */}
@@ -63,6 +76,19 @@ const RatingBreakdown = () => {
       <div>
         {breakDown}
       </div>
+
+      {/* Filters Applied Section */}
+      {filtersApplied.length ?
+        <div>
+          <div>
+            Filtering on:
+            {filteringOn}
+          </div>
+
+          <a href="" style={{color: 'black'}} onClick={clearAllFilters}>Remove all filters</a>
+        </div>
+        : null
+      }
     </div>
   )
 }
