@@ -8,11 +8,12 @@ import UploadPhoto from './uploadPhoto.jsx';
 
 
 const AnswerModal = (props) => {
+  const [answers, setAnswers] = useState([])
   const [name, setUser] = useState('')
   const [email, setEmail] = useState('')
   const [body, setBody] = useState('')
   const [photos, setPhotos] = useState('')
-  const [answers, setAnswers] = useState([])
+  const [image, setImage] = useState({ preview: "", raw: "" });
   const question_id = props.question_id
 
   function fetchAnswers() {
@@ -42,6 +43,16 @@ const AnswerModal = (props) => {
   }
 
 
+  const handleChange = e => {
+    if (e.target.files.length) {
+      setImage({
+        preview: URL.createObjectURL(e.target.files[0]),
+        raw: e.target.files[0]
+      });
+    }
+  };
+
+
   return (
     <div>
       <div style={modal_content}>
@@ -59,7 +70,7 @@ const AnswerModal = (props) => {
           <span style={{ color: "red" }}>*</span><label>Answer:
             <input type="text" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
-          <UploadPhoto photo={photos}/>
+          <UploadPhoto photo={photos} image={image} onChange={handleChange}/>
           <br />
           <input type="submit" value="Submit Answer" />
         </form>

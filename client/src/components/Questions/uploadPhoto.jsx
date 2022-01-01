@@ -2,20 +2,15 @@ import React, { useState } from "react";
 
 
 const UploadPhoto = (props) => {
-  const [image, setImage] = useState({ preview: "", raw: "" });
-  console.log('raw::::', image.raw, 'preview:::::', image.preview)
+  const photos = props.photos
+  const image = props.image
 
   const handleChange = e => {
-    if (e.target.files.length) {
-      setImage({
-        preview: URL.createObjectURL(e.target.files[0]),
-        raw: e.target.files[0]
-      });
-    }
+    console.log('image:::', )
+    props.onChange(e)
   };
 
   function handleUpload() {
-
 
   }
 
