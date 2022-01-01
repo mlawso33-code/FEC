@@ -8,12 +8,15 @@ import ProductOverview from './ProductInfo/ProductOverview.jsx'
 const Overview = () => {
   const { product } = useContext(AppContext)
   const [styles, setStyles] = useState([]);
+  const [cart, setCart] = useState([]);
   // if (styles.length) {
   //   const [currentStyle, setCurrentStyle] = useState(styles[0]);
   // }
 
   const [currentStyle, setCurrentStyle] = useState();
   const [currentPic, setCurrentPic] = useState();
+  const [price, setPrice] = useState();
+  const [sale, setSale] = useState(false);
   // const [related, setRelated] = useState([]);
 
   function fetchStyles() {
@@ -44,9 +47,21 @@ const Overview = () => {
     }
   }, [currentStyle])
 
+  useEffect(() => {
+    if(currentStyle) {
+      if (currentStyle.sale_price) {
+        setPrice(currentStyle.sale_price)
+        setSale(true)
+      } else {
+        setPrice(currentStyle.original_price)
+        setSale(false)
+      }
+    }
+  }, [currentStyle])
+
   return (
     <div className='overviewDiv'>
-      <OverviewContext.Provider value={{styles, currentStyle, setCurrentStyle, currentPic, setCurrentPic}}>
+      <OverviewContext.Provider value={{styles, currentStyle, setCurrentStyle, currentPic, setCurrentPic, cart, setCart, price, setPrice, sale, setSale}}>
         <MainImg />
         <ProductOverview />
       </OverviewContext.Provider>

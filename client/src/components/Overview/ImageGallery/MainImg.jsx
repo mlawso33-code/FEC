@@ -7,6 +7,7 @@ const MainImg = () => {
 
   return (
     <div className='overviewBox1'>
+       {console.log('test', currentPic)}
       {currentPic &&
       <>
         <img src={currentPic} className='mainImage'/>
