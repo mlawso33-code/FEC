@@ -6,7 +6,7 @@ const ProductBar = ({chartic}) => {
   const barStyle = {
     position: 'relative',
     height: 12,
-    width: '30%',
+    width: '25%',
     backgroundColor: "#e0e0de",
     borderRadius: 50
   }
