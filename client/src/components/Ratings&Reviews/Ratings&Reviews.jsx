@@ -4,6 +4,7 @@ import AppContext from '../App/AppContext.jsx'
 import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
 import ReviewList from './ReviewList.jsx'
 import RatingBreakdown from './RatingBreakdown.jsx'
+import ProductBreakdown from './ProductBreakdown.jsx'
 
 const RatingsAndReviews = () => {
   const { product } = useContext(AppContext)
@@ -65,6 +66,7 @@ const RatingsAndReviews = () => {
 
       <div>
         <RatingBreakdown />
+        <ProductBreakdown />
         <ReviewList />
       </div>
     </RatingsAndReviewsContext.Provider>
