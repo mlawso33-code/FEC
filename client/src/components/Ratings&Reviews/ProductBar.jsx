@@ -1,22 +1,28 @@
 import React from "react"
 
 const ProductBar = ({chartic}) => {
-  const value = Number(chartic.value)
+  const value = (Number(chartic.value) / 5 ) * 100
 
   const barStyle = {
-    height: 10,
+    position: 'relative',
+    height: 12,
     width: '30%',
     backgroundColor: "#e0e0de",
+    borderRadius: 50
   }
 
-  // arrowStyle = {
-
-  // }
+  const arrowStyle = {
+    position: 'absolute',
+    left: `${value}%`,
+    fontSize: 12,
+  }
 
   return (
-    <progress style={barStyle} type='range' max='5' min = '1' value={value}>
-      {/* <div style={arrowStyle}></div> */}
-    </progress>
+    <div style={barStyle}>
+      <div style={arrowStyle}>
+        <i className="fa fa-chevron-circle-down" aria-hidden="true"></i>
+      </div>
+    </div>
   )
 }
 

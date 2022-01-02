@@ -6,12 +6,6 @@ const ProductBreakdown = () => {
   const { metaData } = useContext(RatingsAndReviewsContext)
   const chartics = metaData.characteristics
 
-  const test = {
-    Hello: 'world'
-  }
-
-  console.log(chartics)
-
   return (
     <div>
       {chartics &&
