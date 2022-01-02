@@ -6,6 +6,12 @@ const ProductBreakdown = () => {
   const { metaData } = useContext(RatingsAndReviewsContext)
   const chartics = metaData.characteristics
 
+  const test = {
+    Hello: 'world'
+  }
+
+  console.log(chartics)
+
   return (
     <div>
       {chartics &&
@@ -13,7 +19,7 @@ const ProductBreakdown = () => {
         {chartics.Size &&
           <div>
             <div>Size</div>
-            <ProductBar />
+            <ProductBar chartic={chartics.Size}/>
             <div>
               <span>Too small</span>
               <span>Perfect</span>
@@ -25,7 +31,7 @@ const ProductBreakdown = () => {
         {chartics.Width &&
           <div>
             <div>Width</div>
-            <ProductBar />
+            <ProductBar chartic={chartics.Width}/>
             <div>
               <span>Too small</span>
               <span>Perfect</span>
@@ -37,7 +43,7 @@ const ProductBreakdown = () => {
         {chartics.Length &&
           <div>
             <div>Length</div>
-            <ProductBar />
+            <ProductBar chartic={chartics.Length}/>
             <div>
               <span>Too small</span>
               <span>Perfect</span>
@@ -49,7 +55,7 @@ const ProductBreakdown = () => {
         {chartics.Fit &&
           <div>
             <div>Fit</div>
-            <ProductBar />
+            <ProductBar chartic={chartics.Fit}/>
             <div>
               <span>Too small</span>
               <span>Perfect</span>
@@ -61,7 +67,7 @@ const ProductBreakdown = () => {
         {chartics.Comfort &&
           <div>
             <div>Comfort</div>
-            <ProductBar />
+            <ProductBar chartic={chartics.Comfort}/>
             <div>
               <span>Poor</span>
               <span>Great</span>
@@ -72,7 +78,7 @@ const ProductBreakdown = () => {
         {chartics.Quality &&
           <div>
             <div>Quality</div>
-            <ProductBar />
+            <ProductBar chartic={chartics.Quality}/>
             <div>
               <span>Poor</span>
               <span>Great</span>

@@ -22,6 +22,7 @@ const ProgressBar = (props) => {
     <div style={containerStyle}>
       <div style={fillerStyle}></div>
     </div>
+  // <progress style={containerStyle} max='100' min='0' value={percent}></progress>
   )
 }
 
