@@ -5,7 +5,7 @@ import Rating from "react-rating"
 const NewReview = ({ closeModal }) => {
   const { product } = useContext(AppContext)
   const [rate, setRate] = useState(0)
-  const [recommened, setRecommended] = useState()
+  const [recommened, setRecommended] = useState('Yes')
   const [chartics, setChartics] = useState()
   const [summary, setSummary] = useState()
   const [photos, setPhotos] = useState()
@@ -14,6 +14,10 @@ const NewReview = ({ closeModal }) => {
 
   function handleRatingChange(newRate) {
     setRate(newRate)
+  }
+
+  function handleRecommended(e) {
+    setRecommended(e.target.value)
   }
 
   return(
@@ -48,7 +52,12 @@ const NewReview = ({ closeModal }) => {
               <span>Great</span>
             }
           </div>
-          <div>Do you recommend this product?</div>
+          <div>Do you recommend this product?
+            <label>Yes</label>
+            <input type='radio' name='recommend' value='Yes' defaultChecked onClick={handleRecommended}/>
+            <label>No</label>
+            <input type='radio' name='recommend' value='No' onClick={handleRecommended}/>
+          </div>
           <div>Characteristics</div>
           <div>Review Summary</div>
           <div>Upload your photos</div>
