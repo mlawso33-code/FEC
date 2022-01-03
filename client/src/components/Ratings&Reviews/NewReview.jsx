@@ -12,8 +12,6 @@ const NewReview = ({ closeModal }) => {
   const [nickName, setNickName] = useState()
   const [email, setEmail] = useState()
 
-  console.log(rate)
-
   function handleRatingChange(newRate) {
     setRate(newRate)
   }
@@ -34,6 +32,21 @@ const NewReview = ({ closeModal }) => {
               initialRating={rate}
               onClick={newRate => handleRatingChange(newRate)}
             />
+            {rate === 1 &&
+              <span>Poor</span>
+            }
+            {rate === 2 &&
+              <span>Fair</span>
+            }
+            {rate === 3 &&
+              <span>Average</span>
+            }
+            {rate === 4 &&
+              <span>Good</span>
+            }
+            {rate === 5 &&
+              <span>Great</span>
+            }
           </div>
           <div>Do you recommend this product?</div>
           <div>Characteristics</div>
