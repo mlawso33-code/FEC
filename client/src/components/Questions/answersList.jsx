@@ -18,13 +18,6 @@ const AnswersList = (props) => {
 
   const displayedAnswers = answers.slice(0, numOfAnswers)
 
-  // function fetchAnswers() {
-  //   axios
-  //     .get(`/api/qa/questions/${question_id}/answers?page=1&count=100`)
-  //     .then(res => setAnswers(res.data.results))
-
-  // }
-
   function increaseAnswers() {
     setNumOfAnswers(numOfAnswers + 1)
   }

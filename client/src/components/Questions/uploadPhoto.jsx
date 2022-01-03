@@ -1,41 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 
 const UploadPhoto = (props) => {
   const photos = props.photos
   const image = props.image
+  const [counter, setCount] = useState(5)
+  const [disabled, setDisabled] = useState(false)
 
   function handleChange(e) {
     props.onChange(e)
   };
 
   function handleUpload(e) {
-
+    if (counter > 0) {
+      props.upload(e)
+    } else {
+      alert(`You've reached maximum image uploads!`)
+      setDisabled(true)
+    }
   }
+
+  useEffect(() => {
+    setCount(5 - photos.length)
+  }, [photos])
 
   return (
     <div>
-      <label htmlFor="upload-button">
-        {image.preview ? (
-          <img src={image.preview} alt="dummy" width="200" height="200" />
-        ) : (
-          <>
-            <span className="fa-stack fa-2x mt-3 mb-2">
-              <i className="fas fa-circle fa-stack-2x" />
-              <i className="fas fa-store fa-stack-1x fa-inverse" />
-            </span>
-            <h5 className="text-center">Click image to upload a photo</h5>
-          </>
-        )}
-      </label>
-      <input
-        type="file"
-        id="upload-button"
-        style={{ display: "none" }}
-        onChange={handleChange}
-      />
-      <br />
-      <button onClick={handleUpload}>Upload</button>
+      <div>
+        <label>
+          Preview : {image ? <img src={image} alt="test" width="150" height="100" /> : null}
+        </label>
+        <input
+          type="text"
+          defaultValue=''
+          placeholder='Insert image URL here'
+          onChange={handleChange}
+        />
+        <button onClick={e => handleUpload(image)} disabled={disabled}>Upload</button>
+      </div>
+      <span>Remaining uploads: {counter}</span>
+      <div>
+        <span>Uploaded photos: {photos.length > 0 && photos.map((img, i) => <img src={img} alt={`photo ${i}`} width="150" height="100" key={i} />)} </span>
+      </div>
     </div>
   );
 }
@@ -44,9 +50,5 @@ export default UploadPhoto
 
 
 /* Notes:::
-- need to send URL back answermodal to insert into photos array
-- user shoud be able to add up to 5 photos
-*/
 
-{/* <label>Upload Photo<span style={{ color: "red" }}>*</span>:
-<input type="text" value='' placeholder="Type question here..." max="1000" onChange={handleSubmitAnswer} /></label> */}
+*/
