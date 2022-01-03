@@ -53,7 +53,7 @@ const NewReview = ({ closeModal }) => {
         </div>
 
         <form style={modalBodyStyle}>
-          <div><b>Overall Rating</b>
+          <div><b>Overall Rating*</b>
             <Rating
               emptySymbol="fa fa-star-o"
               fullSymbol="fa fa-star"
@@ -77,20 +77,23 @@ const NewReview = ({ closeModal }) => {
             }
           </div>
 
-          <div><b>Do you recommend this product?</b>
+          <div><b>Do you recommend this product?*</b>
             <label>Yes</label>
-            <input type='radio' name='recommend' value='Yes' defaultChecked onClick={handleRecommended}/>
+            <input type="radio" name="recommend" value="Yes" defaultChecked onClick={handleRecommended}/>
             <label>No</label>
-            <input type='radio' name='recommend' value='No' onClick={handleRecommended}/>
+            <input type="radio" name="recommend" value="No" onClick={handleRecommended}/>
           </div>
 
-          <div><b>Characteristics</b>
+          <div><b>Characteristics*</b>
             {characteristics}
           </div>
-          <div><b>Review Summary</b></div>
+          <div><b>Review Summary</b>
+            <input type="text" placeholder="Example: Best purchase ever!" maxLength="60" style={{width: "30%"}}/>
+          </div>
+          <div><b>Review Body *</b></div>
           <div><b>Upload your photos</b></div>
-          <div><b>What is your nickname</b></div>
-          <div><b>Your email</b></div>
+          <div><b>What is your nickname*</b></div>
+          <div><b>Your email*</b></div>
           <input type="submit" value="Submit" />
         </form>
       </div>
