@@ -12,6 +12,7 @@ const IndividualQuestion = (props) => {
   const [helpful, setHelpful] = useState(question_helpfulness)
   const [helpfulClicked, setHelpfulClicked] = useState(false)
   const [add_answer, setAdd] = useState(false)
+  const [answers, setAnswers] = useState([])
 
   function incrementHelpful(event) {
     event.preventDefault()
@@ -21,6 +22,17 @@ const IndividualQuestion = (props) => {
         .then(setHelpfulClicked(true))
     }
   }
+
+  function fetchAnswers() {
+    axios
+      .get(`/api/qa/questions/${question_id}/answers?page=1&count=100`)
+      .then(res => setAnswers(res.data.results))
+
+  }
+
+  useEffect(() => {
+    fetchAnswers()
+  }, [])
 
   function addAnswer() {
     setAdd(!add_answer)
@@ -32,15 +44,16 @@ const IndividualQuestion = (props) => {
         <div style={{ display: "flex", flexDirection: "row" }}>
           Q: {question_body}
           <div style={{ marginLeft: "auto" }}>
-            <span>Helpful?</span> <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
+            <span>Helpful?</span>
+            <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
             <span>({helpful})</span>
             |
             {/* need to change button back to text*/}
             <button style={{ color: "black" }} onClick={addAnswer}>Add Answer</button>
-            <div>{add_answer ? <AnswerModal toggle={addAnswer} question_id={question_id} /> : null}</div>
+            <div>{add_answer ? <AnswerModal toggle={addAnswer} question_id={question_id} fetchAnswers={fetchAnswers} /> : null}</div>
           </div>
         </div>
-        <AnswersList question_id={question_id} question={props.question} fetchQuestions={props.fetchQuestions} />
+        <AnswersList question_id={question_id} question={props.question} fetchQuestions={props.fetchQuestions} fetchAnswers={fetchAnswers} answers={answers} />
       </div>
     </div>
   )

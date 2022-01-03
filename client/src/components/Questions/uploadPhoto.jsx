@@ -5,12 +5,11 @@ const UploadPhoto = (props) => {
   const photos = props.photos
   const image = props.image
 
-  const handleChange = e => {
-    console.log('image:::', )
+  function handleChange(e) {
     props.onChange(e)
   };
 
-  function handleUpload() {
+  function handleUpload(e) {
 
   }
 

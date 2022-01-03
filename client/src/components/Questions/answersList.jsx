@@ -9,24 +9,21 @@ import Answers from './answers.jsx';
 
 
 const AnswersList = (props) => {
-  const [answers, setAnswers] = useState([])
+  //const [answers, setAnswers] = useState([])
   const [page, setPage] = useState(1)
   const [numOfAnswers, setNumOfAnswers] = useState(2)
+  const answers = props.answers
 
   const { question_id } = props.question
 
   const displayedAnswers = answers.slice(0, numOfAnswers)
 
-  function fetchAnswers() {
-    axios
-      .get(`/api/qa/questions/${question_id}/answers?page=1&count=100`)
-      .then(res => setAnswers(res.data.results))
+  // function fetchAnswers() {
+  //   axios
+  //     .get(`/api/qa/questions/${question_id}/answers?page=1&count=100`)
+  //     .then(res => setAnswers(res.data.results))
 
-  }
-
-  useEffect(() => {
-    fetchAnswers()
-  }, [])
+  // }
 
   function increaseAnswers() {
     setNumOfAnswers(numOfAnswers + 1)

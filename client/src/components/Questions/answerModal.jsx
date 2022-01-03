@@ -8,20 +8,20 @@ import UploadPhoto from './uploadPhoto.jsx';
 
 
 const AnswerModal = (props) => {
-  const [answers, setAnswers] = useState([])
+  //const [answers, setAnswers] = useState([])
   const [name, setUser] = useState('')
   const [email, setEmail] = useState('')
   const [body, setBody] = useState('')
   const [photos, setPhotos] = useState('')
-  const [image, setImage] = useState({ preview: "", raw: "" });
+  const [image, setImage] = useState('');
   const question_id = props.question_id
 
-  function fetchAnswers() {
-    axios
-      .get(`/api/qa/questions/${question_id}/answers?page=1&count=100`)
-      .then(res => setAnswers(res.data.results))
+  // function fetchAnswers() {
+  //   axios
+  //     .get(`/api/qa/questions/${question_id}/answers?page=1&count=100`)
+  //     .then(res => setAnswers(res.data.results))
 
-  }
+  // }
 
   function handleSubmitAnswer(event) {
     event.preventDefault()
@@ -29,7 +29,7 @@ const AnswerModal = (props) => {
       'body': body,
       'name': name,
       'email': email,
-      'photos': [photos]
+      'photos': []
     }
     if (!valueObj.email || valueObj.name.length === 0 || valueObj.body.length === 0) {
       alert('One or more mandatory fields are missing!')
@@ -37,13 +37,14 @@ const AnswerModal = (props) => {
       axios
         .post(`/api/qa/questions/${question_id}/answers`, valueObj)
         .then(res => alert('Answer submitted!'))
-        //.then(res => fetchAnswers())
+        .then(res => props.fetchAnswers)
         .then(props.toggle)
+
     }
   }
 
 
-  const handleChange = e => {
+  function handleChange(e) {
     if (e.target.files.length) {
       setImage({
         preview: URL.createObjectURL(e.target.files[0]),
@@ -52,7 +53,11 @@ const AnswerModal = (props) => {
     }
   };
 
-
+  function handleUpload(e) {
+    setPhotos([image])
+  }
+  // console.log('image::::', image)
+  // console.log('photo')
   return (
     <div>
       <div style={modal_content}>
@@ -70,7 +75,7 @@ const AnswerModal = (props) => {
           <span style={{ color: "red" }}>*</span><label>Answer:
             <input type="text" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
-          <UploadPhoto photo={photos} image={image} onChange={handleChange}/>
+          {/* <UploadPhoto photo={photos} image={image} onChange={handleChange} upload={handleUpload} /> */}
           <br />
           <input type="submit" value="Submit Answer" />
         </form>
