@@ -2,11 +2,13 @@ import React, {useState, useContext} from 'react'
 import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
 import ReviewTile from './ReviewTile.jsx'
 import SortDropDown from './SortDropDown.jsx'
+import NewReview from './NewReview.jsx'
 
 
 const ReviewList = () => {
   const { reviews, filteredReviews, filtering } = useContext(RatingsAndReviewsContext)
   const [numOfDisplayed, setNumOfDisplayed] = useState(2)
+  const [addingReview, setAddingReview] = useState(false)
   let allReviews = []
 
   if (JSON.stringify(filteredReviews) === '[]') {
@@ -19,6 +21,14 @@ const ReviewList = () => {
 
   function handleMoreReviewsClick() {
     setNumOfDisplayed(numOfDisplayed + 2)
+  }
+
+  function handleAddReviewClick() {
+    setAddingReview(true)
+  }
+
+  function closeNewReviewModal() {
+    setAddingReview(false)
   }
 
   return (
@@ -36,7 +46,10 @@ const ReviewList = () => {
         <button onClick={handleMoreReviewsClick}>More Reviews</button>
       }
 
-      <button>Add Review +</button>
+      <button onClick={handleAddReviewClick}>Add Review +</button>
+      {addingReview &&
+        <NewReview closeModal={closeNewReviewModal}/>
+      }
 
     </div>
   )
