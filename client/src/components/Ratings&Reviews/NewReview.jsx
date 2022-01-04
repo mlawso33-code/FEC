@@ -16,6 +16,7 @@ const NewReview = ({ closeModal }) => {
   const [summary, setSummary] = useState('')
   const [body, setBody] = useState('')
   const [photos, setPhotos] = useState([])
+  const [currentPhoto, setCurrentPhoto] = useState('')
   const [nickName, setNickName] = useState('')
   const [email, setEmail] = useState('')
 
@@ -47,9 +48,14 @@ const NewReview = ({ closeModal }) => {
     setEmail(e.target.value)
   }
 
+  function handlePhotoChange(e) {
+    setCurrentPhoto(e.target.value)
+  }
+
   function handleImgUpload(e) {
-    let photo = URL.createObjectURL(e.target.files[0])
-    setPhotos([...photos, photo])
+    e.preventDefault()
+    setPhotos([...photos, currentPhoto])
+    setCurrentPhoto('')
   }
 
   function getCharacteristics(chartics) {
@@ -69,7 +75,7 @@ const NewReview = ({ closeModal }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // do all the manditory checks
+    // Do all the manditory checks
     let areErrors = false
     let errors = 'You must enter the following:\n'
 
@@ -98,7 +104,6 @@ const NewReview = ({ closeModal }) => {
       return
     }
 
-    //might need to stringify charticsRating
     let formSubmission = {
       "product_id": product_id,
       "rating": rate,
@@ -111,11 +116,9 @@ const NewReview = ({ closeModal }) => {
       "characteristics": charticsRating
     }
 
-    console.log(formSubmission)
-
-  //   axios.post('/api/reviews', formSubmission)
-  //     .then(closeModal)
-  //     .then(alert('Your review has been submitted!'))
+    axios.post('/api/reviews', formSubmission)
+      .then(closeModal)
+      .then(alert('Your review has been submitted!'))
   }
 
   return (
@@ -196,7 +199,8 @@ const NewReview = ({ closeModal }) => {
 
             {photos.length < 5 &&
               <div>
-                <input type="file" accept="image/*" multiple={false} onChange={handleImgUpload}/>
+                <input type="text" placeholder="Past URL here" onChange={handlePhotoChange} value={currentPhoto}/>
+                <button onClick={handleImgUpload}>Add Photo</button>
               </div>
             }
           </div>
