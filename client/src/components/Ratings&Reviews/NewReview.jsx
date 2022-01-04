@@ -4,13 +4,14 @@ import RatingsAndReviewsContext from "./RatingsandReviewsContext.jsx"
 import Rating from "react-rating"
 import CharacteristicInReview from "./CharacteristicInReview.jsx"
 import NewReviewPhoto from "./NewReviewPhoto.jsx"
+import axios from "axios"
 
 const NewReview = ({ closeModal }) => {
   const { product } = useContext(AppContext)
-  const { metaData } = useContext(RatingsAndReviewsContext)
+  const { product_id, metaData } = useContext(RatingsAndReviewsContext)
   const characteristics = getCharacteristics(metaData.characteristics)
   const [rate, setRate] = useState(0)
-  const [recommened, setRecommended] = useState('Yes')
+  const [recommened, setRecommended] = useState(true)
   const [charticsRating, setCharticsRating] = useState({})
   const [summary, setSummary] = useState('')
   const [body, setBody] = useState('')
@@ -66,6 +67,55 @@ const NewReview = ({ closeModal }) => {
     }
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    // do all the manditory checks
+    let areErrors = false
+    let errors = 'You must enter the following:\n'
+
+    if (rate === 0) {
+      errors += ('Overall Rating\n')
+      areErrors = true
+    }
+    if (Object.keys(charticsRating).length !== Object.keys(metaData.characteristics).length) {
+      errors += ('A rating for each characteristic\n')
+      areErrors = true
+    }
+    if (body.length < 50) {
+      errors += ('Minimum review length of 50 characters\n')
+      areErrors = true
+    }
+    if (nickName === '') {
+      errors += ('A nick name\n')
+      areErrors = true
+    }
+    if (email === '' || email.indexOf('@') === -1 || email.indexOf('.') === -1){
+      errors += ('An email address\n')
+      areErrors = true
+    }
+    if (areErrors) {
+      alert(errors)
+      return
+    }
+
+    //might need to stringify charticsRating
+    let formSubmission = {
+      "product_id": product_id,
+      "rating": rate,
+      "summary": summary,
+      "body": body,
+      "recommend": recommened,
+      "name": nickName,
+      "email": email,
+      "photos": photos,
+      "characteristics": charticsRating
+    }
+
+    axios.post('/api/reviews', formSubmission)
+      .then(closeModal)
+      .then(alert('Your review has been submitted!'))
+  }
+
   return (
     <div style={modalStyle}>
       <div style={modalContentStyle}>
@@ -75,7 +125,7 @@ const NewReview = ({ closeModal }) => {
           <h3>About the {product.name}</h3>
         </div>
 
-        <form style={modalBodyStyle}>
+        <form style={modalBodyStyle} onSubmit={handleSubmit}>
           <div><b>Overall Rating*</b>
             <Rating
               emptySymbol="fa fa-star-o"
@@ -102,9 +152,9 @@ const NewReview = ({ closeModal }) => {
 
           <div><b>Do you recommend this product?*</b>
             <label>Yes</label>
-            <input type="radio" name="recommend" value="Yes" defaultChecked onClick={handleRecommended}/>
+            <input type="radio" name="recommend" value={true} defaultChecked onClick={handleRecommended}/>
             <label>No</label>
-            <input type="radio" name="recommend" value="No" onClick={handleRecommended}/>
+            <input type="radio" name="recommend" value={false} onClick={handleRecommended}/>
           </div>
 
           <div><b>Characteristics*</b>
