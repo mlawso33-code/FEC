@@ -60,7 +60,7 @@ const Overview = () => {
     }
   }, [currentStyle])
     //wrap this in conditional
-    if (styles) {
+    if (price) {
   return (
     <div className='overviewDiv'>
       <OverviewContext.Provider value={{styles, currentStyle, setCurrentStyle, currentPic, setCurrentPic, cart, setCart, price, setPrice, sale, setSale, popup, setPopup}}>
