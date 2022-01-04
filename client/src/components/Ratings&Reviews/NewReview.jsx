@@ -37,6 +37,10 @@ const NewReview = ({ closeModal }) => {
     setBody(e.target.value)
   }
 
+  function handleNameChange(e) {
+    setNickName(e.target.value)
+  }
+
   function getCharacteristics(chartics) {
     let results = []
     if (chartics) {
@@ -124,7 +128,14 @@ const NewReview = ({ closeModal }) => {
           </div>
 
           <div><b>Upload your photos</b></div>
-          <div><b>What is your nickname*</b></div>
+
+          <div><b>What is your nickname?*</b>
+            <div>
+              <input type="text" maxLength="60" placeholder="Example: jackson11!" onChange={handleNameChange}/>
+            </div>
+            <div>For privacy reasons, do not use your full name or email address</div>
+          </div>
+
           <div><b>Your email*</b></div>
           <input type="submit" value="Submit" />
         </form>
