@@ -111,9 +111,11 @@ const NewReview = ({ closeModal }) => {
       "characteristics": charticsRating
     }
 
-    axios.post('/api/reviews', formSubmission)
-      .then(closeModal)
-      .then(alert('Your review has been submitted!'))
+    console.log(formSubmission)
+
+  //   axios.post('/api/reviews', formSubmission)
+  //     .then(closeModal)
+  //     .then(alert('Your review has been submitted!'))
   }
 
   return (
