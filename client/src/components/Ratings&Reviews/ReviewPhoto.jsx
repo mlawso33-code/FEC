@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const ReviewPhoto = ({photo}) => {
+const ReviewPhoto = ({ photo }) => {
   const [show, setShow] = useState(false)
 
   function showModal() {
