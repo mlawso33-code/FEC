@@ -27,18 +27,24 @@ const UploadPhoto = (props) => {
   return (
     <div>
       <div>
-        <label>
-          Preview : {image ? <img src={image} alt="test" width="150" height="100" /> : null}
-        </label>
+        <br />
         <input
+          style={{ width: '50%' }}
           type="text"
           defaultValue=''
           placeholder='Insert image URL here'
           onChange={handleChange}
         />
+        <br />
+        <label>
+          Preview : {image ? <img src={image} alt="test" width="150" height="100" /> : null}
+        </label>
+        <br />
         <button onClick={e => handleUpload(image)} disabled={disabled}>Upload</button>
       </div>
+      <br />
       <span>Remaining uploads: {counter}</span>
+      <br />
       <div>
         <span>Uploaded photos: {photos.length > 0 && photos.map((img, i) => <img src={img} alt={`photo ${i}`} width="150" height="100" key={i} />)} </span>
       </div>
