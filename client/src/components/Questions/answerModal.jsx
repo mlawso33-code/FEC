@@ -12,26 +12,24 @@ const AnswerModal = (props) => {
   const [name, setUser] = useState('')
   const [email, setEmail] = useState('')
   const [body, setBody] = useState('')
-
   const [image, setImage] = useState('');
   const [photos, setPhotos] = useState([])
 
   const question_id = props.question_id
+  const check = props.check
+  const sellerCheck = props.sellerCheck
 
-  // function fetchAnswers() {
-  //   axios
-  //     .get(`/api/qa/questions/${question_id}/answers?page=1&count=100`)
-  //     .then(res => setAnswers(res.data.results))
-
-  // }
+  console.log('check::::', check)
 
   function handleSubmitAnswer(event) {
     event.preventDefault()
     var valueObj = {
       'body': body,
       'name': name,
+      //'seller': check,
       'email': email,
       'photos': photos
+
     }
     if (!valueObj.email || valueObj.name.length === 0 || valueObj.body.length === 0) {
       alert('One or more mandatory fields are missing!')
@@ -59,17 +57,25 @@ const AnswerModal = (props) => {
       <div style={modal_content}>
         <form onSubmit={handleSubmitAnswer}>
           <span style={close} onClick={props.toggle}>X</span>
-          <h3>Ask a question!</h3>
-          <label style={{ color: "grey", fontSize: "10px" }}>* are mandatory</label>
+          <u><h3>Add your answer!</h3></u>
+          <label style={{ color: "grey", fontSize: "15px", fontWeight: "bold" }}><span style={{ color: "red" }}>*</span> are required</label>
           <br />
-          <span style={{ color: "red" }}>*</span><label>Username:
-            <input type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
+          {/* <input type="checkbox" name="seller" id="seller" onClick={sellerCheck}/>
+          <label for="seller">Seller?</label> */}
           <br />
-          <span style={{ color: "red" }}>*</span><label>Email:
-            <input type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
+          <span style={{ color: "red" }}>*</span><label>Username
+            <br />
+            <input style={{width:"50%"}} type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
           <br />
-          <span style={{ color: "red" }}>*</span><label>Answer:
-            <input type="text" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
+          <br />
+          <span style={{ color: "red" }}>*</span><label>Email
+            <br />
+            <input style={{width:"50%"}} type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
+          <br />
+          <br />
+          <span style={{ color: "red" }}>*</span><label>Answer
+            <br />
+            <textarea rows="5" cols="33" value={body} placeholder="Type question here..." maxLength="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
           <input type="submit" value="Submit Answer" />
         </form>
@@ -81,17 +87,6 @@ const AnswerModal = (props) => {
 }
 
 export default AnswerModal
-
-
-
-// const modal = {
-//   position: "relative",
-//   zIndex: "1",
-//   width: "100%",
-//   height: "100%",
-//   top:"10px",
-//   backgroundColor: "rgba(0, 0, 0, 0.25)"
-// }
 
 const modal_content = {
   backgroundColor: "white",

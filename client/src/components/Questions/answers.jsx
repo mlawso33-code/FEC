@@ -7,17 +7,22 @@ import AnswersList from './answersList.jsx';
 import AnswerPhoto from './answerPhoto.jsx';
 
 const Answers = (props) => {
-  const { body, date, answerer_name, helpfulness, photos } = props.answer
-  const {question_id} = props.question_id
-
   const [reported, setReported] = useState(false)
   const [helpful, setHelpful] = useState(helpfulness)
   const [helpfulClicked, setHelpfulClicked] = useState(false)
 
+  const { body, date, answerer_name, helpfulness, photos } = props.answer
+  const { question_id } = props.question_id
+  const answer_id = props.answer
+  const check = props.check
+
+  console.log('answer id::::', answer_id)
+  console.log('helpful::::', helpful)
+
   function incrementHelpful(event) {
     event.preventDefault()
     if (!helpfulClicked) {
-      axios.put(`/api/qa/questions/${question_id}/helpful`)
+      axios.put(`/api/qa/questions/${answer_id}/helpful`)
         .then(setHelpful(helpful + 1))
         .then(setHelpfulClicked(true))
     }
@@ -26,7 +31,7 @@ const Answers = (props) => {
   function reportReview(event) {
     event.preventDefault()
     if (!reported) {
-      axios.put(`/api/qa/questions/${question_id}/report`)
+      axios.put(`/api/qa/questions/${answer_id}/report`)
         .then(setReported(true))
     }
   }

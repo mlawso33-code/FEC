@@ -9,12 +9,12 @@ import Answers from './answers.jsx';
 
 
 const AnswersList = (props) => {
-  //const [answers, setAnswers] = useState([])
   const [page, setPage] = useState(1)
   const [numOfAnswers, setNumOfAnswers] = useState(2)
-  const answers = props.answers
 
   const { question_id } = props.question
+  const answers = props.answers
+  const check = props.check
 
   const displayedAnswers = answers.slice(0, numOfAnswers)
 
@@ -26,7 +26,7 @@ const AnswersList = (props) => {
     <div>
       <div style={{ marginTop: "10px" }}>
         {displayedAnswers.map((answer =>
-          <Answers key={answer.answer_id} answer={answer} question_id={question_id}/>
+          <Answers key={answer.answer_id} answer={answer} question_id={question_id} check={check}/>
         ))}
       </div>
       {(numOfAnswers < answers.length || answers.length >= 1) &&
