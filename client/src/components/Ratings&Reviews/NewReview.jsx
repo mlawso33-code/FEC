@@ -41,6 +41,10 @@ const NewReview = ({ closeModal }) => {
     setNickName(e.target.value)
   }
 
+  function handleEmailChange(e) {
+    setEmail(e.target.value)
+  }
+
   function getCharacteristics(chartics) {
     let results = []
     if (chartics) {
@@ -133,10 +137,16 @@ const NewReview = ({ closeModal }) => {
             <div>
               <input type="text" maxLength="60" placeholder="Example: jackson11!" onChange={handleNameChange}/>
             </div>
-            <div>For privacy reasons, do not use your full name or email address</div>
+            <div>For privacy reasons, do not use your full name or email address.</div>
           </div>
 
-          <div><b>Your email*</b></div>
+          <div><b>Your email*</b>
+            <div>
+              <input type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={handleEmailChange}/>
+            </div>
+            <div>For authentication reasons, you will not be emailed.</div>
+          </div>
+
           <input type="submit" value="Submit" />
         </form>
       </div>
