@@ -2,9 +2,9 @@ import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import AppContext from '../App/AppContext.jsx'
 import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
-import ReviewList from './ReviewList.jsx'
-import RatingBreakdown from './RatingBreakdown.jsx'
-import ProductBreakdown from './ProductBreakdown.jsx'
+import ReviewList from './Reviews/ReviewList.jsx'
+import RatingBreakdown from './Ratings/RatingBreakdown.jsx'
+import ProductBreakdown from './Product/ProductBreakdown.jsx'
 
 const RatingsAndReviews = () => {
   const { product } = useContext(AppContext)

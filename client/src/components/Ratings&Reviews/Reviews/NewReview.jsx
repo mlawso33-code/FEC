@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
-import AppContext from '../App/AppContext.jsx'
-import RatingsAndReviewsContext from "./RatingsandReviewsContext.jsx"
+import AppContext from '../../App/AppContext.jsx'
+import RatingsAndReviewsContext from "../RatingsandReviewsContext.jsx"
 import Rating from "react-rating"
 import CharacteristicInReview from "./CharacteristicInReview.jsx"
 import NewReviewPhoto from "./NewReviewPhoto.jsx"
