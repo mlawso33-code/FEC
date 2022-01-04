@@ -3,6 +3,7 @@ import AppContext from '../App/AppContext.jsx'
 import RatingsAndReviewsContext from "./RatingsandReviewsContext.jsx"
 import Rating from "react-rating"
 import CharacteristicInReview from "./CharacteristicInReview.jsx"
+import NewReviewPhoto from "./NewReviewPhoto.jsx"
 
 const NewReview = ({ closeModal }) => {
   const { product } = useContext(AppContext)
@@ -43,6 +44,11 @@ const NewReview = ({ closeModal }) => {
 
   function handleEmailChange(e) {
     setEmail(e.target.value)
+  }
+
+  function handleImgUpload(e) {
+    let photo = URL.createObjectURL(e.target.files[0])
+    setPhotos([...photos, photo])
   }
 
   function getCharacteristics(chartics) {
@@ -131,20 +137,30 @@ const NewReview = ({ closeModal }) => {
             }
           </div>
 
-          <div><b>Upload your photos</b></div>
+          <div><b>Upload your photos</b>
+            <div>
+              {photos.map(photo => <NewReviewPhoto photo={photo}/>)}
+            </div>
+
+            {photos.length < 5 &&
+              <div>
+                <input type="file" accept="image/*" multiple={false} onChange={handleImgUpload}/>
+              </div>
+            }
+          </div>
 
           <div><b>What is your nickname?*</b>
             <div>
               <input type="text" maxLength="60" placeholder="Example: jackson11!" onChange={handleNameChange}/>
             </div>
-            <div>For privacy reasons, do not use your full name or email address.</div>
+            <div><i>For privacy reasons, do not use your full name or email address.</i></div>
           </div>
 
           <div><b>Your email*</b>
             <div>
               <input type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={handleEmailChange}/>
             </div>
-            <div>For authentication reasons, you will not be emailed.</div>
+            <div><i>For authentication reasons, you will not be emailed.</i></div>
           </div>
 
           <input type="submit" value="Submit" />
