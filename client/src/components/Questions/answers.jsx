@@ -8,7 +8,7 @@ import AnswerPhoto from './answerPhoto.jsx';
 
 const Answers = (props) => {
   const [reported, setReported] = useState(false)
-  const [helpful, setHelpful] = useState(helpfulness)
+  const [helpful, setHelpful] = useState(props.answer.helpfulness)
   const [helpfulClicked, setHelpfulClicked] = useState(false)
 
   const { body, date, answerer_name, helpfulness, photos } = props.answer
@@ -22,7 +22,7 @@ const Answers = (props) => {
   function incrementHelpful(event) {
     event.preventDefault()
     if (!helpfulClicked) {
-      axios.put(`/api/qa/questions/${answer_id}/helpful`)
+      axios.put(`/api/qa/answers/${answer_id}/helpful`)
         .then(setHelpful(helpful + 1))
         .then(setHelpfulClicked(true))
     }
@@ -31,7 +31,7 @@ const Answers = (props) => {
   function reportReview(event) {
     event.preventDefault()
     if (!reported) {
-      axios.put(`/api/qa/questions/${answer_id}/report`)
+      axios.put(`/api/qa/answers/${answer_id}/report`)
         .then(setReported(true))
     }
   }
