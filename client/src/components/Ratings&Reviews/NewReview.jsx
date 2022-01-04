@@ -11,10 +11,11 @@ const NewReview = ({ closeModal }) => {
   const [rate, setRate] = useState(0)
   const [recommened, setRecommended] = useState('Yes')
   const [charticsRating, setCharticsRating] = useState({})
-  const [summary, setSummary] = useState()
-  const [photos, setPhotos] = useState()
-  const [nickName, setNickName] = useState()
-  const [email, setEmail] = useState()
+  const [summary, setSummary] = useState('')
+  const [body, setBody] = useState('')
+  const [photos, setPhotos] = useState([])
+  const [nickName, setNickName] = useState('')
+  const [email, setEmail] = useState('')
 
   function handleRatingChange(newRate) {
     setRate(newRate)
@@ -26,6 +27,14 @@ const NewReview = ({ closeModal }) => {
 
   function changeCharticRating(e, charticId) {
     setCharticsRating({...charticsRating, [charticId]: e.target.value})
+  }
+
+  function handleSummaryChange(e) {
+    setSummary(e.target.value)
+  }
+
+  function handleBodyChange(e) {
+    setBody(e.target.value)
   }
 
   function getCharacteristics(chartics) {
@@ -87,10 +96,33 @@ const NewReview = ({ closeModal }) => {
           <div><b>Characteristics*</b>
             {characteristics}
           </div>
+
           <div><b>Review Summary</b>
-            <input type="text" placeholder="Example: Best purchase ever!" maxLength="60" style={{width: "30%"}}/>
+            <div>
+              <input type="text"
+                placeholder="Example: Best purchase ever!"
+                maxLength="60"
+                onChange={handleSummaryChange}
+                style={{width: "30%"}}/>
+            </div>
           </div>
-          <div><b>Review Body *</b></div>
+
+          <div><b>Review Body *</b>
+            <div>
+              <textarea
+                placeholder="Why did you like the product or not?"
+                minLength="50"
+                maxLength="1000"
+                onChange={handleBodyChange}
+              />
+            </div>
+
+            {body.length >= 50
+              ? <div>Minimum reached</div>
+              : <div>Minimum required characters left: {50 - body.length}</div>
+            }
+          </div>
+
           <div><b>Upload your photos</b></div>
           <div><b>What is your nickname*</b></div>
           <div><b>Your email*</b></div>
