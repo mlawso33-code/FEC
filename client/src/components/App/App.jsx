@@ -26,9 +26,9 @@ const App = () => {
       <AppContext.Provider value={{
         product
       }} >
-        <Overview />
+        {/* <Overview /> */}
         {/* <RelatedItems /> */}
-        <Questions />
+        {/* <Questions /> */}
         <RatingsAndReviews />
       </AppContext.Provider>
     </div>

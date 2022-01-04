@@ -8,7 +8,7 @@ const StyleOptions = () => {
 
   return (
     <div>
-      Options!
+      Options
       {styles.length &&
       <>
       <div className='stylePics'>

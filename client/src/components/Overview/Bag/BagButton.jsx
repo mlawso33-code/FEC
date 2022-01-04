@@ -3,12 +3,14 @@ import OverviewContext from '../OverviewContext.jsx';
 import AppContext from '../../App/AppContext.jsx';
 
 const BagButton = (props) => {
-  const { currentStyle, cart, setCart, selectedSize, selectedQuantity} = useContext(OverviewContext);
+  const { currentStyle, cart, setCart, selectedSize, selectedQuantity, price} = useContext(OverviewContext);
   const {product} = useContext(AppContext);
 
   function addToBag (event) {
     if (currentStyle) {
-      let itemForPurchase = {Product: product.name, Style: currentStyle.name, Size: selectedSize.size, selectedQuantity }
+      let totalPrice = (price * Number(selectedQuantity));
+      console.log('price, total price', price, totalPrice)
+      let itemForPurchase = {Product: product.name, Style: currentStyle.name, Size: selectedSize.size, selectedQuantity, Price: totalPrice }
 
       setCart( oldCart =>  [...oldCart, itemForPurchase])
     }
@@ -16,8 +18,7 @@ const BagButton = (props) => {
 
   return (
     <div>
-      {console.log('cart:::', currentStyle)}
-      {console.log('product:::', product.name)}
+      {console.log('cart:::', cart)}
       <input type='button' value='Add to bag' onClick={event => addToBag(event)}/>
       </div>
   )

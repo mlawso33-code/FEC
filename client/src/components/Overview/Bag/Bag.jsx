@@ -11,7 +11,6 @@ const Bag = () => {
 
   return (
     <div className='puchaseOptions'>
-       {console.log(currentStyle)}
        <OverviewContext.Provider value={{currentStyle, selectedSize, setSelectedSize, cart, setCart, selectedQuantity, setSelectedQuantity}}>
         <SizeSelect />
         <Quantity />
