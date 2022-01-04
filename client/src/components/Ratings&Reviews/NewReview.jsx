@@ -28,8 +28,8 @@ const NewReview = ({ closeModal }) => {
     setRecommended(e.target.value)
   }
 
-  function changeCharticRating(e, charticId) {
-    setCharticsRating({...charticsRating, [charticId]: e.target.value})
+  function changeCharticRating(rating, charticId) {
+    setCharticsRating({...charticsRating, [charticId]: rating})
   }
 
   function handleSummaryChange(e) {
@@ -118,7 +118,7 @@ const NewReview = ({ closeModal }) => {
 
     axios.post('/api/reviews', formSubmission)
       .then(closeModal)
-      .then(alert('Your review has been submitted!'))
+      .then(alert('Thank you for your feedback, your review has been submitted!'))
   }
 
   return (
@@ -126,8 +126,7 @@ const NewReview = ({ closeModal }) => {
       <div style={modalContentStyle}>
         <div style={modalHeaderStyle} >
           <span style={modalCloseStyle} onClick={closeModal}>&times;</span>
-          <h2>Write Your Review</h2>
-          <h3>About the {product.name}</h3>
+          <h2>Write Your Review About the {product.name}</h2>
         </div>
 
         <form style={modalBodyStyle} onSubmit={handleSubmit}>
@@ -245,7 +244,9 @@ const modalContentStyle = {
   display: "block",
   width: "80%",
   maxWidth: "1000px",
-  backgroundColor: '#fff'
+  maxHeight: "800px",
+  backgroundColor: '#fff',
+  overflow: 'scroll'
 }
 
 const modalHeaderStyle = {

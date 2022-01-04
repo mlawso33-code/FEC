@@ -47,6 +47,7 @@ const modalStyle = {
 }
 
 const modalContentStyle = {
+  position: "relative",
   margin: "auto",
   display: "block",
   width: "80%",
