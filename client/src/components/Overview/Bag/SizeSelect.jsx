@@ -10,13 +10,14 @@ const SizeSelect = (props) => {
     setSelectedSize(JSON.parse(event.target.value));
   }
 
+  //cats
+
   function sizes () {
     let sizeA = [{size: 'SELECT SIZE', id: 'null'}];
     if (currentStyle) {
     for (let key in currentStyle.skus) {
       sizeA.push({size: currentStyle.skus[key].size, quantity: currentStyle.skus[key].quantity, id:key})
     }
-    console.log('arr', sizeA);
   }
     return sizeA;
   }

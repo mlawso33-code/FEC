@@ -16,8 +16,7 @@ const BagButton = (props) => {
 
   return (
     <div>
-      {console.log('cart:::', currentStyle)}
-      {console.log('product:::', product.name)}
+      {console.log('cart:::', cart)}
       <input type='button' value='Add to bag' onClick={event => addToBag(event)}/>
       </div>
   )
