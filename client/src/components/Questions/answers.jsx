@@ -16,9 +16,6 @@ const Answers = (props) => {
   const answer_id = props.answer
   const check = props.check
 
-  console.log('answer id::::', answer_id)
-  console.log('helpful::::', helpful)
-
   function incrementHelpful(event) {
     event.preventDefault()
     if (!helpfulClicked) {

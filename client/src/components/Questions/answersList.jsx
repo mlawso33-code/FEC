@@ -19,20 +19,23 @@ const AnswersList = (props) => {
   const displayedAnswers = answers.slice(0, numOfAnswers)
 
   function increaseAnswers() {
-    setNumOfAnswers(numOfAnswers + 1)
+    setNumOfAnswers(numOfAnswers === answers.length ? 2 : answers.length)
   }
 
   return (
     <div>
       <div style={{ marginTop: "10px" }}>
         {displayedAnswers.map((answer =>
-          <Answers key={answer.answer_id} answer={answer} question_id={question_id} check={check}/>
+          <Answers key={answer.answer_id} answer={answer} question_id={question_id} check={check} />
         ))}
       </div>
-      {(numOfAnswers < answers.length || answers.length >= 1) &&
-        <button style={{ cursor: "pointer" }} onClick={increaseAnswers}>Load More Answers</button>}
+      {answers.length > 2 && (
+        <div>
+          <strong style={{ cursor: "pointer" }} onClick={increaseAnswers}>
+            {numOfAnswers === answers.length ? 'Hide' : 'Show More'} Answers</strong>
+        </div>)}
       {answers.length === 0 &&
-        <p style={{color:"yellow", fontSize:"10px"}}>No answers for this question. Click <span style={{color:"green"}}>Add Answer</span> button on the right!</p>}
+        <p style={{ color: "yellow", fontSize: "10px" }}>No answers for this question. Click <span style={{ color: "green" }}>Add Answer</span> button on the right!</p>}
     </div>
   )
 }
