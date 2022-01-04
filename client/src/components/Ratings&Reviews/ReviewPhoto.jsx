@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const ReviewPhoto = ({photo}) => {
+const ReviewPhoto = ({ photo }) => {
   const [show, setShow] = useState(false)
 
   function showModal() {
@@ -31,7 +31,8 @@ const photoStyle = {
   border: "1px solid #ddd",
   borderRadius: "4px",
   padding: "5px",
-  width: "150px",
+  width: "125px",
+  height: "125px",
   cursor: "pointer"
 }
 

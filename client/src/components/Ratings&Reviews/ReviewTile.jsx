@@ -1,12 +1,10 @@
 import React, {useState, useContext} from 'react';
-import ReviewContext from './ReviewContext.jsx';
 import axios from 'axios';
 import StarRating from './StarRating.jsx';
 import moment from 'moment';
 import ReviewPhoto from './ReviewPhoto.jsx';
 
 const ReviewTile = ({review}) => {
-  const {fetchReviews} = useContext(ReviewContext)
   const {review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos} = review
   const [fullReview, setFullReview] = useState(false)
   const [reported, setReported] = useState(false)

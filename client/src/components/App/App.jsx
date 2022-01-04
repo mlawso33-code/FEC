@@ -3,7 +3,7 @@ import AppContext from './AppContext.jsx';
 import axios from 'axios';
 import Overview from '../Overview/Overview.jsx';
 import Questions from '../Questions/Questions.jsx';
-import Ratings from '../Ratings/ReviewList.jsx';
+import RatingsAndReviews from '../Ratings&Reviews/Ratings&Reviews.jsx';
 // import Related from '../Related/Related.jsx';
 
 
@@ -26,10 +26,10 @@ const App = () => {
       <AppContext.Provider value={{
         product
       }} >
-        <Overview />
+        {/* <Overview /> */}
         {/* <RelatedItems /> */}
-        <Questions />
-        <Ratings />
+        {/* <Questions /> */}
+        <RatingsAndReviews />
       </AppContext.Provider>
     </div>
   )

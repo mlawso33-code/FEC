@@ -1,8 +1,8 @@
-import React, {useContext} from "react"
-import ReviewContext from './ReviewContext.jsx'
+import React, { useContext } from "react"
+import RatingsAndReviewsContext from "./RatingsandReviewsContext.jsx"
 
 const SortDropDown = () => {
-  const {handleSortChange} = useContext(ReviewContext)
+  const { handleSortChange } = useContext(RatingsAndReviewsContext)
 
   return (
     <select onChange={event => handleSortChange(event)}>

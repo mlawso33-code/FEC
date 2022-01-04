@@ -1,0 +1,58 @@
+import React, {useState, useContext} from 'react'
+import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
+import ReviewTile from './ReviewTile.jsx'
+import SortDropDown from './SortDropDown.jsx'
+import NewReview from './NewReview.jsx'
+
+
+const ReviewList = () => {
+  const { reviews, filteredReviews} = useContext(RatingsAndReviewsContext)
+  const [numOfDisplayed, setNumOfDisplayed] = useState(2)
+  const [addingReview, setAddingReview] = useState(false)
+  let allReviews = []
+
+  if (JSON.stringify(filteredReviews) === '[]') {
+    allReviews = reviews
+  } else {
+    allReviews = filteredReviews
+  }
+
+  let displayedReviews = allReviews.slice(0, numOfDisplayed)
+
+  function handleMoreReviewsClick() {
+    setNumOfDisplayed(numOfDisplayed + 2)
+  }
+
+  function handleAddReviewClick() {
+    setAddingReview(true)
+  }
+
+  function closeNewReviewModal() {
+    setAddingReview(false)
+  }
+
+  return (
+    <div>
+      <div style={{marginBottom: "20px"}}>
+        {reviews.length} reviews, sorted by <SortDropDown />
+      </div>
+
+      <div style={{maxHeight: "50vh", overflow: "scroll"}}>
+      {displayedReviews.map(review =>
+        <ReviewTile key={review.review_id} review={review}/>)}
+      </div>
+
+      {numOfDisplayed < allReviews.length &&
+        <button onClick={handleMoreReviewsClick}>More Reviews</button>
+      }
+
+      <button onClick={handleAddReviewClick}>Add Review +</button>
+      {addingReview &&
+        <NewReview closeModal={closeNewReviewModal}/>
+      }
+
+    </div>
+  )
+}
+
+export default ReviewList

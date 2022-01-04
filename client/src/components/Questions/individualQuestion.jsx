@@ -4,13 +4,15 @@ import axios from 'axios';
 import AppContext from '../App/AppContext.jsx';
 
 import AnswersList from './answersList.jsx';
+import AnswerModal from './answerModal.jsx';
 
 
 const IndividualQuestion = (props) => {
-  const {question_helpfulness, question_body, question_id} = props.question
+  const { question_helpfulness, question_body, question_id } = props.question
   const [helpful, setHelpful] = useState(question_helpfulness)
   const [helpfulClicked, setHelpfulClicked] = useState(false)
-  const [reported, setReported] = useState(false)
+  const [add_answer, setAdd] = useState(false)
+  const [answers, setAnswers] = useState([])
 
   function incrementHelpful(event) {
     event.preventDefault()
@@ -21,16 +23,21 @@ const IndividualQuestion = (props) => {
     }
   }
 
-  function reportQuestion(event) {
-    event.preventDefault()
-    if(!reported) {
-      axios.put(`/api/qa/questions/${question_id}/report`)
-      .then(setReported(true))
-    }
+  function fetchAnswers() {
+    axios
+      .get(`/api/qa/questions/${question_id}/answers?page=1&count=100`)
+      .then(res => setAnswers(res.data.results))
+
   }
 
+  useEffect(() => {
+    fetchAnswers()
+  }, [])
 
-  //const helpfulNum = props.question.question_helpfulness
+  function addAnswer() {
+    setAdd(!add_answer)
+  }
+
   return (
     <div style={{ maxHeight: "20vh", overflow: "scroll" }}>
       <div style={{ border: "solid" }}>
@@ -41,10 +48,12 @@ const IndividualQuestion = (props) => {
             <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
             <span>({helpful})</span>
             |
-            <a href='' style={{ color: "black" }} onClick={reportQuestion}>{reported ? 'Reported' : 'Report'}</a>
+            {/* need to change button back to text*/}
+            <button style={{ color: "black" }} onClick={addAnswer}>Add Answer</button>
+            <div>{add_answer ? <AnswerModal toggle={addAnswer} question_id={question_id} fetchAnswers={fetchAnswers} /> : null}</div>
           </div>
         </div>
-        <AnswersList question_id={question_id} question={props.question} fetchQuestions={props.fetchQuestions} />
+        <AnswersList question_id={question_id} question={props.question} fetchQuestions={props.fetchQuestions} fetchAnswers={fetchAnswers} answers={answers} />
       </div>
     </div>
   )
