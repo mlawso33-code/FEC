@@ -6,7 +6,7 @@
   "scripts": {
     "test": "",
     "react-dev": "webpack --config ./webpack.config.js --mode development -w",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js "
   },
   "repository": {
     "type": "git",

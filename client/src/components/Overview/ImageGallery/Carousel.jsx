@@ -10,7 +10,9 @@ const Carousel = (props) => {
 
 
   return (
+    <span>
       <img src={props.pic.url} className={currentPic === props.pic.url ? 'selectedCarouselItem' :'carouselItem'} onClick={event => handleClick(event)}/>
+    </span>
   )
 }
 //there's got to be a cleaner way to highlight?
