@@ -4,7 +4,8 @@ const CharacteristicInReview = ({ charticName, charticId, changeCharticRating })
   const [selected, setSelected] = useState("none selected")
 
   function changeSelected(e) {
-    changeCharticRating(e, charticId)
+    let rating = Number(e.target.value)
+    changeCharticRating(rating, charticId)
     setSelected(e.target.id)
   }
 

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
-import AppContext from '../App/AppContext.jsx'
-import RatingsAndReviewsContext from "./RatingsandReviewsContext.jsx"
+import AppContext from '../../App/AppContext.jsx'
+import RatingsAndReviewsContext from "../RatingsandReviewsContext.jsx"
 import Rating from "react-rating"
 import CharacteristicInReview from "./CharacteristicInReview.jsx"
 import NewReviewPhoto from "./NewReviewPhoto.jsx"
@@ -16,6 +16,7 @@ const NewReview = ({ closeModal }) => {
   const [summary, setSummary] = useState('')
   const [body, setBody] = useState('')
   const [photos, setPhotos] = useState([])
+  const [currentPhoto, setCurrentPhoto] = useState('')
   const [nickName, setNickName] = useState('')
   const [email, setEmail] = useState('')
 
@@ -27,8 +28,8 @@ const NewReview = ({ closeModal }) => {
     setRecommended(e.target.value)
   }
 
-  function changeCharticRating(e, charticId) {
-    setCharticsRating({...charticsRating, [charticId]: e.target.value})
+  function changeCharticRating(rating, charticId) {
+    setCharticsRating({...charticsRating, [charticId]: rating})
   }
 
   function handleSummaryChange(e) {
@@ -47,9 +48,14 @@ const NewReview = ({ closeModal }) => {
     setEmail(e.target.value)
   }
 
+  function handlePhotoChange(e) {
+    setCurrentPhoto(e.target.value)
+  }
+
   function handleImgUpload(e) {
-    let photo = URL.createObjectURL(e.target.files[0])
-    setPhotos([...photos, photo])
+    e.preventDefault()
+    setPhotos([...photos, currentPhoto])
+    setCurrentPhoto('')
   }
 
   function getCharacteristics(chartics) {
@@ -69,7 +75,7 @@ const NewReview = ({ closeModal }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // do all the manditory checks
+    // Do all the manditory checks
     let areErrors = false
     let errors = 'You must enter the following:\n'
 
@@ -98,7 +104,6 @@ const NewReview = ({ closeModal }) => {
       return
     }
 
-    //might need to stringify charticsRating
     let formSubmission = {
       "product_id": product_id,
       "rating": rate,
@@ -113,7 +118,7 @@ const NewReview = ({ closeModal }) => {
 
     axios.post('/api/reviews', formSubmission)
       .then(closeModal)
-      .then(alert('Your review has been submitted!'))
+      .then(alert('Thank you for your feedback, your review has been submitted!'))
   }
 
   return (
@@ -121,8 +126,7 @@ const NewReview = ({ closeModal }) => {
       <div style={modalContentStyle}>
         <div style={modalHeaderStyle} >
           <span style={modalCloseStyle} onClick={closeModal}>&times;</span>
-          <h2>Write Your Review</h2>
-          <h3>About the {product.name}</h3>
+          <h2>Write Your Review About the {product.name}</h2>
         </div>
 
         <form style={modalBodyStyle} onSubmit={handleSubmit}>
@@ -194,7 +198,8 @@ const NewReview = ({ closeModal }) => {
 
             {photos.length < 5 &&
               <div>
-                <input type="file" accept="image/*" multiple={false} onChange={handleImgUpload}/>
+                <input type="text" placeholder="Past URL here" onChange={handlePhotoChange} value={currentPhoto}/>
+                <button onClick={handleImgUpload}>Add Photo</button>
               </div>
             }
           </div>
@@ -239,7 +244,9 @@ const modalContentStyle = {
   display: "block",
   width: "80%",
   maxWidth: "1000px",
-  backgroundColor: '#fff'
+  maxHeight: "800px",
+  backgroundColor: '#fff',
+  overflow: 'scroll'
 }
 
 const modalHeaderStyle = {
