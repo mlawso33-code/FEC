@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
-import AppContext from '../App/AppContext.jsx';
+import AppContext from '../../App/AppContext.jsx';
 
-import AnswersList from './answersList.jsx';
-import AnswerModal from './answerModal.jsx';
+import AnswersList from '../answers/AnswersList.jsx';
+import AnswerModal from '../answers/AnswerModal.jsx';
 
 
 const IndividualQuestion = (props) => {

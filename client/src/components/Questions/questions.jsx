@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 import AppContext from '../App/AppContext.jsx';
-import QuestionContext from './QuestionContext.jsx';
+import QuestionContext from './question/QuestionContext.jsx';
 
-import QuestionsList from './questionsList.jsx';
+import QuestionsList from './question/QuestionsList.jsx';
 
 
 const Questions = () => {

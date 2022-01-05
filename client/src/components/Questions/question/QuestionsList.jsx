@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
-import AppContext from '../App/AppContext.jsx';
+import AppContext from '../../App/AppContext.jsx';
 import QuestionContext from './QuestionContext.jsx';
 
-//import SearchQuestion from './searchQuestion.jsx';
-import IndividualQuestion from './individualQuestion.jsx';
-import QuestionModal from './questionModal.jsx';
+import IndividualQuestion from './IndividualQuestion.jsx';
+import QuestionModal from './QuestionModal.jsx';
 
 const QuestionsList = () => {
   const { product } = useContext(AppContext)
@@ -37,25 +36,7 @@ const QuestionsList = () => {
     }
   }, [product])
 
-
-
-  //need to remove duplicate questions
   const handleMoreQuestions = () => {
-    // displayedQuestions.map((val => {
-    //   if (val.question_body === 'test question 123') {
-    //     setMore('NO MORE QUESTIONS')
-    //     setNumOfQuestions(4)
-    //   } else {
-    //     setNumOfQuestions(numOfQuestions + 2)
-    //   }
-    // }))
-    // for (var i = 0; i < displayedQuestions; i++) {
-    //   if (displayedQuestions[i].question_body === displayedQuestions[i+1].question_body) {
-    //     displayedQuestions = displayedQuestions.slice(i, 1);
-    //   } else {
-    //     return displayedQuestions
-    //   }
-    // }
     setNumOfQuestions(numOfQuestions + 2)
   }
 
@@ -71,7 +52,6 @@ const QuestionsList = () => {
   return (
     <div>
       <div>
-        {/* find a way to make search filter into a component */}
         <form>
           <input style={inputStyle} type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={search}
             onChange={(e) => {
@@ -125,3 +105,4 @@ const buttonStyle = {
   fontSize: "17px",
   cursor: "pointer"
 }
+

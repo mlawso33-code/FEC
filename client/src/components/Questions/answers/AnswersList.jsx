@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import AppContext from '../App/AppContext.jsx';
 import axios from 'axios';
 import moment from 'moment';
 
-import IndividualQuestion from './individualQuestion.jsx';
-import Answers from './answers.jsx';
+import AppContext from '../../App/AppContext.jsx';
 
-
+import IndividualQuestion from '../question/IndividualQuestion.jsx';
+import Answers from './Answers.jsx';
 
 const AnswersList = (props) => {
   const [page, setPage] = useState(1)

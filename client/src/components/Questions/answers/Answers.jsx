@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import AppContext from '../App/AppContext.jsx';
 import axios from 'axios';
 import moment from 'moment';
 
-import AnswersList from './answersList.jsx';
-import AnswerPhoto from './answerPhoto.jsx';
+import AppContext from '../../App/AppContext.jsx';
+
+import AnswersList from './AnswersList.jsx';
+import AnswerPhoto from './AnswerPhoto.jsx';
 
 const Answers = (props) => {
   const [helpful, setHelpful] = useState(props.answer.helpfulness)
