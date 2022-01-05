@@ -11,21 +11,19 @@ const QuestionsList = () => {
   const { product } = useContext(AppContext)
   const product_id = product.id
 
-
   const [questions, setQuestions] = useState([])
   const [sort, setSort] = useState('helpfulness')
   const [flag, setFlag] = useState(false)
   const [numOfQuestions, setNumOfQuestions] = useState(4)
   const [search, setSearch] = useState('')
-  const [more, setMore] = useState('MORE ANSWERED QUESTIONS')
 
   var displayedQuestions = questions.slice(0, numOfQuestions)
 
-  const afterThree = search.split('').slice(3, search.length - 1).join('')
+  const afterThree = search.split('').slice(2, search.length - 1).join('')
 
   function fetchQuestions() {
     axios
-      .get(`/api/qa/questions/?page=1&count=100&sort=${sort}&product_id=${product_id}`)
+      .get(`/api/qa/questions/?page=1&count=25&sort=${sort}&product_id=${product_id}`)
       .then(res => setQuestions(res.data.results))
 
   }
@@ -37,7 +35,7 @@ const QuestionsList = () => {
   }, [product])
 
   const handleMoreQuestions = () => {
-    setNumOfQuestions(numOfQuestions + 2)
+    setNumOfQuestions(numOfQuestions === questions.length ? 2 : questions.length)
   }
 
   function addQuestion() {
@@ -60,7 +58,8 @@ const QuestionsList = () => {
           <button type="submit" style={buttonStyle}><i className="fas fa-search"></i></button>
         </form>
       </div>
-      <div style={{ display: "block", marginTop: "20px", maxHeight: "50vh", overflow: "scroll" }}>
+      <br />
+      <div>
         {displayedQuestions.filter((val) => {
           if (search === '') {
             return val
@@ -72,18 +71,25 @@ const QuestionsList = () => {
         ))
         }
       </div>
-      <span>
-        {numOfQuestions < questions.length &&
-          <button onClick={handleMoreQuestions}>{more}</button>}
-        <button onClick={addQuestion}> ADD A QUESTION + </button>
-        <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} fetchQuestions={fetchQuestions} /> : null}</div></span>
+      <br />
+      <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+        {questions.length > 2 && (
+          <div>
+            <strong style={pointer} onClick={handleMoreQuestions}>
+              {numOfQuestions === questions.length ? 'Hide' : 'More Answered'} Questions</strong>
+          </div>)}
+        <strong style={pointer} onClick={addQuestion}> Add a Question + </strong>
+      </div>
+      <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} fetchQuestions={fetchQuestions} /> : null}</div>
     </div>
   )
 }
 
 export default QuestionsList
 
-
+const pointer = {
+  cursor: "pointer"
+}
 const flexRow = {
   display: "flex",
   flexDirection: "row",
