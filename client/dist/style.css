@@ -109,7 +109,7 @@ a {
 }
 
 .numReviews{
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-size: 20px;
   font-weight: bold;
 }
@@ -125,7 +125,7 @@ a {
 .allTiles {
   max-height: 55vh;
   overflow-y: scroll;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 ::-webkit-scrollbar {
@@ -156,20 +156,99 @@ a {
   color: #b8c4d4
 }
 
+/* Review Tile */
+.nameNdateReview {
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-right: 7px;
+}
 
+.fa-check-circle {
+  margin-right: 7px;
+}
 
+.reviewSummary {
+  font-weight: bold;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20px;
+}
 
+.reviewTileBody {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250ch;
+}
 
+.tileAnchor {
+  color: black;
+}
 
+.reviewTilePhoto {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 125px;
+  height: 125px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
 
+.photoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background: rgba(0, 0, 0, 0.6);
+}
 
+.photoModalHeader {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
+.photoModalContent {
+  position: relative;
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1000px;
+}
 
+.recommendedProduct {
+  margin-bottom: 15px;
+}
 
+.fa-check {
+  margin-right: 7px;
+}
+.sellerResponse {
+  background-color: gray;
+}
 
+.reviewTileFooter {
+  font-size: 15px;
+}
 
+.helpfulReview {
+  margin-right: 7px;
+}
 
-
+.divider {
+  margin-right: 10px;
+  margin-left: 10px;
+}
 
 
 

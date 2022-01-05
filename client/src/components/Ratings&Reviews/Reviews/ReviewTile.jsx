@@ -37,24 +37,24 @@ const ReviewTile = ({review}) => {
   return (
     <div>
       {/* Review head */}
-      <div>
-        <StarRating rating={rating}/>
+      <StarRating rating={rating}/>
+      <div className='nameNdateReview'>
         {/* Conditionally render icon if user is verified */}
         <i className="fa fa-check-circle" aria-hidden="true"></i>
         <span>{reviewer_name}, {moment(date).format('LL')} </span>
       </div>
 
-      <div style={summaryStyle}>{summary}</div>
+      <div className="reviewSummary">{summary}</div>
 
       {/* Review body */}
       <div>
         {fullReview
           ? <p>{body}</p>
-          : <p style={bodyStyle}>{body}</p>
+          : <p className="reviewTileBody">{body}</p>
         }
 
         {body.length > 250 && !fullReview &&
-          <a href='' style={{color: "black"}} onClick={showMoreClick}>Show more</a>
+          <a href='' className='tileAnchor' onClick={showMoreClick}>Show more</a>
         }
 
         <div>
@@ -67,7 +67,7 @@ const ReviewTile = ({review}) => {
 
       {/* Conditionally render div if recommended */}
       {recommend &&
-        <div>
+        <div className='recommendedProduct'>
           <i className="fa fa-check" aria-hidden="true"></i>
           <span>I recommend this product</span>
         </div>
@@ -75,19 +75,19 @@ const ReviewTile = ({review}) => {
 
       {/* Conditionally render if response from seller */}
       {response &&
-      <div style={{backgroundColor: "grey"}}>
-        <div style={{fontWeight: "bold"}}>Response from seller:</div>
+      <div className='sellerResponse'>
+        <div><b>Response from seller:</b></div>
         <p>{response}</p>
       </div>
       }
 
       {/* Review footer */}
-      <div>
-        <span>Helpful?</span>
-        <a href='' style={{color: "black"}} onClick={incrementHelpful}>Yes</a>
+      <div className='reviewTileFooter'>
+        <span className='helpfulReview'>Helpful?</span>
+        <a href='' className='tileAnchor' onClick={incrementHelpful}>Yes</a>
         <span>({helpful})</span>
-        |
-        <a href='' style={{color: "black"}} onClick={reportReview}>{reported ? 'Reported' : 'Report'}</a>
+        <span className='divider'>|</span>
+        <a href='' className='tileAnchor' onClick={reportReview}>{reported ? 'Reported' : 'Report'}</a>
       </div>
 
       <hr/>
@@ -97,19 +97,3 @@ const ReviewTile = ({review}) => {
 }
 
 export default ReviewTile
-
-
-const summaryStyle = {
-  fontWeight: "bold",
-  width: "100%",
-  whiteSpace: "nowrap",
-  overflow: "hidden",
-  textOverflow: "ellipsis"
-}
-
-const bodyStyle = {
-  whiteSpace: "nowrap",
-  overflow: "hidden",
-  textOverflow: "ellipsis",
-  maxWidth: "250ch"
-}
