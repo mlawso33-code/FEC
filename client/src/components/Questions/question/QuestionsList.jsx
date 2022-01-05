@@ -11,13 +11,11 @@ const QuestionsList = () => {
   const { product } = useContext(AppContext)
   const product_id = product.id
 
-
   const [questions, setQuestions] = useState([])
   const [sort, setSort] = useState('helpfulness')
   const [flag, setFlag] = useState(false)
   const [numOfQuestions, setNumOfQuestions] = useState(4)
   const [search, setSearch] = useState('')
-  //const [more, setMore] = useState('MORE ANSWERED QUESTIONS')
 
   var displayedQuestions = questions.slice(0, numOfQuestions)
 
@@ -72,11 +70,11 @@ const QuestionsList = () => {
         ))
         }
       </div>
-      <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+      <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
         {questions.length > 2 && (
           <div>
             <strong style={pointer} onClick={handleMoreQuestions}>
-              {numOfQuestions === questions.length ? 'Hide' : 'Show More'} Questions</strong>
+              {numOfQuestions === questions.length ? 'Hide' : 'More Answered'} Questions</strong>
           </div>)}
         <strong style={pointer} onClick={addQuestion}> Add a Question + </strong>
       </div>

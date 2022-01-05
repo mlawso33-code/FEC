@@ -53,12 +53,11 @@ const IndividualQuestion = (props) => {
     <div style={{ maxHeight: "20vh", overflow: "scroll" }}>
       <div style={{ border: "solid" }}>
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <strong>Q: </strong>{question_body}
+          <strong style={{marginRight:"5px"}}>Q: </strong> {question_body}
           <div style={{ marginLeft: "auto" }}>
             <span>Helpful? | </span>
             <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
-            <span>({helpful})</span>  <a href='' style={{ color: "black" }} onClick={reportQuestion}>{reportedQuestion ? 'Reported' : 'Report'}</a>
-            |
+            <span>({helpful})</span> | <a href='' style={{ color: "black" }} onClick={reportQuestion}>{reportedQuestion ? 'Reported' : 'Report'}</a> |
             <strong style={addButton} onClick={addAnswer}> Add Answer</strong>
             <div>{add_answer ? <AnswerModal toggle={addAnswer} question_id={question_id} fetchAnswers={fetchAnswers} /> : null}</div>
           </div>

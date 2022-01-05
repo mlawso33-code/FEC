@@ -21,7 +21,9 @@ const AnswersList = (props) => {
 
   return (
     <div>
-      <div style={{ marginTop: "10px" }}>
+      <br />
+      <strong>A: </strong>
+      <div style={{ marginLeft: "5px" }}>
         {displayedAnswers.map((answer =>
           <Answers key={answer.answer_id} answer={answer} question_id={question_id} />
         ))}
@@ -29,7 +31,7 @@ const AnswersList = (props) => {
       <br />
       {answers.length > 2 && (
         <div>
-          <strong style={{ display:"inline-block", cursor: "pointer", textAlign:"center", width:"100%"}} onClick={increaseAnswers}>
+          <strong style={{ display: "inline-block", cursor: "pointer", textAlign: "center", width: "100%" }} onClick={increaseAnswers}>
             {numOfAnswers === answers.length ? 'Hide' : 'Show More'} Answers</strong>
         </div>)}
       {answers.length === 0 &&

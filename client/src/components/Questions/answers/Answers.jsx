@@ -25,9 +25,9 @@ const Answers = (props) => {
   }
 
   return (
-    <div>
-      <div><strong>A: </strong>{body}</div>
-      <span style={{ marginLeft: "10px", fontSize: "15px", fontStyle: "italic" }}>
+    <div style={{marginBottom:"10px"}}>
+      <div>{body}</div>
+      <span style={{ marginLeft: "20px", fontSize: "15px", fontStyle: "italic" }}>
         by {answerer_name}, {moment(date).format('LL')} |
         Helpful? <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
         <span>({helpful})</span>
