@@ -8,12 +8,14 @@ import AnswerModal from './answerModal.jsx';
 
 
 const IndividualQuestion = (props) => {
-  const { question_helpfulness, question_body, question_id } = props.question
+  const { question_helpfulness, question_body, question_id, reported } = props.question
   const [helpful, setHelpful] = useState(question_helpfulness)
   const [helpfulClicked, setHelpfulClicked] = useState(false)
   const [add_answer, setAdd] = useState(false)
-  const [check, setCheck] = useState(false)
+  const [reportedQuestion, setReportedQuestion] = useState(reported)
   const [answers, setAnswers] = useState([])
+
+
 
   function incrementHelpful(event) {
     event.preventDefault()
@@ -39,29 +41,37 @@ const IndividualQuestion = (props) => {
     setAdd(!add_answer)
   }
 
-  function sellerCheck() {
-    setCheck(!check)
+  function reportQuestion(event) {
+    event.preventDefault()
+    if (!reportedQuestion) {
+      axios.put(`/api/qa/questions/${question_id}/report`)
+        .then(setReportedQuestion(true))
+    }
   }
 
   return (
     <div style={{ maxHeight: "20vh", overflow: "scroll" }}>
       <div style={{ border: "solid" }}>
         <div style={{ display: "flex", flexDirection: "row" }}>
-          Q: {question_body}
+          <strong>Q: </strong>{question_body}
           <div style={{ marginLeft: "auto" }}>
-            <span>Helpful?</span>
+            <span>Helpful? | </span>
             <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
-            <span>({helpful})</span>
+            <span>({helpful})</span>  <a href='' style={{ color: "black" }} onClick={reportQuestion}>{reportedQuestion ? 'Reported' : 'Report'}</a>
             |
-            {/* need to change button back to text*/}
-            <button style={{ color: "black" }} onClick={addAnswer}>Add Answer</button>
-            <div>{add_answer ? <AnswerModal toggle={addAnswer} question_id={question_id} fetchAnswers={fetchAnswers} check={check} sellerCheck={sellerCheck}/> : null}</div>
+            <strong style={addButton} onClick={addAnswer}> Add Answer</strong>
+            <div>{add_answer ? <AnswerModal toggle={addAnswer} question_id={question_id} fetchAnswers={fetchAnswers} /> : null}</div>
           </div>
         </div>
-        <AnswersList question_id={question_id} question={props.question} fetchQuestions={props.fetchQuestions} fetchAnswers={fetchAnswers} answers={answers} check={check}/>
+        <AnswersList question_id={question_id} question={props.question}
+          fetchQuestions={props.fetchQuestions} fetchAnswers={fetchAnswers} answers={answers} />
       </div>
     </div>
   )
 }
 
 export default IndividualQuestion
+
+const addButton = {
+  cursor: "pointer"
+}

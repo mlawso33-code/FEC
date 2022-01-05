@@ -14,8 +14,6 @@ const AnswersList = (props) => {
 
   const { question_id } = props.question
   const answers = props.answers
-  const check = props.check
-
   const displayedAnswers = answers.slice(0, numOfAnswers)
 
   function increaseAnswers() {
@@ -26,12 +24,13 @@ const AnswersList = (props) => {
     <div>
       <div style={{ marginTop: "10px" }}>
         {displayedAnswers.map((answer =>
-          <Answers key={answer.answer_id} answer={answer} question_id={question_id} check={check} />
+          <Answers key={answer.answer_id} answer={answer} question_id={question_id} />
         ))}
       </div>
+      <br />
       {answers.length > 2 && (
         <div>
-          <strong style={{ cursor: "pointer" }} onClick={increaseAnswers}>
+          <strong style={{ display:"inline-block", cursor: "pointer", textAlign:"center", width:"100%"}} onClick={increaseAnswers}>
             {numOfAnswers === answers.length ? 'Hide' : 'Show More'} Answers</strong>
         </div>)}
       {answers.length === 0 &&
