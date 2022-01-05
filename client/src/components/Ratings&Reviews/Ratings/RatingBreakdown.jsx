@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from "react"
-import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
+import RatingsAndReviewsContext from '../RatingsandReviewsContext.jsx'
 import AvgStarRating from "./AvgStarRating.jsx"
 import BreakDown from "./BreakDown.jsx"
 

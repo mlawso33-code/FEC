@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
+import RatingsAndReviewsContext from '../RatingsandReviewsContext.jsx'
 import ReviewTile from './ReviewTile.jsx'
 import SortDropDown from './SortDropDown.jsx'
 import NewReview from './NewReview.jsx'
