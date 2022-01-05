@@ -50,7 +50,7 @@ const IndividualQuestion = (props) => {
   }
 
   return (
-    <div style={{ maxHeight: "20vh", overflow: "scroll" }}>
+    <div>
       <div style={{ border: "solid" }}>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <strong style={{marginRight:"5px"}}>Q: </strong> {question_body}

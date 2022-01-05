@@ -58,7 +58,8 @@ const QuestionsList = () => {
           <button type="submit" style={buttonStyle}><i className="fas fa-search"></i></button>
         </form>
       </div>
-      <div style={{ display: "block", marginTop: "20px", maxHeight: "50vh", overflow: "scroll" }}>
+      <br />
+      <div>
         {displayedQuestions.filter((val) => {
           if (search === '') {
             return val
@@ -70,7 +71,8 @@ const QuestionsList = () => {
         ))
         }
       </div>
-      <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+      <br />
+      <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
         {questions.length > 2 && (
           <div>
             <strong style={pointer} onClick={handleMoreQuestions}>
