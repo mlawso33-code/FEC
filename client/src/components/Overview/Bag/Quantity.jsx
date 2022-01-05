@@ -11,7 +11,6 @@ const Quantity = (props) => {
       return ['...']
     }
     let max = (selectedSize.quantity <= 15 ? selectedSize.quantity : 15);
-    // let max = selectedSize
     for (let i = 1; i <= max; i++) {
       options.push(i);
     }
@@ -26,7 +25,7 @@ const Quantity = (props) => {
 
   return (
     <span>
-      <select name='QuantitySelect' onChange={event => handleChange(event)}>
+      <select name='QuantitySelect' disabled={!selectedSize.quantity} onChange={event => handleChange(event)}>
         {optionsArr.map(opt => <option value={opt} key={opt}>{opt}</option>)}
       </select>
     </span>

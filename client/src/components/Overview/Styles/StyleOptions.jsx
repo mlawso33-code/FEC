@@ -7,21 +7,17 @@ const StyleOptions = () => {
   const { styles } = useContext(OverviewContext);
 
   return (
-    <div>
-      Options
+    <div style={{display: 'inline-block', height: 'auto'}}>
+      <div>Options</div>
       {styles.length &&
       <>
       <div className='stylePics'>
-       {styles.map(style => <StylePic key={style.name} style={style}/>)}
+       {styles.map(item => <StylePic key={item.name} item={item}/>)}
       </div>
       </>
       }
     </div>
   )
-}
-
-let stylePics = {
-  height: 5
 }
 
 export default StyleOptions

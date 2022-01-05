@@ -6,12 +6,12 @@ import OverviewContext from '../OverviewContext.jsx';
 
 const Bag = () => {
   const [selectedSize, setSelectedSize] = useState({});
-  const [selectedQuantity, setSelectedQuantity] = useState(0);
-  const { currentStyle, cart, setCart } = useContext(OverviewContext);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const { currentStyle, cart, setCart, price } = useContext(OverviewContext);
 
   return (
     <div className='puchaseOptions'>
-       <OverviewContext.Provider value={{currentStyle, selectedSize, setSelectedSize, cart, setCart, selectedQuantity, setSelectedQuantity}}>
+       <OverviewContext.Provider value={{currentStyle, selectedSize, setSelectedSize, cart, setCart, selectedQuantity, setSelectedQuantity, price}}>
         <SizeSelect />
         <Quantity />
         <BagButton />

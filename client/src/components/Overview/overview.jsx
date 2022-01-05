@@ -8,17 +8,13 @@ import ProductOverview from './ProductInfo/ProductOverview.jsx'
 const Overview = () => {
   const { product } = useContext(AppContext)
   const [cart, setCart] = useState([]);
-  // if (styles.length) {
-  //   const [currentStyle, setCurrentStyle] = useState(styles[0]);
-  // }
-//woof
+
   const [currentStyle, setCurrentStyle] = useState();
   const [currentPic, setCurrentPic] = useState();
   const [price, setPrice] = useState();
   const [sale, setSale] = useState(false);
   const [popup, setPopup] = useState(false);
   const [styles, setStyles] = useState([]);
-  // const [related, setRelated] = useState([]);
 
   function fetchStyles() {
     axios.get(`api/products/${product.id}/styles`)
@@ -31,13 +27,13 @@ const Overview = () => {
   }
 
   useEffect(() => {
-    if(JSON.stringify(product) !== '{}') {
+    if(Object.keys(product)) {
       fetchStyles()
     }
   }, [product])
 
   useEffect(() => {
-    if(JSON.stringify(styles) !== '[]') {
+    if(styles.length > 0) {
       setCurrentStyle(styles[0])
     }
   }, [product])
@@ -59,8 +55,8 @@ const Overview = () => {
       }
     }
   }, [currentStyle])
-    //wrap this in conditional
-    if (price) {
+
+    if (price && currentPic) {
   return (
     <div className='overviewDiv'>
       <OverviewContext.Provider value={{styles, currentStyle, setCurrentStyle, currentPic, setCurrentPic, cart, setCart, price, setPrice, sale, setSale, popup, setPopup}}>
