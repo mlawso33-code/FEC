@@ -15,8 +15,8 @@ const BreakDown = ({ star, count, totalRatings }) => {
 
   return (
     <div>
-      <a href="" style={{color: "black"}} id={star} onClick={handleClick}>{star} stars </a>
-      <ProgressBar bgcolor={'green'} percent={percent}/>
+      <a href="" className="starsAnchor" id={star} onClick={handleClick}>{star} stars</a>
+      <ProgressBar percent={percent}/>
       <span>({count})</span>
     </div>
   )

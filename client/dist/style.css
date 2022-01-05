@@ -11,55 +11,55 @@ body {
 }
 /*
 Mitchell 13*/
+a {
+  color: black;
+}
 
+.starsAnchor {
+  margin-right: 5px;
+}
 
+/* .ratingsANDreviews {
+  display: flex;
+} */
 
+.ratingsTitle {
+  font-size: 22px;
+  font-weight: normal;
+}
 
+.ratingBreakdown {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
 
+.ratingHeader {
+  margin-bottom: 20px;
+  display: flex;
+}
 
+.avgRating {
+  font-size: 60px;
+  font-weight: bold;
+  margin-right: 20px;
+}
 
+.singleStar {
+  margin-top: 10px;
+  margin-right: 2px;
+}
 
+.percentRecommended {
+  margin-bottom: 20px;
+}
 
+.ratingBody {
+  margin-bottom: 15px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.filteringOn {
+  margin-bottom: 10px;
+}
 
 
 
