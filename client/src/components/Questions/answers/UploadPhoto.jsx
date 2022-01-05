@@ -45,8 +45,8 @@ const UploadPhoto = (props) => {
       <span>Remaining uploads: {counter}</span>
       <br />
       <small>Uploaded photos: </small>
-      <div>
-        <span>{photos.length > 0 && photos.map((img, i) => <img src={img} alt={`photo ${i}`} width="50" height="25" key={i} />)} </span>
+      <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+        <span>{photos.length > 0 && photos.map((img, i) => <img src={img} alt={`photo ${i}`} width="100" height="50" key={i} />)} </span>
       </div>
     </div>
   );

@@ -32,7 +32,7 @@ const AnswersList = (props) => {
       {answers.length > 2 && (
         <div>
           <strong style={{ display: "inline-block", cursor: "pointer", textAlign: "center", width: "100%" }} onClick={increaseAnswers}>
-            {numOfAnswers === answers.length ? 'Hide' : 'Show More'} Answers</strong>
+            {numOfAnswers === answers.length ? 'Hide' : 'Show More'} Answers({answers.length-numOfAnswers})</strong>
         </div>)}
       {answers.length === 0 &&
         <p style={{ color: "yellow", fontSize: "10px" }}>No answers for this question. Click <span style={{ color: "green" }}>Add Answer</span> button on the right!</p>}
