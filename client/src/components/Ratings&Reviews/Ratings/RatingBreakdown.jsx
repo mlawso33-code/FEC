@@ -79,7 +79,7 @@ const RatingBreakdown = () => {
 
       {/* Filters Applied Section */}
       {filtersApplied.length ?
-        <div>
+        <div className="filtersApp">
           <div className="filteringOn">
             <b>Filtering on:</b>
             {filteringOn}

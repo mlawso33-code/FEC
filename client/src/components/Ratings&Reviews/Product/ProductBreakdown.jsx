@@ -23,7 +23,7 @@ const ProductBreakdown = () => {
         }
 
         {chartics.Width &&
-          <div>
+          <div className="charticBreakdown">
             <div>Width</div>
             <ProductBar chartic={chartics.Width}/>
             <div>
@@ -35,7 +35,7 @@ const ProductBreakdown = () => {
         }
 
         {chartics.Length &&
-          <div>
+          <div className="charticBreakdown">
             <div>Length</div>
             <ProductBar chartic={chartics.Length}/>
             <div>
@@ -47,7 +47,7 @@ const ProductBreakdown = () => {
         }
 
         {chartics.Fit &&
-          <div>
+          <div className="charticBreakdown">
             <div>Fit</div>
             <ProductBar chartic={chartics.Fit}/>
             <div>
@@ -59,7 +59,7 @@ const ProductBreakdown = () => {
         }
 
         {chartics.Comfort &&
-          <div>
+          <div className="charticBreakdown">
             <div>Comfort</div>
             <ProductBar chartic={chartics.Comfort}/>
             <div>
@@ -70,7 +70,7 @@ const ProductBreakdown = () => {
         }
 
         {chartics.Quality &&
-          <div>
+          <div className="charticBreakdown">
             <div>Quality</div>
             <ProductBar chartic={chartics.Quality}/>
             <div>

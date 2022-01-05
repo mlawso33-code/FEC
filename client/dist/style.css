@@ -62,13 +62,19 @@ a {
   margin-right: 5px;
 }
 
+.filtersApp {
+  border: 1px solid;
+  width: 20%;
+  padding: 7px;
+}
+
 .filteringOn {
   margin-bottom: 10px;
 }
 
 /* Product */
 .charticBreakdown {
-
+  margin-bottom: 20px;
 }
 
 .charticTitle {
