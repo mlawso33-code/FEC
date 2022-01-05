@@ -15,6 +15,7 @@ const Overview = () => {
   const [sale, setSale] = useState(false);
   const [popup, setPopup] = useState(false);
   const [styles, setStyles] = useState([]);
+  const [zoom, setZoom] = useState(false);
 
   function fetchStyles() {
     axios.get(`api/products/${product.id}/styles`)
@@ -59,7 +60,7 @@ const Overview = () => {
     if (price && currentPic) {
   return (
     <div className='overviewDiv'>
-      <OverviewContext.Provider value={{styles, currentStyle, setCurrentStyle, currentPic, setCurrentPic, cart, setCart, price, setPrice, sale, setSale, popup, setPopup}}>
+      <OverviewContext.Provider value={{styles, currentStyle, setCurrentStyle, currentPic, setCurrentPic, cart, setCart, price, setPrice, sale, setSale, popup, setPopup, zoom, setZoom}}>
         <MainImg />
         <ProductOverview />
       </OverviewContext.Provider>
