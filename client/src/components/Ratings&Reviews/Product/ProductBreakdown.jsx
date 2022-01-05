@@ -11,8 +11,8 @@ const ProductBreakdown = () => {
       {chartics &&
       <div>
         {chartics.Size &&
-          <div>
-            <div>Size</div>
+          <div className="charticBreakdown">
+            <div className="charticTitle">Size</div>
             <ProductBar chartic={chartics.Size}/>
             <div>
               <span>Too small</span>
