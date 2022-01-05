@@ -25,9 +25,9 @@ const Answers = (props) => {
   }
 
   return (
-    <div style={{marginBottom:"10px"}}>
+    <div style={eachAnswer}>
       <div>{body}</div>
-      <span style={{ marginLeft: "20px", fontSize: "15px", fontStyle: "italic" }}>
+      <span style={answererDetails}>
         by {answerer_name}, {moment(date).format('LL')} |
         Helpful? <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
         <span>({helpful})</span>
@@ -40,3 +40,12 @@ const Answers = (props) => {
 }
 
 export default Answers
+
+const eachAnswer = {
+  marginBottom:"10px"
+}
+const answererDetails = {
+  marginLeft: "20px",
+  fontSize: "15px",
+  fontStyle: "italic"
+}

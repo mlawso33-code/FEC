@@ -51,20 +51,20 @@ const AnswerModal = (props) => {
         <form onSubmit={handleSubmitAnswer}>
           <span style={close} onClick={props.toggle}>X</span>
           <u><h3>Add your answer!</h3></u>
-          <small style={{ color: "grey"}}><span style={{ color: "red" }}>* </span> are required</small>
+          <small style={greyText}><span style={redText}>* </span> are required</small>
           <br />
           <br />
-          <span style={{ color: "red" }}>* </span><label>Username
+          <span style={redText}>* </span><label>Username
             <br />
-            <input style={{width:"50%"}} type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
+            <input style={width50} type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
           <br />
           <br />
-          <span style={{ color: "red" }}>* </span><label>Email
+          <span style={redText}>* </span><label>Email
             <br />
-            <input style={{width:"50%"}} type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
+            <input style={width50} type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
           <br />
           <br />
-          <span style={{ color: "red" }}>* </span><label>Answer
+          <span style={redText}>* </span><label>Answer
             <br />
             <textarea rows="5" cols="33" value={body} placeholder="Type answer here..." maxLength="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
@@ -80,6 +80,16 @@ const AnswerModal = (props) => {
 }
 
 export default AnswerModal
+
+const redText = {
+  color:"red"
+}
+const greyText = {
+  color:"grey"
+}
+const width50 = {
+  width:"50%"
+}
 
 const modal_content = {
   backgroundColor: "white",

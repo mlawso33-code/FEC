@@ -9,7 +9,7 @@ import QuestionsList from './question/QuestionsList.jsx';
 
 const Questions = () => {
   return (
-    <div style={{ border: "solid 10px" }}>
+    <div style={questionBorder}>
       <h2>Questions and Answers</h2>
       <QuestionsList />
     </div>
@@ -17,3 +17,7 @@ const Questions = () => {
 }
 
 export default Questions
+
+const questionBorder = {
+  border:"solid 10px"
+}

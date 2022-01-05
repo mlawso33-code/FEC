@@ -23,7 +23,7 @@ const AnswersList = (props) => {
     <div>
       <br />
       <strong>A: </strong>
-      <div style={{ marginLeft: "5px" }}>
+      <div style={answerList}>
         {displayedAnswers.map((answer =>
           <Answers key={answer.answer_id} answer={answer} question_id={question_id} />
         ))}
@@ -31,17 +31,33 @@ const AnswersList = (props) => {
       <br />
       {answers.length > 2 && (
         <div>
-          <strong style={{ display: "inline-block", cursor: "pointer", textAlign: "center", width: "100%" }} onClick={increaseAnswers}>
+          <strong style={showHide} onClick={increaseAnswers}>
             {numOfAnswers === answers.length ? 'Hide' : 'Show More'} Answers({answers.length-numOfAnswers})</strong>
         </div>)}
       {answers.length === 0 &&
-        <p style={{ color: "yellow", fontSize: "10px" }}>No answers for this question. Click <span style={{ color: "green" }}>Add Answer</span> button on the right!</p>}
+        <p style={noAnswer}>No answers for this question. Click <span style={spanNoAnswer}>Add Answer</span> button on the right!</p>}
     </div>
   )
 }
 
 export default AnswersList
 
+const answerList = {
+  marginLeft:"5px"
+}
+const showHide = {
+  display: "inline-block",
+  cursor: "pointer",
+  textAlign: "center",
+  width: "100%"
+}
+const noAnswer = {
+  color: "yellow",
+  fontSize: "10px"
+}
+const spanNoAnswer = {
+
+}
 /* Notes:::
   -need to make new answer render on submit
 */
