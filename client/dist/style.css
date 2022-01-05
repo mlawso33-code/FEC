@@ -17,6 +17,8 @@ a {
 
 .ratingsANDreviews {
   font-size: 18px;
+  display: grid;
+  grid-template-columns: 25% 75%;
 }
 
 /* Ratings */
@@ -27,7 +29,6 @@ a {
 
 .ratingBreakdown {
   margin-bottom: 40px;
-  max-width: 25%;
 }
 
 .ratingHeader {
@@ -58,6 +59,10 @@ a {
   margin-bottom: 10px;
 }
 
+.breakDown:hover {
+  font-weight: bold;
+}
+
 .starsAnchor {
   margin-right: 5px;
 }
@@ -75,7 +80,6 @@ a {
 /* Product */
 .charticBreakdown {
   margin-bottom: 20px;
-  max-width: 25%;
 }
 
 .charticTitle {
@@ -99,11 +103,58 @@ a {
   margin-left: 63%;
 }
 
+/* Review List */
+.reviewList {
+  grid-row: span 2;
+}
 
+.numReviews{
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: bold;
+}
 
+.sortDropDown {
+  border: none;
+  border-bottom: 2px solid;
+  font-size: 20px;
+  background-color: transparent;
+  font-weight: bold;
+}
 
+.allTiles {
+  max-height: 55vh;
+  overflow-y: scroll;
+  margin-bottom: 30px;
+}
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
 
+::-webkit-scrollbar-thumb {
+  background: #e0e0de;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent
+}
+
+.reviewButton {
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.reviewButton:hover {
+  background-color: black;
+  color: #b8c4d4
+}
 
 
 

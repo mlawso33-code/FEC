@@ -64,8 +64,9 @@ const RatingsAndReviews = () => {
 
       <div className='ratingsANDreviews'>
         <RatingBreakdown />
-        <ProductBreakdown />
+
         <ReviewList />
+        <ProductBreakdown />
       </div>
     </RatingsAndReviewsContext.Provider>
   )
