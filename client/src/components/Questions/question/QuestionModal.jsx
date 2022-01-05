@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
-import AppContext from '../App/AppContext.jsx';
 import axios from 'axios';
 import moment from 'moment';
 
-import QuestionsList from './questionsList.jsx';
+import AppContext from '../../App/AppContext.jsx';
+import QuestionsList from './QuestionsList.jsx';
 
 const QuestionModal = (props) => {
   const [name, setUser] = useState('')
@@ -38,19 +38,25 @@ const QuestionModal = (props) => {
         <form onSubmit={handleSubmitQuestion}>
           <span style={close} onClick={props.toggle}>X</span>
           <h3>Ask a question!</h3>
-          <label style={{ color: "grey", fontSize: "10px" }}>* are mandatory</label>
+          <small style={{ color: "grey" }}><span style={{ color: "red" }}>*</span> are required</small>
           <br />
-          <label>Username<span style={{ color: "red" }}>*</span>:
-            <input type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
           <br />
-          <label>Email<span style={{ color: "red" }}>*</span>:
-            <input type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
+          <span style={{ color: "red" }}>*</span><label>Username:
+            <br />
+            <input style={{ width: "50%" }} type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
           <br />
-          <label>Question<span style={{ color: "red" }}>*</span>:
-            <input type="text" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
+          <br />
+          <span style={{ color: "red" }}>*</span><label>Email:
+            <br />
+            <input style={{ width: "50%" }} type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
+          <br />
+          <br />
+          <span style={{ color: "red" }}>*</span><label>Question:
+            <br />
+            <textarea rows="5" cols="33" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
+          <br />
           <br />
           <input type="submit" value="Submit Question" />
-          <input type="reset" value="Reset" />
         </form>
       </div>
     </div>
