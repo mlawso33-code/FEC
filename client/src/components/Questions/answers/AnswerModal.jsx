@@ -6,7 +6,6 @@ import AppContext from '../../App/AppContext.jsx';
 import IndividualQuestion from '../question/IndividualQuestion.jsx';
 import UploadPhoto from './UploadPhoto.jsx';
 
-
 const AnswerModal = (props) => {
   const [name, setUser] = useState('')
   const [email, setEmail] = useState('')
@@ -36,7 +35,6 @@ const AnswerModal = (props) => {
     }
   }
 
-
   function handleChange(e) {
     setImage(e.target.value)
   };
@@ -47,24 +45,24 @@ const AnswerModal = (props) => {
 
   return (
     <div>
-      <div style={modal_content}>
+      <div className="answer_modal">
         <form onSubmit={handleSubmitAnswer}>
-          <span style={close} onClick={props.toggle}>X</span>
+          <span className="closeX" onClick={props.toggle}>X</span>
           <u><h3>Add your answer!</h3></u>
-          <small style={greyText}><span style={redText}>* </span> are required</small>
+          <small className="greyText"><span className="redText">* </span> are required</small>
           <br />
           <br />
-          <span style={redText}>* </span><label>Username
+          <span className="redText">* </span><label>Username
             <br />
-            <input style={width50} type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
+            <input className="width50" type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
           <br />
           <br />
-          <span style={redText}>* </span><label>Email
+          <span className="redText">* </span><label>Email
             <br />
-            <input style={width50} type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
+            <input className="width50" type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
           <br />
           <br />
-          <span style={redText}>* </span><label>Answer
+          <span className="redText">* </span><label>Answer
             <br />
             <textarea rows="5" cols="33" value={body} placeholder="Type answer here..." maxLength="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
@@ -80,31 +78,3 @@ const AnswerModal = (props) => {
 }
 
 export default AnswerModal
-
-const redText = {
-  color:"red"
-}
-const greyText = {
-  color:"grey"
-}
-const width50 = {
-  width:"50%"
-}
-
-const modal_content = {
-  backgroundColor: "white",
-  position: "fixed",
-  top: "5%",
-  left: "30%",
-  width: "40%",
-  padding: "20px",
-  borderRadius: "5px",
-  border: "2px solid black",
-  overflow:"auto"
-}
-
-const close = {
-  color: "black",
-  float: "right",
-  cursor: "pointer"
-}

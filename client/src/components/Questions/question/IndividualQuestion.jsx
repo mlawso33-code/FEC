@@ -27,7 +27,6 @@ const IndividualQuestion = (props) => {
     axios
       .get(`/api/qa/questions/${question_id}/answers?page=1&count=100`)
       .then(res => setAnswers(res.data.results))
-
   }
 
   useEffect(() => {
@@ -48,14 +47,14 @@ const IndividualQuestion = (props) => {
 
   return (
     <div>
-      <div style={eachQuestion}>
-        <div style={questionRow}>
-          <strong style={qLabel}>Q: </strong> {question_body}
-          <div style={questionExtras}>
+      <div className="eachQuestion">
+        <div className="questionRow">
+          <strong className="qLabel">Q: </strong> {question_body}
+          <div className="questionExtras">
             <span>Helpful? | </span>
-            <a href='' style={blackText} onClick={incrementHelpful}>Yes</a>
-            <span>({helpful})</span> | <a href='' style={blackText} onClick={reportQuestion}>{reportedQuestion ? 'Reported' : 'Report'}</a> |
-            <strong style={addButton} onClick={addAnswer}> Add Answer</strong>
+            <a href='' className="blackText" onClick={incrementHelpful}>Yes</a>
+            <span>({helpful})</span> | <a href='' className="blackText" onClick={reportQuestion}>{reportedQuestion ? 'Reported' : 'Report'}</a> |
+            <strong className="addButton" onClick={addAnswer}> Add Answer</strong>
             <div>{add_answer ? <AnswerModal toggle={addAnswer} question_id={question_id} fetchAnswers={fetchAnswers} /> : null}</div>
           </div>
         </div>
@@ -67,24 +66,3 @@ const IndividualQuestion = (props) => {
 }
 
 export default IndividualQuestion
-
-const eachQuestion = {
-  border: "solid"
-}
-const questionRow = {
-  display: "flex",
-  flexDirection: "row"
-}
-const qLabel = {
-  marginRight: "5px"
-}
-const questionExtras = {
-  marginLeft: "auto"
-}
-const blackText = {
-  color: "black"
-}
-
-const addButton = {
-  cursor: "pointer"
-}

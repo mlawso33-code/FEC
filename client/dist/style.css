@@ -299,137 +299,142 @@ Mitchell 13*/
 
 
 /* Marc 301 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.redText {
+  color:red;
+}
+.greyText {
+  color:grey;
+}
+.width50 {
+  width:50%;
+}
+.answer_modal {
+  background-color: white;
+  position: fixed;
+  top: 5%;
+  left: 30%;
+  width: 40%;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+  overflow: auto;
+}
+.closeX {
+  color: black;
+  float: right;
+  cursor: pointer;
+}
+.photoStyle {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+  cursor: pointer;
+}
+.modalStyle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background: rgba(0, 0, 0, 0.6)
+}
+.modalContentStyle {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1000px
+}
+.modalHeaderStyle {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.eachAnswer {
+  margin-bottom:10px;
+}
+.answererDetails {
+  margin-left: 20px;
+  font-size: 15px;
+  font-style: italic;
+}
+.answerList {
+  margin-left:5px;
+}
+.showHide {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+}
+.noAnswer {
+  color: yellow;
+  font-size: 10px;
+}
+.urlInput {
+  width:50%;
+}
+.photoRow {
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.eachQuestion {
+  border: solid;
+}
+.questionRow {
+  display: flex;
+  flex-direction: row;
+}
+.qLabel {
+  margin-right: 5px;
+}
+.questionExtras {
+  margin-left: auto;
+}
+.blackText {
+  color: black;
+}
+.addButton {
+  cursor: pointer;
+}
+.pointer {
+  cursor: "pointer"
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.inputStyle {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  width: 80%;
+  background: #f1f1f1;
+
+}
+.buttonStyle {
+  width: auto;
+  padding: 10px;
+  background: black;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+.questionBorder {
+  border:solid 10px;
+}
+.questionButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 
 

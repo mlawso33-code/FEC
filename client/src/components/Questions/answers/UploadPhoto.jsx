@@ -29,7 +29,7 @@ const UploadPhoto = (props) => {
       <div>
         <br />
         <input
-          style={urlInput}
+          className="urlInput"
           type="text"
           defaultValue=''
           placeholder='Insert image URL here'
@@ -45,7 +45,7 @@ const UploadPhoto = (props) => {
       <span>Remaining uploads: {counter}</span>
       <br />
       <small>Uploaded photos: </small>
-      <div style={photoRow}>
+      <div className="photoRow">
         <span>{photos.length > 0 && photos.map((img, i) => <img src={img} alt={`photo ${i}`} width="100" height="50" key={i} />)} </span>
       </div>
     </div>
@@ -53,16 +53,3 @@ const UploadPhoto = (props) => {
 }
 
 export default UploadPhoto
-
-const urlInput = {
-  width:"50%"
-}
-const photoRow = {
-  display:"flex",
-  flexDirection:"row",
-  justifyContent:"space-between"
-}
-
-/* Notes:::
-
-*/

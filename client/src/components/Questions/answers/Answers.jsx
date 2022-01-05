@@ -25,11 +25,11 @@ const Answers = (props) => {
   }
 
   return (
-    <div style={eachAnswer}>
+    <div className="eachAnswer">
       <div>{body}</div>
-      <span style={answererDetails}>
+      <span className="answererDetails">
         by {answerer_name}, {moment(date).format('LL')} |
-        Helpful? <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
+        Helpful? <a href='' className="blackText" onClick={incrementHelpful}>Yes</a>
         <span>({helpful})</span>
       </span>
       <div>{photos.map(photo =>
@@ -40,12 +40,3 @@ const Answers = (props) => {
 }
 
 export default Answers
-
-const eachAnswer = {
-  marginBottom:"10px"
-}
-const answererDetails = {
-  marginLeft: "20px",
-  fontSize: "15px",
-  fontStyle: "italic"
-}
