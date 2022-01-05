@@ -14,68 +14,68 @@ const ProductBreakdown = () => {
           <div className="charticBreakdown">
             <div className="charticTitle">Size</div>
             <ProductBar chartic={chartics.Size}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Too small</span>
-              <span>Perfect</span>
-              <span>Too large</span>
+              <span className="perfect">Perfect</span>
+              <span className="tooLarge">Too large</span>
             </div>
           </div>
         }
 
         {chartics.Width &&
           <div className="charticBreakdown">
-            <div>Width</div>
+            <div className="charticTitle">Width</div>
             <ProductBar chartic={chartics.Width}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Too small</span>
-              <span>Perfect</span>
-              <span>Too large</span>
+              <span className="perfect">Perfect</span>
+              <span className="tooLarge">Too large</span>
             </div>
           </div>
         }
 
         {chartics.Length &&
           <div className="charticBreakdown">
-            <div>Length</div>
+            <div className="charticTitle">Length</div>
             <ProductBar chartic={chartics.Length}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Too small</span>
-              <span>Perfect</span>
-              <span>Too large</span>
+              <span className="perfect">Perfect</span>
+              <span className="tooLarge">Too large</span>
             </div>
           </div>
         }
 
         {chartics.Fit &&
           <div className="charticBreakdown">
-            <div>Fit</div>
+            <div className="charticTitle">Fit</div>
             <ProductBar chartic={chartics.Fit}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Too small</span>
-              <span>Perfect</span>
-              <span>Too large</span>
+              <span className="perfect">Perfect</span>
+              <span className="tooLarge">Too large</span>
             </div>
           </div>
         }
 
         {chartics.Comfort &&
           <div className="charticBreakdown">
-            <div>Comfort</div>
+            <div className="charticTitle">Comfort</div>
             <ProductBar chartic={chartics.Comfort}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Poor</span>
-              <span>Great</span>
+              <span className="great">Great</span>
             </div>
           </div>
         }
 
         {chartics.Quality &&
           <div className="charticBreakdown">
-            <div>Quality</div>
+            <div className="charticTitle">Quality</div>
             <ProductBar chartic={chartics.Quality}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Poor</span>
-              <span>Great</span>
+              <span className="great">Great</span>
             </div>
           </div>
         }

@@ -15,9 +15,9 @@ a {
   color: black;
 }
 
-/* .ratingsANDreviews {
-  display: flex;
-} */
+.ratingsANDreviews {
+  font-size: 18px;
+}
 
 /* Ratings */
 .ratingsTitle {
@@ -26,8 +26,8 @@ a {
 }
 
 .ratingBreakdown {
-  font-size: 18px;
   margin-bottom: 40px;
+  max-width: 25%;
 }
 
 .ratingHeader {
@@ -64,7 +64,7 @@ a {
 
 .filtersApp {
   border: 1px solid;
-  width: 20%;
+  width: 80%;
   padding: 7px;
 }
 
@@ -75,49 +75,29 @@ a {
 /* Product */
 .charticBreakdown {
   margin-bottom: 20px;
+  max-width: 25%;
 }
 
 .charticTitle {
-
+  margin-bottom: 5px;
 }
 
+.scaleMeaning {
+  max-width: 100%;
+  font-size: 15px;
+}
 
+.perfect {
+  margin-left: 18%;
+}
 
+.tooLarge {
+  margin-left: 18%;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.great {
+  margin-left: 63%;
+}
 
 
 
