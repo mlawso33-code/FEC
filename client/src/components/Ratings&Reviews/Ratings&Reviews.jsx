@@ -2,9 +2,9 @@ import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import AppContext from '../App/AppContext.jsx'
 import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
-import ReviewList from './ReviewList.jsx'
-import RatingBreakdown from './RatingBreakdown.jsx'
-import ProductBreakdown from './ProductBreakdown.jsx'
+import ReviewList from './Reviews/ReviewList.jsx'
+import RatingBreakdown from './Ratings/RatingBreakdown.jsx'
+import ProductBreakdown from './Product/ProductBreakdown.jsx'
 
 const RatingsAndReviews = () => {
   const { product } = useContext(AppContext)
@@ -60,14 +60,13 @@ const RatingsAndReviews = () => {
     <RatingsAndReviewsContext.Provider value={{
       product_id, reviews, handleSortChange, metaData, filterList, filteredReviews, filtersApplied, clearAllFilters
     }}>
-      <div>
-      <h1>Ratings &amp; Reviews</h1>
-      </div>
+      <h1 className='ratingsTitle'>Ratings &amp; Reviews</h1>
 
-      <div>
+      <div className='ratingsANDreviews'>
         <RatingBreakdown />
-        <ProductBreakdown />
+
         <ReviewList />
+        <ProductBreakdown />
       </div>
     </RatingsAndReviewsContext.Provider>
   )

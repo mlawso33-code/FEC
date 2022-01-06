@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
+import RatingsAndReviewsContext from '../RatingsandReviewsContext.jsx'
 import ReviewTile from './ReviewTile.jsx'
 import SortDropDown from './SortDropDown.jsx'
 import NewReview from './NewReview.jsx'
@@ -32,21 +32,21 @@ const ReviewList = () => {
   }
 
   return (
-    <div>
-      <div style={{marginBottom: "20px"}}>
+    <div className='reviewList'>
+      <div className="numReviews">
         {reviews.length} reviews, sorted by <SortDropDown />
       </div>
 
-      <div style={{maxHeight: "50vh", overflow: "scroll"}}>
+      <div className='allTiles'>
       {displayedReviews.map(review =>
         <ReviewTile key={review.review_id} review={review}/>)}
       </div>
 
       {numOfDisplayed < allReviews.length &&
-        <button onClick={handleMoreReviewsClick}>More Reviews</button>
+        <button className='reviewButton' onClick={handleMoreReviewsClick}>More Reviews</button>
       }
 
-      <button onClick={handleAddReviewClick}>Add Review +</button>
+      <button className='reviewButton' onClick={handleAddReviewClick}>Add Review +</button>
       {addingReview &&
         <NewReview closeModal={closeNewReviewModal}/>
       }

@@ -11,292 +11,292 @@ body {
 }
 /*
 Mitchell 13*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+a {
+  color: black;
+}
+
+.ratingsANDreviews {
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+/* Ratings */
+.ratingsTitle {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.ratingBreakdown {
+  margin-bottom: 40px;
+}
+
+.ratingHeader {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.avgRating {
+  font-size: 60px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.singleStar {
+  margin-top: 10px;
+  margin-right: 2px;
+}
+
+.percentRecommended {
+  margin-bottom: 20px;
+}
+
+.ratingBody {
+  margin-bottom: 15px;
+}
+
+.breakDown{
+  margin-bottom: 10px;
+}
+
+.breakDown:hover {
+  font-weight: bold;
+}
+
+.starsAnchor {
+  margin-right: 5px;
+}
+
+.filtersApp {
+  border: 1px solid;
+  width: 80%;
+  padding: 7px;
+}
+
+.filteringOn {
+  margin-bottom: 10px;
+}
+
+/* Product */
+.charticBreakdown {
+  margin-bottom: 20px;
+}
+
+.charticTitle {
+  margin-bottom: 5px;
+}
+
+.scaleMeaning {
+  max-width: 100%;
+  font-size: 15px;
+}
+
+.perfect {
+  margin-left: 18%;
+}
+
+.tooLarge {
+  margin-left: 18%;
+}
+
+.great {
+  margin-left: 63%;
+}
+
+/* Review List */
+.reviewList {
+  grid-row: span 2;
+}
+
+.numReviews{
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sortDropDown {
+  border: none;
+  border-bottom: 2px solid;
+  font-size: 20px;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.allTiles {
+  max-height: 55vh;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e0e0de;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent
+}
+
+.reviewButton {
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.reviewButton:hover {
+  background-color: black;
+  color: #b8c4d4
+}
+
+/* Review Tile */
+.nameNdateReview {
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-right: 7px;
+}
+
+.fa-check-circle {
+  margin-right: 7px;
+}
+
+.reviewSummary {
+  font-weight: bold;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20px;
+}
+
+.reviewTileBody {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250ch;
+}
+
+.tileAnchor {
+  color: black;
+}
+
+.reviewTilePhoto {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 125px;
+  height: 125px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.photoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.photoModalHeader {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.photoModalContent {
+  position: relative;
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1000px;
+}
+
+.recommendedProduct {
+  margin-bottom: 15px;
+}
+
+.fa-check {
+  margin-right: 7px;
+}
+.sellerResponse {
+  background-color: gray;
+}
+
+.reviewTileFooter {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.helpfulReview {
+  margin-right: 7px;
+}
+
+.divider {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+hr {
+  height: 2px;
+  background-color: black;
+  border: none;
+}
+
+/* New Review Form */
+.reviewModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.reviewModalContent{
+  position: relative;
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 800px;
+  background-color: #b8c4d4;
+  overflow-y: scroll;
+}
+
+.reviewModalHeader {
+  padding-top: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.reviewModalClose {
+position: absolute;
+top: 12px;
+right: 25px;
+color: black;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+}
 
 /* Marc 301 */
 
@@ -654,8 +654,8 @@ Mitchell 13*/
   position: absolute;
   border: 2px solid white;
   /* max-width: 100%;
-  max-height: 100%;
-  object-fit: cover; */
+  max-height: 100%; */
+  /* object-fit: cover; */
   width: 560px;
   height: 500px;
   display: block;
@@ -755,7 +755,7 @@ Mitchell 13*/
   position: absolute;
   margin: auto;
   width: 600px;
-  /* height: 550px; */
+  height: 550px;
   align-items: center;
 }
 
@@ -772,7 +772,7 @@ Mitchell 13*/
   color: black;
 }
 
-.fa {
+.overviewFA {
   padding: 15px;
   font-size: 30px;
   width: 15px;
@@ -784,9 +784,15 @@ Mitchell 13*/
 .fa-facebook {
   background: #3B5998;
   color: white;
+  padding: 15px;
+  font-size: 30px;
+  width: 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
 }
 
-.fa:hover {
+.overviewFA:hover {
   opacity: 0.7;
 }
 

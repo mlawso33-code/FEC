@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
 import ProgressBar from "./ProgressBar.jsx"
-import RatingsAndReviewsContext from "./RatingsandReviewsContext.jsx"
+import RatingsAndReviewsContext from "../RatingsandReviewsContext.jsx"
 
 const BreakDown = ({ star, count, totalRatings }) => {
   const { filterList } = useContext(RatingsAndReviewsContext)
@@ -14,9 +14,9 @@ const BreakDown = ({ star, count, totalRatings }) => {
   }
 
   return (
-    <div>
-      <a href="" style={{color: "black"}} id={star} onClick={handleClick}>{star} stars </a>
-      <ProgressBar bgcolor={'green'} percent={percent}/>
+    <div className="breakDown">
+      <a href="" className="starsAnchor" id={star} onClick={handleClick}>{star} stars</a>
+      <ProgressBar percent={percent}/>
       <span>({count})</span>
     </div>
   )

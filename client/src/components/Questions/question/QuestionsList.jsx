@@ -1,32 +1,29 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
-import AppContext from '../App/AppContext.jsx';
+import AppContext from '../../App/AppContext.jsx';
 import QuestionContext from './QuestionContext.jsx';
 
-//import SearchQuestion from './searchQuestion.jsx';
-import IndividualQuestion from './individualQuestion.jsx';
-import QuestionModal from './questionModal.jsx';
+import IndividualQuestion from './IndividualQuestion.jsx';
+import QuestionModal from './QuestionModal.jsx';
 
 const QuestionsList = () => {
   const { product } = useContext(AppContext)
   const product_id = product.id
-
 
   const [questions, setQuestions] = useState([])
   const [sort, setSort] = useState('helpfulness')
   const [flag, setFlag] = useState(false)
   const [numOfQuestions, setNumOfQuestions] = useState(4)
   const [search, setSearch] = useState('')
-  const [more, setMore] = useState('MORE ANSWERED QUESTIONS')
 
   var displayedQuestions = questions.slice(0, numOfQuestions)
 
-  const afterThree = search.split('').slice(3, search.length - 1).join('')
+  const afterThree = search.split('').slice(2, search.length - 1).join('')
 
   function fetchQuestions() {
     axios
-      .get(`/api/qa/questions/?page=1&count=100&sort=${sort}&product_id=${product_id}`)
+      .get(`/api/qa/questions/?page=1&count=25&sort=${sort}&product_id=${product_id}`)
       .then(res => setQuestions(res.data.results))
 
   }
@@ -37,26 +34,8 @@ const QuestionsList = () => {
     }
   }, [product])
 
-
-
-  //need to remove duplicate questions
   const handleMoreQuestions = () => {
-    // displayedQuestions.map((val => {
-    //   if (val.question_body === 'test question 123') {
-    //     setMore('NO MORE QUESTIONS')
-    //     setNumOfQuestions(4)
-    //   } else {
-    //     setNumOfQuestions(numOfQuestions + 2)
-    //   }
-    // }))
-    // for (var i = 0; i < displayedQuestions; i++) {
-    //   if (displayedQuestions[i].question_body === displayedQuestions[i+1].question_body) {
-    //     displayedQuestions = displayedQuestions.slice(i, 1);
-    //   } else {
-    //     return displayedQuestions
-    //   }
-    // }
-    setNumOfQuestions(numOfQuestions + 2)
+    setNumOfQuestions(numOfQuestions === questions.length ? 2 : questions.length)
   }
 
   function addQuestion() {
@@ -71,7 +50,6 @@ const QuestionsList = () => {
   return (
     <div>
       <div>
-        {/* find a way to make search filter into a component */}
         <form>
           <input style={inputStyle} type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={search}
             onChange={(e) => {
@@ -80,7 +58,8 @@ const QuestionsList = () => {
           <button type="submit" style={buttonStyle}><i className="fas fa-search"></i></button>
         </form>
       </div>
-      <div style={{ display: "block", marginTop: "20px", maxHeight: "50vh", overflow: "scroll" }}>
+      <br />
+      <div>
         {displayedQuestions.filter((val) => {
           if (search === '') {
             return val
@@ -92,18 +71,25 @@ const QuestionsList = () => {
         ))
         }
       </div>
-      <span>
-        {numOfQuestions < questions.length &&
-          <button onClick={handleMoreQuestions}>{more}</button>}
-        <button onClick={addQuestion}> ADD A QUESTION + </button>
-        <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} fetchQuestions={fetchQuestions} /> : null}</div></span>
+      <br />
+      <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+        {questions.length > 2 && (
+          <div>
+            <strong style={pointer} onClick={handleMoreQuestions}>
+              {numOfQuestions === questions.length ? 'Hide' : 'More Answered'} Questions</strong>
+          </div>)}
+        <strong style={pointer} onClick={addQuestion}> Add a Question + </strong>
+      </div>
+      <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} fetchQuestions={fetchQuestions} /> : null}</div>
     </div>
   )
 }
 
 export default QuestionsList
 
-
+const pointer = {
+  cursor: "pointer"
+}
 const flexRow = {
   display: "flex",
   flexDirection: "row",
@@ -125,3 +111,4 @@ const buttonStyle = {
   fontSize: "17px",
   cursor: "pointer"
 }
+
