@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from "react"
+import React, { useContext } from "react"
 import RatingsAndReviewsContext from '../RatingsandReviewsContext.jsx'
 import AvgStarRating from "./AvgStarRating.jsx"
 import BreakDown from "./BreakDown.jsx"
@@ -60,32 +60,32 @@ const RatingBreakdown = () => {
   }
 
   return (
-    <div>
+    <div className="ratingBreakdown">
       {/* Rating Summary */}
-      <div>
-        <span>{averageRating}</span>
+      <div className="ratingHeader">
+        <span className="avgRating">{averageRating}</span>
         <AvgStarRating rating={averageRating}/>
       </div>
 
       {/* Recommendations Percentage */}
-      <div>
+      <div className="percentRecommended">
         {percentRecommend}% of reviews recommend this product
       </div>
 
       {/* Breakdown/Filter Section */}
-      <div>
+      <div className="ratingBody">
         {breakDown}
       </div>
 
       {/* Filters Applied Section */}
       {filtersApplied.length ?
-        <div>
-          <div>
-            Filtering on:
+        <div className="filtersApp">
+          <div className="filteringOn">
+            <b>Filtering on:</b>
             {filteringOn}
           </div>
 
-          <a href="" style={{color: 'black'}} onClick={clearAllFilters}>Remove all filters</a>
+          <a href="" onClick={clearAllFilters}>Remove all filters</a>
         </div>
         : null
       }

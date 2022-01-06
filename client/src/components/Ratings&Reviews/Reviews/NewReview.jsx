@@ -122,14 +122,14 @@ const NewReview = ({ closeModal }) => {
   }
 
   return (
-    <div style={modalStyle}>
-      <div style={modalContentStyle}>
-        <div style={modalHeaderStyle} >
-          <span style={modalCloseStyle} onClick={closeModal}>&times;</span>
-          <h2>Write Your Review About the {product.name}</h2>
+    <div className="reviewModal">
+      <div className="reviewModalContent">
+        <div className="reviewModalHeader">
+          <span className="reviewModalClose" onClick={closeModal}>&times;</span>
+          <div>Write Your Review About the {product.name}</div>
         </div>
 
-        <form style={modalBodyStyle} onSubmit={handleSubmit}>
+        <form style={modalBodyStyle} className="reviewModalBody" onSubmit={handleSubmit}>
           <div><b>Overall Rating*</b>
             <Rating
               emptySymbol="fa fa-star-o"
@@ -228,43 +228,7 @@ const NewReview = ({ closeModal }) => {
 
 export default NewReview
 
-const modalStyle = {
-  position: "fixed",
-  top: "0",
-  left: "0",
-  width: "100%",
-  height: "100%",
-  paddingTop: "100px",
-  background: "rgba(0, 0, 0, 0.6)"
-}
-
-const modalContentStyle = {
-  position: 'relative',
-  margin: "auto",
-  display: "block",
-  width: "80%",
-  maxWidth: "1000px",
-  maxHeight: "800px",
-  backgroundColor: '#fff',
-  overflow: 'scroll'
-}
-
-const modalHeaderStyle = {
-  paddingTop: '15px',
-  textAlign: 'center',
-  borderBottom: '1px solid #ccc'
-}
-
 const modalBodyStyle = {
   fontSize: '20px',
 }
 
-const modalCloseStyle ={
-  position: "absolute",
-  top: "12px",
-  right: "25px",
-  color: "black",
-  fontSize: "30px",
-  fontWeight: "bold",
-  cursor: "pointer"
-}

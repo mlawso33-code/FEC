@@ -60,14 +60,13 @@ const RatingsAndReviews = () => {
     <RatingsAndReviewsContext.Provider value={{
       product_id, reviews, handleSortChange, metaData, filterList, filteredReviews, filtersApplied, clearAllFilters
     }}>
-      <div>
-      <h1>Ratings &amp; Reviews</h1>
-      </div>
+      <h1 className='ratingsTitle'>Ratings &amp; Reviews</h1>
 
-      <div>
+      <div className='ratingsANDreviews'>
         <RatingBreakdown />
-        <ProductBreakdown />
+
         <ReviewList />
+        <ProductBreakdown />
       </div>
     </RatingsAndReviewsContext.Provider>
   )

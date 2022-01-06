@@ -5,9 +5,9 @@ const SortDropDown = () => {
   const { handleSortChange } = useContext(RatingsAndReviewsContext)
 
   return (
-    <select onChange={event => handleSortChange(event)}>
-      <option value="relevant">Relevant</option>
-      <option value="helpful">Helpful</option>
+    <select className="sortDropDown" onChange={event => handleSortChange(event)}>
+      <option value="relevant">Relevance</option>
+      <option value="helpful">Helpfulness</option>
       <option value="newest">Newest</option>
     </select>
   )
