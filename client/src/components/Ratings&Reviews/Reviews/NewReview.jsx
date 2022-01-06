@@ -129,96 +129,117 @@ const NewReview = ({ closeModal }) => {
           <div>Write Your Review About the {product.name}</div>
         </div>
 
-        <form style={modalBodyStyle} className="reviewModalBody" onSubmit={handleSubmit}>
-          <div><b>Overall Rating*</b>
-            <Rating
-              emptySymbol="fa fa-star-o"
-              fullSymbol="fa fa-star"
-              initialRating={rate}
-              onClick={newRate => handleRatingChange(newRate)}
-            />
-            {rate === 1 &&
-              <span>Poor</span>
-            }
-            {rate === 2 &&
-              <span>Fair</span>
-            }
-            {rate === 3 &&
-              <span>Average</span>
-            }
-            {rate === 4 &&
-              <span>Good</span>
-            }
-            {rate === 5 &&
-              <span>Great</span>
-            }
+        <form className="reviewModalBody" onSubmit={handleSubmit}>
+          <div className="formSectionTitle"><b>Overall Rating<span className="astrics">*</span></b>
+            <div>
+              <Rating
+                emptySymbol="fa fa-star-o"
+                fullSymbol="fa fa-star"
+                initialRating={rate}
+                onClick={newRate => handleRatingChange(newRate)}
+              />
+              {rate === 1 &&
+                <span className="starMeaning">Poor</span>
+              }
+              {rate === 2 &&
+                <span className="starMeaning">Fair</span>
+              }
+              {rate === 3 &&
+                <span className="starMeaning">Average</span>
+              }
+              {rate === 4 &&
+                <span className="starMeaning">Good</span>
+              }
+              {rate === 5 &&
+                <span className="starMeaning">Great</span>
+              }
+            </div>
           </div>
 
-          <div><b>Do you recommend this product?*</b>
-            <label>Yes</label>
-            <input type="radio" name="recommend" value={true} defaultChecked onClick={handleRecommended}/>
-            <label>No</label>
-            <input type="radio" name="recommend" value={false} onClick={handleRecommended}/>
+          <div className="formSectionTitle"><b>Do you recommend this product?<span className="astrics">*</span></b>
+            <div>
+              <label>Yes</label>
+              <input type="radio" name="recommend" className="recRadio" value={true} defaultChecked onClick={handleRecommended}/>
+              <label>No</label>
+              <input type="radio" name="recommend" className="recRadio" value={false} onClick={handleRecommended}/>
+            </div>
           </div>
 
-          <div><b>Characteristics*</b>
+          <div className="formSectionTitle"><b>Characteristics<span className="astrics">*</span></b>
             {characteristics}
           </div>
 
-          <div><b>Review Summary</b>
+          <div className="formSectionTitle"><b>Review Summary</b>
             <div>
               <input type="text"
                 placeholder="Example: Best purchase ever!"
                 maxLength="60"
                 onChange={handleSummaryChange}
-                style={{width: "30%"}}/>
+                className="reviewInput"
+                />
             </div>
           </div>
 
-          <div><b>Review Body *</b>
+          <div className="formSectionTitle"><b>Review Body<span className="astrics">*</span></b>
             <div>
               <textarea
                 placeholder="Why did you like the product or not?"
                 minLength="50"
                 maxLength="1000"
                 onChange={handleBodyChange}
+                className="reviewInput"
               />
             </div>
 
             {body.length >= 50
-              ? <div>Minimum reached</div>
-              : <div>Minimum required characters left: {50 - body.length}</div>
+              ? <div className="subFiledTxt">Minimum reached</div>
+              : <div className="subFiledTxt">Minimum required characters left: {50 - body.length}</div>
             }
           </div>
 
-          <div><b>Upload your photos</b>
+          <div className="formSectionTitle"><b>Upload your photos</b>
             <div>
               {photos.map(photo => <NewReviewPhoto photo={photo}/>)}
             </div>
 
             {photos.length < 5 &&
               <div>
-                <input type="text" placeholder="Past URL here" onChange={handlePhotoChange} value={currentPhoto}/>
-                <button onClick={handleImgUpload}>Add Photo</button>
+                <input type="text"
+                  placeholder="Past URL here"
+                  onChange={handlePhotoChange}
+                  value={currentPhoto}
+                  className="reviewInput"
+                  />
+                <button className="addReviewPhotoButton" onClick={handleImgUpload}>Add Photo</button>
               </div>
             }
           </div>
 
-          <div><b>What is your nickname?*</b>
+          <div className="formSectionTitle"><b>What is your nickname?<span className="astrics">*</span></b>
             <div>
-              <input type="text" maxLength="60" placeholder="Example: jackson11!" onChange={handleNameChange}/>
+              <input type="text"
+                maxLength="60"
+                placeholder="Example: jackson11!"
+                onChange={handleNameChange}
+                className="reviewInput"
+                />
             </div>
-            <div><i>For privacy reasons, do not use your full name or email address.</i></div>
+            <div className="subFiledTxt"><i>For privacy reasons, do not use your full name or email address.</i></div>
           </div>
 
-          <div><b>Your email*</b>
+          <div className="formSectionTitle"><b>Your email<span className="astrics">*</span></b>
             <div>
-              <input type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={handleEmailChange}/>
+              <input type="text"
+                maxLength="60"
+                placeholder="Example: jackson11@email.com"
+                onChange={handleEmailChange}
+                className="reviewInput"
+                />
             </div>
-            <div><i>For authentication reasons, you will not be emailed.</i></div>
+            <div className="subFiledTxt"><i>For authentication reasons, you will not be emailed.</i></div>
           </div>
 
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" className="submitReviewButton" />
         </form>
       </div>
 
@@ -227,8 +248,3 @@ const NewReview = ({ closeModal }) => {
 }
 
 export default NewReview
-
-const modalBodyStyle = {
-  fontSize: '20px',
-}
-

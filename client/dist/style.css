@@ -17,6 +17,7 @@ a {
 
 .ratingsANDreviews {
   font-size: 18px;
+  margin-bottom: 10%;
   display: grid;
   grid-template-columns: 25% 75%;
 }
@@ -281,7 +282,7 @@ hr {
 
 .reviewModalHeader {
   padding-top: 40px;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
   border-bottom: 2px solid black;
@@ -296,6 +297,109 @@ color: black;
 font-size: 40px;
 font-weight: bold;
 cursor: pointer;
+}
+
+.reviewModalBody {
+  font-size: 25px;
+  margin-left: 40px;
+  margin-bottom: 40px;
+}
+
+.astrics {
+  color: red;
+}
+
+.starMeaning {
+  margin-left: 20px;
+  text-decoration: underline;
+}
+
+.recRadio {
+  margin-right: 15px;
+  width: 18px;
+  height: 18px;
+}
+
+.formSectionTitle {
+  margin-bottom: 20px;
+}
+
+.formChartics {
+  margin-left: 30px;
+  margin-bottom: 15px;
+}
+
+.charticSelected {
+  text-decoration: underline;
+}
+
+.charticMeaning {
+  font-size: 15px;
+}
+
+.charRadios {
+  margin-left: 13px;
+}
+
+.charticLarge {
+  margin-left: 10%;
+}
+
+.charticPoor {
+  margin-left: 1%;
+}
+
+.charticGreat {
+  margin-left: 13%;
+}
+
+.reviewInput {
+  min-width: 41%;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.newPhotos {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 125px;
+  height: 125px;
+}
+
+.addReviewPhotoButton {
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  margin-left: 15px;
+}
+
+.addReviewPhotoButton:hover {
+  background-color: black;
+  color: white;
+}
+
+.subFiledTxt {
+  font-size: 15px;
+}
+
+.submitReviewButton {
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 40px;
+  margin-left: 40%;
+  margin-top: 20px;
+}
+
+.submitReviewButton:hover {
+  background-color: black;
+  color: white
 }
 
 /* Marc 301 */
