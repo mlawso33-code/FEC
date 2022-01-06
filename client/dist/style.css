@@ -26,24 +26,29 @@ body {
 /*
 Mitchell 13*/
 a {
-  color: black;
+  color: rgba(88, 47, 14, 1);
 }
 
 .ratingsANDreviews {
   font-size: 18px;
   margin-bottom: 10%;
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 23% 75%;
+  grid-gap: 2%;
 }
 
 /* Ratings */
 .ratingsTitle {
-  font-size: 22px;
-  font-weight: normal;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: rgba(165, 165, 141, 0.95);
+  padding: 20px;
 }
 
 .ratingBreakdown {
   margin-bottom: 40px;
+  background-color: rgba(165, 165, 141, 0.95);
+  padding: 15px;
 }
 
 .ratingHeader {
@@ -93,6 +98,11 @@ a {
 }
 
 /* Product */
+.chartics {
+  background-color: rgba(165, 165, 141, 0.95);
+  padding: 15px;
+}
+
 .charticBreakdown {
   margin-bottom: 20px;
 }
@@ -107,38 +117,41 @@ a {
 }
 
 .perfect {
-  margin-left: 18%;
+  margin-left: 20%;
 }
 
 .tooLarge {
-  margin-left: 18%;
+  margin-left: 20%;
 }
 
 .great {
-  margin-left: 63%;
+  margin-left: 72%;
 }
 
 /* Review List */
 .reviewList {
   grid-row: span 2;
+  background-color: rgba(165, 165, 141, 0.95);
+  padding: 15px;
 }
 
 .numReviews{
   margin-bottom: 30px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
 }
 
 .sortDropDown {
   border: none;
   border-bottom: 2px solid;
-  font-size: 20px;
+  font-size: 22px;
+  color: rgba(88, 47, 14, 1);
   background-color: transparent;
   font-weight: bold;
 }
 
 .allTiles {
-  max-height: 55vh;
+  max-height: 58vh;
   overflow-y: scroll;
   margin-bottom: 20px;
 }
@@ -159,7 +172,8 @@ a {
 
 .reviewButton {
   background-color: transparent;
-  border: 2px solid black;
+  border: 2px solid rgba(88, 47, 14, 1);
+  color: rgba(88, 47, 14, 1);
   font-size: 20px;
   font-weight: bold;
   padding: 20px;
@@ -167,8 +181,8 @@ a {
 }
 
 .reviewButton:hover {
-  background-color: black;
-  color: #b8c4d4
+  background-color: rgba(88, 47, 14, 1);
+  color: rgba(165, 165, 141, 1)
 }
 
 /* Review Tile */
@@ -200,17 +214,17 @@ a {
 }
 
 .tileAnchor {
-  color: black;
+  color: rgba(88, 47, 14, 1);
 }
 
 .reviewTilePhoto {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  width: 125px;
-  height: 125px;
+  width: 100px;
+  height: 100px;
   cursor: pointer;
-  margin-bottom: 15px;
+  margin: 15px 5px;
 }
 
 .photoModal {
@@ -220,13 +234,14 @@ a {
   width: 100%;
   height: 100%;
   padding-top: 100px;
+  z-index: 5;
   background: rgba(0, 0, 0, 0.6);
 }
 
 .photoModalHeader {
   position: absolute;
-  top: 15px;
-  right: 35px;
+  top: 5%;
+  right: 22%;
   color: #fff;
   font-size: 40px;
   font-weight: bold;
@@ -268,13 +283,14 @@ a {
 
 hr {
   height: 2px;
-  background-color: black;
+  background-color: rgba(88, 47, 14, 1);
   border: none;
 }
 
 /* New Review Form */
 .reviewModal {
   position: fixed;
+  z-index: 5;
   top: 0;
   left: 0;
   width: 100%;
@@ -291,7 +307,7 @@ hr {
   width: 80%;
   max-width: 1000px;
   max-height: 800px;
-  background-color: #b8c4d4;
+  background-color: rgba(165, 165, 141, 1);
   overflow-y: scroll;
 }
 
@@ -300,7 +316,8 @@ hr {
   font-size: 40px;
   font-weight: bold;
   text-align: center;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid rgba(88, 47, 14, 1);
+  background-color: #b7b7a4;
   margin-bottom: 20px;
 }
 
@@ -308,7 +325,7 @@ hr {
 position: absolute;
 top: 12px;
 right: 25px;
-color: black;
+color: rgba(88, 47, 14, 1);
 font-size: 40px;
 font-weight: bold;
 cursor: pointer;
@@ -373,7 +390,7 @@ cursor: pointer;
   font-size: 18px;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid rgba(88, 47, 14, 1);
 }
 
 .newPhotos {
@@ -386,7 +403,8 @@ cursor: pointer;
 
 .addReviewPhotoButton {
   background-color: transparent;
-  border: 2px solid black;
+  border: 2px solid rgba(88, 47, 14, 1);
+  color: rgba(88, 47, 14, 1);
   font-size: 15px;
   font-weight: bold;
   padding: 10px;
@@ -394,8 +412,8 @@ cursor: pointer;
 }
 
 .addReviewPhotoButton:hover {
-  background-color: black;
-  color: white;
+  background-color: rgba(88, 47, 14, 1);
+  color: rgba(165, 165, 141, 1);
 }
 
 .subFiledTxt {
@@ -404,7 +422,8 @@ cursor: pointer;
 
 .submitReviewButton {
   background-color: transparent;
-  border: 2px solid black;
+  border: 2px solid rgba(88, 47, 14, 1);
+  color: rgba(88, 47, 14, 1);
   font-size: 20px;
   font-weight: bold;
   padding: 15px 40px;
@@ -413,8 +432,8 @@ cursor: pointer;
 }
 
 .submitReviewButton:hover {
-  background-color: black;
-  color: white
+  background-color: rgba(88, 47, 14, 1);
+  color: rgba(165, 165, 141, 1);
 }
 
 /* Marc 405 */
