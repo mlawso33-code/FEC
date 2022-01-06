@@ -1,20 +1,21 @@
 import React from "react";
 
 const ProgressBar = (props) => {
-  const { bgcolor, percent } = props
+  const { percent } = props
 
   const containerStyle = {
     display: 'inline-block',
     height: 12,
-    width: '20%',
+    width: '60%',
     backgroundColor: "#e0e0de",
     borderRadius: 50,
+    marginRight: 5
   }
 
   const fillerStyle = {
     height: '100%',
     width: `${percent}%`,
-    backgroundColor: bgcolor,
+    backgroundColor: 'green',
     borderRadius: 'inherit',
   }
 

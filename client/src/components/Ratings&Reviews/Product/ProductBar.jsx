@@ -4,15 +4,15 @@ const ProductBar = ({chartic}) => {
   const value = (Number(chartic.value) / 5 ) * 100
 
   const barStyle = {
-    position: 'relative',
     height: 12,
-    width: '25%',
+    width: '83%',
     backgroundColor: "#e0e0de",
-    borderRadius: 50
+    borderRadius: 50,
+    marginBottom: 5
   }
 
   const arrowStyle = {
-    position: 'absolute',
+    position: 'relative',
     left: `${value}%`,
     fontSize: 12,
   }

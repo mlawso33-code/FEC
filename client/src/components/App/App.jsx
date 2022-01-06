@@ -28,10 +28,9 @@ const App = () => {
         product
       }} >
         <Header />
-        <br />
         <Overview />
         {/* <RelatedItems /> */}
-        <Questions />
+        {<Questions />}
         <RatingsAndReviews />
       </AppContext.Provider>
     </div>

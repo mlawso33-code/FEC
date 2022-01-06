@@ -11,71 +11,71 @@ const ProductBreakdown = () => {
       {chartics &&
       <div>
         {chartics.Size &&
-          <div>
-            <div>Size</div>
+          <div className="charticBreakdown">
+            <div className="charticTitle">Size</div>
             <ProductBar chartic={chartics.Size}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Too small</span>
-              <span>Perfect</span>
-              <span>Too large</span>
+              <span className="perfect">Perfect</span>
+              <span className="tooLarge">Too large</span>
             </div>
           </div>
         }
 
         {chartics.Width &&
-          <div>
-            <div>Width</div>
+          <div className="charticBreakdown">
+            <div className="charticTitle">Width</div>
             <ProductBar chartic={chartics.Width}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Too small</span>
-              <span>Perfect</span>
-              <span>Too large</span>
+              <span className="perfect">Perfect</span>
+              <span className="tooLarge">Too large</span>
             </div>
           </div>
         }
 
         {chartics.Length &&
-          <div>
-            <div>Length</div>
+          <div className="charticBreakdown">
+            <div className="charticTitle">Length</div>
             <ProductBar chartic={chartics.Length}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Too small</span>
-              <span>Perfect</span>
-              <span>Too large</span>
+              <span className="perfect">Perfect</span>
+              <span className="tooLarge">Too large</span>
             </div>
           </div>
         }
 
         {chartics.Fit &&
-          <div>
-            <div>Fit</div>
+          <div className="charticBreakdown">
+            <div className="charticTitle">Fit</div>
             <ProductBar chartic={chartics.Fit}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Too small</span>
-              <span>Perfect</span>
-              <span>Too large</span>
+              <span className="perfect">Perfect</span>
+              <span className="tooLarge">Too large</span>
             </div>
           </div>
         }
 
         {chartics.Comfort &&
-          <div>
-            <div>Comfort</div>
+          <div className="charticBreakdown">
+            <div className="charticTitle">Comfort</div>
             <ProductBar chartic={chartics.Comfort}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Poor</span>
-              <span>Great</span>
+              <span className="great">Great</span>
             </div>
           </div>
         }
 
         {chartics.Quality &&
-          <div>
-            <div>Quality</div>
+          <div className="charticBreakdown">
+            <div className="charticTitle">Quality</div>
             <ProductBar chartic={chartics.Quality}/>
-            <div>
+            <div className="scaleMeaning">
               <span>Poor</span>
-              <span>Great</span>
+              <span className="great">Great</span>
             </div>
           </div>
         }
