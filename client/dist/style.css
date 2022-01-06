@@ -239,6 +239,7 @@ a {
 
 .reviewTileFooter {
   font-size: 15px;
+  margin-bottom: 15px;
 }
 
 .helpfulReview {
@@ -249,6 +250,7 @@ a {
   margin-right: 10px;
   margin-left: 10px;
 }
+
 
 
 
@@ -898,9 +900,9 @@ a {
   color: white;
 }
 
-.fa:hover {
+/* .fa:hover {
   opacity: 0.7;
-}
+} */
 
 .fa-twitter {
   background: #55ACEE;

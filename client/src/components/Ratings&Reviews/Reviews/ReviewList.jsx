@@ -46,7 +46,7 @@ const ReviewList = () => {
         <button className='reviewButton' onClick={handleMoreReviewsClick}>More Reviews</button>
       }
 
-      <button className='reviewButton'onClick={handleAddReviewClick}>Add Review +</button>
+      <button className='reviewButton' onClick={handleAddReviewClick}>Add Review +</button>
       {addingReview &&
         <NewReview closeModal={closeNewReviewModal}/>
       }
