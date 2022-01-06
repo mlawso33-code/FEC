@@ -2,15 +2,15 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 import AppContext from '../App/AppContext.jsx';
-import QuestionContext from './QuestionContext.jsx';
+import QuestionContext from './question/QuestionContext.jsx';
 
-import QuestionsList from './questionsList.jsx';
+import QuestionsList from './question/QuestionsList.jsx';
 
 
 const Questions = () => {
   return (
     <div style={{ border: "solid 10px" }}>
-      <h1>Questions and Answers</h1>
+      <h2>Questions and Answers</h2>
       <QuestionsList />
     </div>
   )
