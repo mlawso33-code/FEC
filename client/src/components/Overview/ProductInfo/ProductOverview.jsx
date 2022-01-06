@@ -27,26 +27,13 @@ const ProductOverview = () => {
         <Share />
       </div>
 
-      <div className='description' style={descriptionStyle}>
+      <div className='description'>
         <h3>{product.slogan}</h3>
         <p>{product.description}</p>
       </div>
 
     </div>
   )
-}
-
-// let infoStyle = {
-//   position: 'relative',
-//   flexDirection: 'column',
-//   float: 'right',
-//   backgroundColor: 'gray',
-//   width: '50%',
-//   height: 350
-// }
-
-let descriptionStyle = {
-  position: 'relative'
 }
 
 export default ProductOverview

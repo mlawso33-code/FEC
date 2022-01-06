@@ -7,13 +7,11 @@ const BagButton = (props) => {
   const {product} = useContext(AppContext);
 
   function addToBag (event) {
-    if (currentStyle) {
       let totalPrice = (price * Number(selectedQuantity));
       console.log('price, total price', price, totalPrice)
       let itemForPurchase = {Product: product.name, Style: currentStyle.name, Size: selectedSize.size, selectedQuantity, Price: totalPrice }
 
       setCart( oldCart =>  [...oldCart, itemForPurchase])
-    }
   }
 
   return (

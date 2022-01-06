@@ -771,7 +771,6 @@ span.bolder {
   grid-gap: 10px;
   grid-template-areas:
     'a b'
-    'c c';
 }
 
 .overviewBox2 {
@@ -788,121 +787,140 @@ span.bolder {
 }
 
 .stylePics {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
-  height: 100px;
-  border: 1px dashed #FFFDD0;
+  height: auto;
+  width: 50%;
 }
 
 .stylePic {
-  flex: 0 0 calc(25% - 10px);
-  height: 50px;
-  width: 50px;
-  border: 1px solid white;
-  margin: 0 2px 0 2px;
+  margin: 0 15px 0;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
+  border: 1px solid black;
+}
+
+.selectedStyle {
+  position: absolute;
+  left: 50px;
+  top: 15px;
 }
 
 .overviewBox1 {
   grid-area: a;
   z-index: 1;
   position: relative;
+  display: flex;
 }
 
 #mainImage {
   position: absolute;
   border: 2px solid white;
-  width: 100%;
-  height: 100%;
+  /* max-width: 100%;
+  max-height: 100%; */
+  /* object-fit: cover; */
+  width: 560px;
+  height: 500px;
+  display: block;
   border-radius: 5px;
   z-index: 2;
-  /* cursor: -webkit-zoom-in;
-  cursor: -moz-zoom-in; */
   cursor: zoom-in;
-}
-
-.popup {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: black;
-  opacity: 0.8;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  z-index: 3;
-  cursor: url("./images/plusSign.png"), pointer;
-  /* Why isn't this link working? */
-
-  /* display: grid;
-  justify-content: center;
-  align-content: center; */
-}
-
-.popup img {
-  position: absolue;
-  /* top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; */
-  opacity: 1.0;
-  display: grid;
-  width: 400px;
-  height: 300px;
-  justify-content: center;
-  align-content: center;
-  object-fit: cover;
-}
-
-/* #popupBackground {
-  display: none;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  background-color: gray;
-  opacity: 0.3;
-} */
-
-#popupImg {
-  max-width: 500px;
-  max-height: 300px;
-  margin: auto;
-  background-color: white;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
 }
 
 .carousel {
   flex-direction: column;
   z-index: 3;
+  top: 20%;
+  left: 2%;
   display: flex;
-  position: relative;
+  position: absolute;
   width: 104px;
+  height: 54%;
+  overflow: auto;
 }
 
 .carouselItem {
   position: relative;
-    width: 100px;
-    height: 75px;
+    width: 80px;
+    height: 60px;
     border: 2px solid white;
     border-radius: 10px;
     outline: 5px;
-    padding: 2px;
 }
 
 .selectedCarouselItem {
   position: relative;
-    width: 100px;
-    height: 75px;
-    border: 2px solid gold;
-    border-radius: 10px;
-    outline: 5px;
+  width: 80px;
+  height: 60px;
+  border: 2px solid gold;
+  border-radius: 10px;
+  outline: 5px;
+}
+
+.mainArrows {
+  position: absolute;
+  color: white;
+  z-index: 3;
+  font-size: 2em;
+  filter:drop-shadow(2px 5px 1px black);
+}
+
+.carArrows {
+  position: absolute;
+  color: white;
+  z-index: 3;
+  font-size: 1em;
+  filter:drop-shadow(1px 3px 1px black);
+  left: 8%;
+}
+
+.up {
+  position: absolute;
+  top: 15%;
+}
+
+.down {
+  position: absolute;
+  bottom: 21%;
+}
+
+.left {
+  left: 100px;
+}
+
+.right {
+  right: 25px;
+}
+
+.exit {
+  position: absolute;
+  right: 150px;
+  top: 100px;
+  font-size: 3em;
+  color: white;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color:rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  cursor: url("./images/plusSign.png"), pointer;
+  justify-content: center;
+  align-items: center;
+  /* Why isn't this link working? */
+}
+
+.popupImg {
+  position: absolute;
+  margin: auto;
+  width: 600px;
+  height: 550px;
+  align-items: center;
 }
 
 .salePrice {
@@ -918,23 +936,29 @@ span.bolder {
   color: black;
 }
 
-/* .fa {
+.overviewFA {
   padding: 15px;
   font-size: 30px;
   width: 15px;
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
-} */
+}
 
 .fa-facebook {
   background: #3B5998;
   color: white;
+  padding: 15px;
+  font-size: 30px;
+  width: 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
 }
 
-/* .fa:hover {
+.overviewFA:hover {
   opacity: 0.7;
-} */
+}
 
 .fa-twitter {
   background: #55ACEE;

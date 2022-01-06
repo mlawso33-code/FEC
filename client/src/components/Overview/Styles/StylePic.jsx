@@ -1,16 +1,21 @@
 import React, {useContext} from 'react';
 import OverviewContext from '../OverviewContext.jsx';
+import { FaCheckCircle } from 'react-icons/fa';
 
 const StylePic = (props) => {
   const { currentStyle, setCurrentStyle} = useContext(OverviewContext);
 
   function handleClick(event) {
     event.preventDefault();
-    setCurrentStyle(props.style);
-  }
+    setCurrentStyle(props.item);
 
+  }
+//woof
   return (
-      <img src={props.style.photos[0].thumbnail_url} className='stylePic' onClick={event => handleClick(event)}/>
+    <div style={{width: '25%', position: 'relative'}} onClick={event => handleClick(event)}>
+      <img src={props.item.photos[0].thumbnail_url} className='stylePic'/>
+      { (currentStyle === props.item) && <FaCheckCircle className='selectedStyle' styles={{}}/> }
+    </div>
   )
 }
 

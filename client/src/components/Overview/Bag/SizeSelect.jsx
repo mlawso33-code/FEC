@@ -4,7 +4,7 @@ import OverviewContext from '../OverviewContext.jsx';
 
 const SizeSelect = (props) => {
 
-  const {selectedSize, setSelectedSize, currentStyle} = useContext(OverviewContext);
+  const {setSelectedSize, currentStyle} = useContext(OverviewContext);
 
   function handleChange (event) {
     setSelectedSize(JSON.parse(event.target.value));
@@ -14,11 +14,9 @@ const SizeSelect = (props) => {
 
   function sizes () {
     let sizeA = [{size: 'SELECT SIZE', id: 'null'}];
-    if (currentStyle) {
     for (let key in currentStyle.skus) {
       sizeA.push({size: currentStyle.skus[key].size, quantity: currentStyle.skus[key].quantity, id:key})
     }
-  }
     return sizeA;
   }
 
