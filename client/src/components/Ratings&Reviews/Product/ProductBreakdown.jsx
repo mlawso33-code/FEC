@@ -9,7 +9,7 @@ const ProductBreakdown = () => {
   return (
     <div>
       {chartics &&
-      <div>
+      <div className="chartics">
         {chartics.Size &&
           <div className="charticBreakdown">
             <div className="charticTitle">Size</div>
