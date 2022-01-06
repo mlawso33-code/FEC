@@ -36,17 +36,17 @@ const UploadPhoto = (props) => {
           onChange={handleChange}
         />
         <br />
-        <label>
-          Preview : {image ? <img src={image} alt="test" width="150" height="100" /> : null}
-        </label>
+        <small>Preview :</small>
+        <div>{image ? <img src={image} alt="test" width="150" height="100" /> : null}</div>
         <br />
         <button onClick={e => handleUpload(image)} disabled={disabled}>Upload</button>
       </div>
       <br />
       <span>Remaining uploads: {counter}</span>
       <br />
-      <div>
-        <span>Uploaded photos: {photos.length > 0 && photos.map((img, i) => <img src={img} alt={`photo ${i}`} width="150" height="100" key={i} />)} </span>
+      <small>Uploaded photos: </small>
+      <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+        <span>{photos.length > 0 && photos.map((img, i) => <img src={img} alt={`photo ${i}`} width="100" height="50" key={i} />)} </span>
       </div>
     </div>
   );
