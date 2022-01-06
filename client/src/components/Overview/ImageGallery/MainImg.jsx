@@ -1,7 +1,10 @@
 import React, {useState, useContext} from 'react';
 import Carousel from './Carousel.jsx';
 import OverviewContext from '../OverviewContext.jsx';
-import { FaTimes, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import { FaTimes, FaArrowRight, FaArrowLeft, FaAngleUp, FaAngleDown } from 'react-icons/fa';
+
+// import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css'
+import { InnerImageZoom } from 'react-inner-image-zoom';
 
 const MainImg = () => {
   const { currentStyle, currentPic, setCurrentPic, zoom, setZoom} = useContext(OverviewContext)
@@ -12,12 +15,9 @@ const MainImg = () => {
     setPopup(!popup);
   }
 
-  function handlePopupImgClick (event) {
-    setZoom(!zoom);
-  }
+
 
   // function handleScrollClick (event) {
-  //   event.stopPropagation();
   //   let currentIndex = currentStyle.photos.map((photo) => photo.url).indexOf(currentPic);
 
   //   if (event.target.className.baseVal === 'mainArrows right') {
@@ -40,34 +40,44 @@ const MainImg = () => {
   }
 
   return (
-    <div>
     <div className='overviewBox1'>
 
         <img src={currentPic} id='mainImage' onClick={event => handleClick(event)}/>
 
+        {currentStyle.photos[0].url !== currentPic &&
+          <FaAngleUp className='carArrows up' onClick={(event) => handleLeftClick(event)}/>
+        }
         <span className='carousel'>
           {currentStyle.photos.map(pic => <Carousel pic={pic} key={pic.url.slice(33, 40)} />)}
         </span>
 
+        {currentStyle.photos[currentStyle.photos.length - 1].url !== currentPic &&
+          <FaAngleDown className='carArrows down' onClick={(event) => handleRightClick(event)} />
+        }
+
         <div style={{position: 'absolute', height: '100%', width: '100%', display: 'flex', alignItems: 'center'}}>
-          <FaArrowLeft className='mainArrows left' onClick={(event) => handleLeftClick(event)} ></FaArrowLeft>
-          <FaArrowRight className='mainArrows right'onClick={(event) => handleRightClick(event)} />
+          {currentStyle.photos[0].url !== currentPic &&
+            <FaArrowLeft className='mainArrows left' onClick={(event) => handleLeftClick(event)} />
+          }
+          {currentStyle.photos[currentStyle.photos.length - 1].url !== currentPic &&
+            <FaArrowRight className='mainArrows right'onClick={(event) => handleRightClick(event)} />
+          }
         </div>
 
+        <div className='popup' style={{display: popup ? 'flex' : 'none'}}>
+
+<InnerImageZoom
+  className='popupImg' src={currentPic}
+  zoomScale={2.5}
+  movetype='hover'
+/>
+
+<FaTimes className='exit' onClick={event => handleClick(event)}/>
+
+</div>
+
     </div>
 
-    <div className='popup' style={{display: popup ? 'flex' : 'none'}}>
-      <img
-        className='popupImg' src={currentPic}
-        onClick={event => handlePopupImgClick(event)}
-        style={{transform: zoom && 'scale(2.5)'}}
-      />
-
-      <FaTimes className='exit' onClick={event => handleClick(event)}/>
-
-    </div>
-
-    </div>
   )
 }
 
