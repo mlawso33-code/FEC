@@ -14,7 +14,7 @@ const Header = (props) => {
   shoes is just an example of a dropdown list for all shoe products */
 
   return (
-    <div style={header}>
+    <div className='header'>
       {/* <label for="shoes">Shoes</label>
       <select name="shoes">
         {shoes.map((shoe =>
@@ -35,12 +35,12 @@ const Header = (props) => {
 
 export default Header
 
-const header = {
-  display:"block",
-  background:"black",
-  width:"100%",
+// const header = {
+//   display:"block",
+//   background:"black",
+//   width:"100%",
 
-}
+// }
 const inputStyle = {
   display:"inline-block",
   padding: "5px",

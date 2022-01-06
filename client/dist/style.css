@@ -1,7 +1,14 @@
+/* hex color: a5a58d */
+/* rgba(165, 165, 141, 0.95) */
+
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #b8c4d4;
-  color: black;
+  /* background-color: #b8c4d4; */
+  color: rgba(88, 47, 14, 1);
+  background-image: url(./images/map.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #app {
@@ -9,6 +16,13 @@ body {
   margin: auto;
   /* text-align: center; */
 }
+
+.header {
+  height: 100px;
+  width: 100%;
+  background-color: rgba(165, 165, 141, 0.95);
+}
+
 /*
 Mitchell 13*/
 a {
@@ -793,13 +807,13 @@ span.bolder {
   /* position: 'relative'; */
   /* float: 'right'; */
   grid-area: b;
-  background-color: gray;
-  border: 2px solid orange;
+  background: rgba(165, 165, 141, 0.95);
+  /* border: 2px solid orange; */
 }
 
 .description {
   grid-area: c;
-  background-color: orange;
+  background-color: rgba(165, 165, 141, 0.95);
 }
 
 .stylePics {
