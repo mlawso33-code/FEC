@@ -129,8 +129,8 @@ const NewReview = ({ closeModal }) => {
           <div>Write Your Review About the {product.name}</div>
         </div>
 
-        <form style={modalBodyStyle} className="reviewModalBody" onSubmit={handleSubmit}>
-          <div><b>Overall Rating*</b>
+        <form className="reviewModalBody" onSubmit={handleSubmit}>
+          <div className="formSectionTitle"><b className="newRating">Overall Rating<span className="astrics">*</span></b>
             <Rating
               emptySymbol="fa fa-star-o"
               fullSymbol="fa fa-star"
@@ -138,34 +138,34 @@ const NewReview = ({ closeModal }) => {
               onClick={newRate => handleRatingChange(newRate)}
             />
             {rate === 1 &&
-              <span>Poor</span>
+              <span className="starMeaning">Poor</span>
             }
             {rate === 2 &&
-              <span>Fair</span>
+              <span className="starMeaning">Fair</span>
             }
             {rate === 3 &&
-              <span>Average</span>
+              <span className="starMeaning">Average</span>
             }
             {rate === 4 &&
-              <span>Good</span>
+              <span className="starMeaning">Good</span>
             }
             {rate === 5 &&
-              <span>Great</span>
+              <span className="starMeaning">Great</span>
             }
           </div>
 
-          <div><b>Do you recommend this product?*</b>
+          <div className="formSectionTitle"><b className="newRating">Do you recommend this product?<span className="astrics">*</span></b>
             <label>Yes</label>
-            <input type="radio" name="recommend" value={true} defaultChecked onClick={handleRecommended}/>
+            <input type="radio" name="recommend" className="recRadio" value={true} defaultChecked onClick={handleRecommended}/>
             <label>No</label>
-            <input type="radio" name="recommend" value={false} onClick={handleRecommended}/>
+            <input type="radio" name="recommend" className="recRadio" value={false} onClick={handleRecommended}/>
           </div>
 
-          <div><b>Characteristics*</b>
+          <div className="formSectionTitle"><b>Characteristics<span className="astrics">*</span></b>
             {characteristics}
           </div>
 
-          <div><b>Review Summary</b>
+          <div className="formSectionTitle"><b>Review Summary</b>
             <div>
               <input type="text"
                 placeholder="Example: Best purchase ever!"
@@ -175,7 +175,7 @@ const NewReview = ({ closeModal }) => {
             </div>
           </div>
 
-          <div><b>Review Body *</b>
+          <div className="formSectionTitle"><b>Review Body<span className="astrics">*</span></b>
             <div>
               <textarea
                 placeholder="Why did you like the product or not?"
@@ -191,7 +191,7 @@ const NewReview = ({ closeModal }) => {
             }
           </div>
 
-          <div><b>Upload your photos</b>
+          <div className="formSectionTitle"><b>Upload your photos</b>
             <div>
               {photos.map(photo => <NewReviewPhoto photo={photo}/>)}
             </div>
@@ -204,14 +204,14 @@ const NewReview = ({ closeModal }) => {
             }
           </div>
 
-          <div><b>What is your nickname?*</b>
+          <div className="formSectionTitle"><b>What is your nickname?<span className="astrics">*</span></b>
             <div>
               <input type="text" maxLength="60" placeholder="Example: jackson11!" onChange={handleNameChange}/>
             </div>
             <div><i>For privacy reasons, do not use your full name or email address.</i></div>
           </div>
 
-          <div><b>Your email*</b>
+          <div className="formSectionTitle"><b>Your email<span className="astrics">*</span></b>
             <div>
               <input type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={handleEmailChange}/>
             </div>
@@ -227,8 +227,3 @@ const NewReview = ({ closeModal }) => {
 }
 
 export default NewReview
-
-const modalBodyStyle = {
-  fontSize: '20px',
-}
-

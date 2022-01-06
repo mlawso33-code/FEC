@@ -17,6 +17,7 @@ a {
 
 .ratingsANDreviews {
   font-size: 18px;
+  margin-bottom: 10%;
   display: grid;
   grid-template-columns: 25% 75%;
 }
@@ -296,6 +297,35 @@ color: black;
 font-size: 40px;
 font-weight: bold;
 cursor: pointer;
+}
+
+.reviewModalBody {
+  font-size: 25px;
+  margin-left: 40px;
+  margin-bottom: 40px;
+}
+
+.astrics {
+  color: red;
+}
+
+.newRating {
+  margin-right: 20px;
+}
+
+.starMeaning {
+  margin-left: 20px;
+  text-decoration: underline;
+}
+
+.recRadio {
+  margin-right: 15px;
+  width: 18px;
+  height: 18px;
+}
+
+.formSectionTitle {
+  margin-bottom: 20px;
 }
 
 /* Marc 301 */

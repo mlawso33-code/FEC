@@ -15,11 +15,11 @@ const CharacteristicInReview = ({ charticName, charticId, changeCharticRating })
         <div>{charticName}: {selected}</div>
 
         <div style={{marginLeft: 10}}>
-          <input type="radio" name={charticName} value="1" id="Poor" onClick={changeSelected}/>
-          <input type="radio" name={charticName} value="2" id="Fair" onClick={changeSelected}/>
-          <input type="radio" name={charticName} value="3" id="Average" onClick={changeSelected}/>
-          <input type="radio" name={charticName} value="4" id="Good" onClick={changeSelected}/>
-          <input type="radio" name={charticName} value="5" id="Great" onClick={changeSelected}/>
+          <input type="radio" name={charticName} className="recRadio" value="1" id="Poor" onClick={changeSelected}/>
+          <input type="radio" name={charticName} className="recRadio" value="2" id="Fair" onClick={changeSelected}/>
+          <input type="radio" name={charticName} className="recRadio" value="3" id="Average" onClick={changeSelected}/>
+          <input type="radio" name={charticName} className="recRadio" value="4" id="Good" onClick={changeSelected}/>
+          <input type="radio" name={charticName} className="recRadio" value="5" id="Great" onClick={changeSelected}/>
         </div>
 
         <div style={{fontSize: 15}}>
@@ -35,11 +35,11 @@ const CharacteristicInReview = ({ charticName, charticId, changeCharticRating })
       <div>{charticName}: {selected}</div>
 
       <div style={{marginLeft: 10}}>
-        <input type="radio" name={charticName} value="1" id="Too small" onClick={changeSelected}/>
-        <input type="radio" name={charticName} value="2" id="Slightly small" onClick={changeSelected}/>
-        <input type="radio" name={charticName} value="3" id="Perfect" onClick={changeSelected}/>
-        <input type="radio" name={charticName} value="4" id="Slightly large" onClick={changeSelected}/>
-        <input type="radio" name={charticName} value="5" id="Too large" onClick={changeSelected}/>
+        <input type="radio" name={charticName} className="recRadio"value="1" id="Too small" onClick={changeSelected}/>
+        <input type="radio" name={charticName} className="recRadio"value="2" id="Slightly small" onClick={changeSelected}/>
+        <input type="radio" name={charticName} className="recRadio"value="3" id="Perfect" onClick={changeSelected}/>
+        <input type="radio" name={charticName} className="recRadio"value="4" id="Slightly large" onClick={changeSelected}/>
+        <input type="radio" name={charticName} className="recRadio"value="5" id="Too large" onClick={changeSelected}/>
       </div>
 
       <div style={{fontSize: 15}}>
