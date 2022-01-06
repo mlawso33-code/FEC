@@ -282,7 +282,7 @@ hr {
 
 .reviewModalHeader {
   padding-top: 40px;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
   border-bottom: 2px solid black;
@@ -309,10 +309,6 @@ cursor: pointer;
   color: red;
 }
 
-.newRating {
-  margin-right: 20px;
-}
-
 .starMeaning {
   margin-left: 20px;
   text-decoration: underline;
@@ -330,6 +326,7 @@ cursor: pointer;
 
 .formChartics {
   margin-left: 30px;
+  margin-bottom: 15px;
 }
 
 .charticSelected {
@@ -355,6 +352,56 @@ cursor: pointer;
 .charticGreat {
   margin-left: 13%;
 }
+
+.reviewInput {
+  min-width: 41%;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.newPhotos {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 125px;
+  height: 125px;
+}
+
+.addReviewPhotoButton {
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  margin-left: 15px;
+}
+
+.addReviewPhotoButton:hover {
+  background-color: black;
+  color: white;
+}
+
+.subFiledTxt {
+  font-size: 15px;
+}
+
+.submitReviewButton {
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 40px;
+  margin-left: 40%;
+  margin-top: 20px;
+}
+
+.submitReviewButton:hover {
+  background-color: black;
+  color: white
+}
+
 /* Marc 301 */
 
 

@@ -130,35 +130,39 @@ const NewReview = ({ closeModal }) => {
         </div>
 
         <form className="reviewModalBody" onSubmit={handleSubmit}>
-          <div className="formSectionTitle"><b className="newRating">Overall Rating<span className="astrics">*</span></b>
-            <Rating
-              emptySymbol="fa fa-star-o"
-              fullSymbol="fa fa-star"
-              initialRating={rate}
-              onClick={newRate => handleRatingChange(newRate)}
-            />
-            {rate === 1 &&
-              <span className="starMeaning">Poor</span>
-            }
-            {rate === 2 &&
-              <span className="starMeaning">Fair</span>
-            }
-            {rate === 3 &&
-              <span className="starMeaning">Average</span>
-            }
-            {rate === 4 &&
-              <span className="starMeaning">Good</span>
-            }
-            {rate === 5 &&
-              <span className="starMeaning">Great</span>
-            }
+          <div className="formSectionTitle"><b>Overall Rating<span className="astrics">*</span></b>
+            <div>
+              <Rating
+                emptySymbol="fa fa-star-o"
+                fullSymbol="fa fa-star"
+                initialRating={rate}
+                onClick={newRate => handleRatingChange(newRate)}
+              />
+              {rate === 1 &&
+                <span className="starMeaning">Poor</span>
+              }
+              {rate === 2 &&
+                <span className="starMeaning">Fair</span>
+              }
+              {rate === 3 &&
+                <span className="starMeaning">Average</span>
+              }
+              {rate === 4 &&
+                <span className="starMeaning">Good</span>
+              }
+              {rate === 5 &&
+                <span className="starMeaning">Great</span>
+              }
+            </div>
           </div>
 
-          <div className="formSectionTitle"><b className="newRating">Do you recommend this product?<span className="astrics">*</span></b>
-            <label>Yes</label>
-            <input type="radio" name="recommend" className="recRadio" value={true} defaultChecked onClick={handleRecommended}/>
-            <label>No</label>
-            <input type="radio" name="recommend" className="recRadio" value={false} onClick={handleRecommended}/>
+          <div className="formSectionTitle"><b>Do you recommend this product?<span className="astrics">*</span></b>
+            <div>
+              <label>Yes</label>
+              <input type="radio" name="recommend" className="recRadio" value={true} defaultChecked onClick={handleRecommended}/>
+              <label>No</label>
+              <input type="radio" name="recommend" className="recRadio" value={false} onClick={handleRecommended}/>
+            </div>
           </div>
 
           <div className="formSectionTitle"><b>Characteristics<span className="astrics">*</span></b>
@@ -171,7 +175,8 @@ const NewReview = ({ closeModal }) => {
                 placeholder="Example: Best purchase ever!"
                 maxLength="60"
                 onChange={handleSummaryChange}
-                style={{width: "30%"}}/>
+                className="reviewInput"
+                />
             </div>
           </div>
 
@@ -182,12 +187,13 @@ const NewReview = ({ closeModal }) => {
                 minLength="50"
                 maxLength="1000"
                 onChange={handleBodyChange}
+                className="reviewInput"
               />
             </div>
 
             {body.length >= 50
-              ? <div>Minimum reached</div>
-              : <div>Minimum required characters left: {50 - body.length}</div>
+              ? <div className="subFiledTxt">Minimum reached</div>
+              : <div className="subFiledTxt">Minimum required characters left: {50 - body.length}</div>
             }
           </div>
 
@@ -198,27 +204,42 @@ const NewReview = ({ closeModal }) => {
 
             {photos.length < 5 &&
               <div>
-                <input type="text" placeholder="Past URL here" onChange={handlePhotoChange} value={currentPhoto}/>
-                <button onClick={handleImgUpload}>Add Photo</button>
+                <input type="text"
+                  placeholder="Past URL here"
+                  onChange={handlePhotoChange}
+                  value={currentPhoto}
+                  className="reviewInput"
+                  />
+                <button className="addReviewPhotoButton" onClick={handleImgUpload}>Add Photo</button>
               </div>
             }
           </div>
 
           <div className="formSectionTitle"><b>What is your nickname?<span className="astrics">*</span></b>
             <div>
-              <input type="text" maxLength="60" placeholder="Example: jackson11!" onChange={handleNameChange}/>
+              <input type="text"
+                maxLength="60"
+                placeholder="Example: jackson11!"
+                onChange={handleNameChange}
+                className="reviewInput"
+                />
             </div>
-            <div><i>For privacy reasons, do not use your full name or email address.</i></div>
+            <div className="subFiledTxt"><i>For privacy reasons, do not use your full name or email address.</i></div>
           </div>
 
           <div className="formSectionTitle"><b>Your email<span className="astrics">*</span></b>
             <div>
-              <input type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={handleEmailChange}/>
+              <input type="text"
+                maxLength="60"
+                placeholder="Example: jackson11@email.com"
+                onChange={handleEmailChange}
+                className="reviewInput"
+                />
             </div>
-            <div><i>For authentication reasons, you will not be emailed.</i></div>
+            <div className="subFiledTxt"><i>For authentication reasons, you will not be emailed.</i></div>
           </div>
 
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" className="submitReviewButton" />
         </form>
       </div>
 
