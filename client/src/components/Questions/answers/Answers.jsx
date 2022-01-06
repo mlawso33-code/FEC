@@ -25,17 +25,17 @@ const Answers = (props) => {
   }
 
   return (
-    <div style={{marginBottom:"10px"}}>
-      <div>{body}</div>
-      <span style={{ marginLeft: "20px", fontSize: "15px", fontStyle: "italic" }}>
-        by {answerer_name}, {moment(date).format('LL')} |
-        Helpful? <a href='' style={{ color: "black" }} onClick={incrementHelpful}>Yes</a>
-        <span>({helpful})</span>
+    <span className="eachAnswer">
+      <div className="answerBody">{body}</div>
+      <span className="answererDetails">
+        by <span className="bolder">{answerer_name}</span>, {moment(date).format('LL')} |
+        Helpful? <a href='' className="blackText" onClick={incrementHelpful}>Yes</a>
+        <span className="helpfulNum"> ({helpful})</span>
       </span>
       <div>{photos.map(photo =>
         <AnswerPhoto key={photo.id} photo={photo} />
       )}</div>
-    </div>
+    </span>
   )
 }
 
