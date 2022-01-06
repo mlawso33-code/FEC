@@ -59,7 +59,7 @@ const QuestionsList = () => {
         </form>
       </div>
       <br />
-      <div>
+      <div className="questionsList">
         {displayedQuestions.filter((val) => {
           if (search === '') {
             return val
@@ -75,10 +75,10 @@ const QuestionsList = () => {
       <div className="questionButtons">
         {questions.length > 2 && (
           <div>
-            <strong className="pointer" onClick={handleMoreQuestions}>
-              {numOfQuestions === questions.length ? 'Hide' : 'More Answered'} Questions</strong>
+            <button className="questionButton" onClick={handleMoreQuestions}>
+              {numOfQuestions === questions.length ? 'Hide' : 'More Answered'} Questions</button>
           </div>)}
-        <strong className="pointer" onClick={addQuestion}> Add a Question + </strong>
+        <button className="questionButton" onClick={addQuestion}> Add a Question + </button>
       </div>
       <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} fetchQuestions={fetchQuestions} /> : null}</div>
     </div>

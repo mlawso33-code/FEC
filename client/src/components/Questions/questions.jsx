@@ -9,9 +9,11 @@ import QuestionsList from './question/QuestionsList.jsx';
 
 const Questions = () => {
   return (
-    <div className="questionBorder">
-      <h2>Questions and Answers</h2>
-      <QuestionsList />
+    <div>
+      <h1 className="questionsTitle">Questions &amp; Answers</h1>
+      <div>
+        <QuestionsList />
+      </div>
     </div>
   )
 }

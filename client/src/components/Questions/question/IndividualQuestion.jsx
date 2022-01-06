@@ -46,20 +46,24 @@ const IndividualQuestion = (props) => {
   }
 
   return (
-    <div>
-      <div className="eachQuestion">
+    <div className="eachQuestion">
+      <div>
         <div className="questionRow">
-          <strong className="qLabel">Q: </strong> {question_body}
+          <strong className="qLabel">Q: </strong> <strong className="questionBody">{question_body}</strong>
           <div className="questionExtras">
             <span>Helpful? | </span>
             <a href='' className="blackText" onClick={incrementHelpful}>Yes</a>
-            <span>({helpful})</span> | <a href='' className="blackText" onClick={reportQuestion}>{reportedQuestion ? 'Reported' : 'Report'}</a> |
+            <span className="helpfulNum"> ({helpful})</span> | <a href='' className="blackText" onClick={reportQuestion}>{reportedQuestion ? 'Reported' : 'Report'}</a> |
             <strong className="addButton" onClick={addAnswer}> Add Answer</strong>
             <div>{add_answer ? <AnswerModal toggle={addAnswer} question_id={question_id} fetchAnswers={fetchAnswers} /> : null}</div>
           </div>
         </div>
-        <AnswersList question_id={question_id} question={props.question}
-          fetchQuestions={props.fetchQuestions} fetchAnswers={fetchAnswers} answers={answers} />
+        <br />
+        <div>
+          <strong className="qLabel">A: </strong>
+          <AnswersList question_id={question_id} question={props.question}
+            fetchQuestions={props.fetchQuestions} fetchAnswers={fetchAnswers} answers={answers} />
+        </div>
       </div>
     </div>
   )

@@ -20,23 +20,20 @@ const AnswersList = (props) => {
   }
 
   return (
-    <div>
-      <br />
-      <strong>A: </strong>
-      <div className="answerList">
+    <span>
+      <span className="answerList">
         {displayedAnswers.map((answer =>
           <Answers key={answer.answer_id} answer={answer} question_id={question_id} />
         ))}
-      </div>
-      <br />
+      </span>
       {answers.length > 2 && (
         <div>
           <strong className="showHide" onClick={increaseAnswers}>
-            {numOfAnswers === answers.length ? 'Hide' : 'Show More'} Answers({answers.length-numOfAnswers})</strong>
+            {numOfAnswers === answers.length ? 'Hide' : 'Load More'} Answers({answers.length - numOfAnswers})</strong>
         </div>)}
       {answers.length === 0 &&
         <p className="noAnswer">No answers for this question. Click <span className="redText">Add Answer</span> button on the right!</p>}
-    </div>
+    </span>
   )
 }
 
