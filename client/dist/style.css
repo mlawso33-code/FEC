@@ -443,9 +443,9 @@ span.helpfulNum {
 .photoStyle {
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 5px;
   width: 150px;
   cursor: pointer;
+  margin-left: 45px;
 }
 .modalStyle {
   position: fixed;
@@ -472,14 +472,16 @@ span.helpfulNum {
   cursor: pointer;
 }
 .eachAnswer {
-  margin-bottom:10px;
+  margin-bottom:15px;
 }
 .answerBody {
   font-weight: lighter;
+  margin-left:25px;
 }
 .answererDetails {
-  margin-left: 20px;
+  margin-left: 45px;
   font-size: small;
+  font-style: italic;
 }
 span.bolder {
   font-weight: bolder;
@@ -557,42 +559,56 @@ span.bolder {
   flex-direction: row;
   margin-top: 10px;
 }
-.inputStyle {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  width: 80%;
-  background: #f1f1f1;
-}
-.buttonStyle {
-  width: auto;
-  padding: 10px;
-  background: black;
-  color: white;
-  font-size: 17px;
-  cursor: pointer;
-}
-/* .questionBorder {
-  border:solid 10px;
-} */
 .questionsList {
   max-height: 55vh;
   overflow-y: scroll;
   margin-bottom: 20px;
 }
-
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #e0e0de;
   border-radius: 50px;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent
+}
+/* Search */
+.search-wrapper {
+  width: 60vw;
+  height: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.5vw;
+  border-radius: 10px;
+  background-color: white;
+  margin-left: 10vw;
+  color: black;
+  border:2px solid black;
+}
+.search-wrapper i {
+  cursor: pointer;
+}
+.search {
+  width:45vw;
+  height: 2rem;
+  outline: none;
+  border-radius: 10px;
+  border: 0.5px solid transparent;
+  text-align: center;
+  outline: none;
+  font-size: 1.2em;
+  font-weight: lighter;
+  color: rgb(93, 90, 90);
+}
+.search::placeholder {
+  color: grey;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 1rem;
 }
 
 
