@@ -19,7 +19,7 @@ const QuestionsList = () => {
 
   var displayedQuestions = questions.slice(0, numOfQuestions)
 
-  const afterThree = search.split('').slice(2, search.length - 1).join('')
+  const afterThree = search.split('').slice(3, search.length - 1).join('')
 
   function fetchQuestions() {
     axios
@@ -51,15 +51,15 @@ const QuestionsList = () => {
     <div>
       <div>
         <form>
-          <input style={inputStyle} type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={search}
+          <input className="inputStyle" type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={search}
             onChange={(e) => {
               setSearch(event.target.value)
             }} />
-          <button type="submit" style={buttonStyle}><i className="fas fa-search"></i></button>
+          <button type="submit" className="buttonStyle"><i className="fas fa-search"></i></button>
         </form>
       </div>
       <br />
-      <div>
+      <div className="questionsList">
         {displayedQuestions.filter((val) => {
           if (search === '') {
             return val
@@ -72,13 +72,13 @@ const QuestionsList = () => {
         }
       </div>
       <br />
-      <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+      <div className="questionButtons">
         {questions.length > 2 && (
           <div>
-            <strong style={pointer} onClick={handleMoreQuestions}>
-              {numOfQuestions === questions.length ? 'Hide' : 'More Answered'} Questions</strong>
+            <button className="questionButton" onClick={handleMoreQuestions}>
+              {numOfQuestions === questions.length ? 'Hide' : 'More Answered'} Questions</button>
           </div>)}
-        <strong style={pointer} onClick={addQuestion}> Add a Question + </strong>
+        <button className="questionButton" onClick={addQuestion}> Add a Question + </button>
       </div>
       <div>{flag ? <QuestionModal toggle={addQuestion} product_id={product_id} fetchQuestions={fetchQuestions} /> : null}</div>
     </div>
@@ -86,29 +86,3 @@ const QuestionsList = () => {
 }
 
 export default QuestionsList
-
-const pointer = {
-  cursor: "pointer"
-}
-const flexRow = {
-  display: "flex",
-  flexDirection: "row",
-  marginTop: "10px",
-}
-const inputStyle = {
-  padding: "10px",
-  fontSize: "17px",
-  border: "1px solid grey",
-  width: "80%",
-  background: "#f1f1f1"
-
-}
-const buttonStyle = {
-  width: "auto",
-  padding: "10px",
-  background: "black",
-  color: "white",
-  fontSize: "17px",
-  cursor: "pointer"
-}
-
