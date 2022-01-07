@@ -49,7 +49,7 @@ const AnswerModal = (props) => {
         <form onSubmit={handleSubmitAnswer}>
           <span className="closeX" onClick={props.toggle}>X</span>
           <u><h3>Add your answer!</h3></u>
-          <small className="greyText"><span className="redText">* </span> are required</small>
+          <small className="greyText"><span className="redText">* </span>required</small>
           <br />
           <br />
           <span className="redText">* </span><label>Username
