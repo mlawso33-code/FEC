@@ -24,7 +24,7 @@ const SizeSelect = (props) => {
 
   return (
     <span>
-      <select name='SelectSize' onChange={event => handleChange(event)}>
+      <select name='SelectSize' style={{color: "rgba(88, 47, 14)"}} onChange={event => handleChange(event)}>
         {/* <option value=''>SELECT SIZE</option> */}
 
          {/* Doesn't like 'selected' / assigning value to select does nothing */}

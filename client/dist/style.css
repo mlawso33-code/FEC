@@ -21,6 +21,7 @@ body {
   height: 100px;
   width: 100%;
   background-color: rgba(165, 165, 141, 0.95);
+  margin-bottom: 5px;
 }
 
 /*
@@ -303,6 +304,7 @@ hr {
   position: relative;
   margin: auto;
   display: block;
+  z-Index: 1000;
   width: 80%;
   max-width: 1000px;
   max-height: 800px;
@@ -628,174 +630,7 @@ span.bolder {
   background: transparent
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* //Overview 601// */
+/* STERLO */
 
 .overviewDiv {
   display: grid;
@@ -803,7 +638,7 @@ span.bolder {
   grid-template-rows: 500px 100px;
   grid-gap: 10px;
   grid-template-areas:
-    'a b'
+    'a b';
 }
 
 .overviewBox2 {
@@ -811,6 +646,8 @@ span.bolder {
   /* float: 'right'; */
   grid-area: b;
   background: rgba(165, 165, 141, 0.95);
+  padding-left: 10px;
+  padding-top: 5px;
   /* border: 2px solid orange; */
 }
 
@@ -831,7 +668,7 @@ span.bolder {
   width: 3em;
   height: 3em;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid rgba(88, 47, 14, 1);
 }
 
 .selectedStyle {
@@ -849,7 +686,7 @@ span.bolder {
 
 #mainImage {
   position: absolute;
-  border: 2px solid white;
+  border: 2px solid #a5a58d;
   /* max-width: 100%;
   max-height: 100%; */
   /* object-fit: cover; */
@@ -871,6 +708,8 @@ span.bolder {
   width: 104px;
   height: 54%;
   overflow: auto;
+
+
 }
 
 .carouselItem {
@@ -918,12 +757,25 @@ span.bolder {
   bottom: 21%;
 }
 
+.down:active .carousel{
+  animation: scrollTop: (e.currentTarget).position().top + $('.carousel').scrollTop()
+    }, 'slow')
+}
+
 .left {
-  left: 100px;
+  left: 120px;
 }
 
 .right {
   right: 25px;
+}
+
+.leftEx {
+  left: 200px;
+}
+
+.rightEx {
+  right: 200px;
 }
 
 .exit {
@@ -966,7 +818,7 @@ span.bolder {
 }
 
 .price {
-  color: black;
+  font-weight: bold;
 }
 
 .overviewFA {
@@ -976,17 +828,13 @@ span.bolder {
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
+  border: 1px solid rgba(88, 47, 14, 1);
 }
 
 .fa-facebook {
   background: #3B5998;
   color: white;
-  padding: 15px;
-  font-size: 30px;
-  width: 15px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
+  margin-right: 2px;
 }
 
 .overviewFA:hover {
@@ -996,6 +844,7 @@ span.bolder {
 .fa-twitter {
   background: #55ACEE;
   color: white;
+  margin-right: 2px;
 }
 
 .fa-pinterest {
