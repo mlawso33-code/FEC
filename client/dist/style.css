@@ -719,7 +719,7 @@ span.bolder {
   align-items: center;
   padding: 0.5vw;
   border-radius: 10px;
-  background-color: white;
+  background-color: rgba(165, 165, 141, 0.95);
   margin-left: 10vw;
   color: black;
   border:2px solid black;
@@ -728,6 +728,7 @@ span.bolder {
   cursor: pointer;
 }
 .headerSearch {
+  padding-left: 250px;
   width:45vw;
   height: 2rem;
   outline: none;
@@ -737,6 +738,7 @@ span.bolder {
   outline: none;
   font-size: 1.2em;
   font-weight: lighter;
+  background-color: rgba(165, 165, 141, 0.95);
   color: rgb(93, 90, 90);
 }
 .headerSearch::placeholder {
@@ -744,6 +746,12 @@ span.bolder {
   text-align: center;
   font-weight: lighter;
   font-size: 1rem;
+}
+.headerLogo {
+  outline:none;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 15px;
 }
 
 

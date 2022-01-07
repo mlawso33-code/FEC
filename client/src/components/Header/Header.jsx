@@ -9,6 +9,7 @@ const Header = (props) => {
   return (
     <div>
       <form className='header-search-wrapper'>
+        <span className="headerLogo">Camo Shopo</span>
         <input className="headerSearch" type="text" placeholder="Search Product" value={search}
           onChange={(e) => {
             setSearch(event.target.value)
