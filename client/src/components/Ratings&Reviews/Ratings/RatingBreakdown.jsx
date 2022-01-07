@@ -1,26 +1,28 @@
 import React, { useContext } from "react"
+import AppContext from "../../App/AppContext.jsx"
 import RatingsAndReviewsContext from '../RatingsandReviewsContext.jsx'
 import AvgStarRating from "./AvgStarRating.jsx"
 import BreakDown from "./BreakDown.jsx"
 
 const RatingBreakdown = () => {
-  const { metaData, filtersApplied, clearAllFilters } = useContext(RatingsAndReviewsContext)
-  const averageRating = getAvgRating(metaData.ratings)
+  const { metaData, averageRating } = useContext(AppContext)
+  const { filtersApplied, clearAllFilters } = useContext(RatingsAndReviewsContext)
+  // const averageRating = getAvgRating(metaData.ratings)
   const percentRecommend = getPerRecommend(metaData.recommended)
   const breakDown = getBreakDown(metaData.ratings)
   const filteringOn = getFilteringOn()
 
-  function getAvgRating(ratings) {
-    let totalStars = 0
-    let totalRatings = 0
+  // function getAvgRating(ratings) {
+  //   let totalStars = 0
+  //   let totalRatings = 0
 
-    for (let star in ratings) {
-      totalStars += star * Number(ratings[star])
-      totalRatings += Number(ratings[star])
-    }
+  //   for (let star in ratings) {
+  //     totalStars += star * Number(ratings[star])
+  //     totalRatings += Number(ratings[star])
+  //   }
 
-    return (Math.round((totalStars / totalRatings) * 10) / 10).toString()
-  }
+  //   return (Math.round((totalStars / totalRatings) * 10) / 10).toString()
+  // }
 
   function getPerRecommend(recommendRes) {
     if (recommendRes) {
