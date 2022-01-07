@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import Carousel from './Carousel.jsx';
+import CarouselEx from './CarouselEx.jsx';
 import OverviewContext from '../OverviewContext.jsx';
 import { FaTimes, FaArrowRight, FaArrowLeft, FaAngleUp, FaAngleDown } from 'react-icons/fa';
 
@@ -54,8 +55,9 @@ const MainImg = () => {
           }
         </div>
 
-        <div className='popup' style={{display: popup ? 'flex' : 'none'}}>
 
+
+        <div className='popup' style={{display: popup ? 'flex' : 'none'}}>
          <InnerImageZoom
            className='popupImg' src={currentPic}
            zoomScale={2.5}
@@ -69,7 +71,11 @@ const MainImg = () => {
           {currentStyle.photos[currentStyle.photos.length - 1].url !== currentPic &&
             <FaArrowRight className='mainArrows rightEx'onClick={(event) => handleRightClick(event)} />
           }
-</div>
+
+          <span className='carouselEx'>
+            {currentStyle.photos.map(picEx => <CarouselEx picEx={picEx} key={picEx.url.slice(33, 41)} />)}
+          </span>
+        </div>
 
     </div>
 

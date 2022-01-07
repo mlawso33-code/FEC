@@ -7,15 +7,15 @@ const Ratings = () => {
   const { styles } = useContext(OverviewContext);
   const { product, averageRating } = useContext(AppContext);
 
+  function handleClick (e) {
+    let ratingId = document.getElementById("RatingsLink")
+    ratingId.scrollIntoView({ behavior: "smooth", block: "start"})
+  }
+
   return (
     <div>
-      {/* <p>Put stars here {' '}
-      <a href="localHost:3000">Read all reviews</a>
-      </p> */}
-
       <AvgStarRating rating={averageRating}/>
-      <a href="#RatingsLink">Read all reviews</a>
-
+      <a onClick={e => handleClick(e)}>Read all reviews</a>
     </div>
   )
 }

@@ -1,6 +1,11 @@
 /* hex color: a5a58d */
 /* rgba(165, 165, 141, 0.95) */
 
+@font-face {
+  font-family: 'elvish';
+  src: url("fonts/Aniron-7BaP.ttf");
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   /* background-color: #b8c4d4; */
@@ -18,10 +23,54 @@ body {
 }
 
 .header {
-  height: 100px;
+  height: 4.25em;
   width: 100%;
   background-color: rgba(165, 165, 141, 0.95);
   margin-bottom: 5px;
+  font-family: elvish;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 2em;
+  position: absolute;
+  bottom: 20%;
+  margin: 0px;
+}
+
+.tagline {
+  font-size: .75em;
+  position: absolute;
+  bottom: 0;
+  margin: 0px;
+}
+
+.headerSearch i {
+  cursor: pointer;
+}
+.headerSearch {
+  position: absolute;
+  height: 25%;
+  border-radius: 10px;
+  border: 1px solid rgba(88, 47, 14, 1);
+  text-align: center;
+  font-size: 1em;
+  font-weight: lighter;
+  background-color: rgba(165, 165, 141, 0.95);
+  color: rgb(93, 90, 90);
+  bottom: 30%;
+  right: 18%;
+}
+
+.cartIcon {
+  position: absolute;
+  bottom: 10%;
+  right: 7%;
+  font-size: 2.5em;
 }
 
 /*
@@ -575,6 +624,7 @@ span.bolder {
 .questionsTitle {
   font-size: 25px;
   font-weight: bold;
+  font-family: elvish;
   padding: 20px;
   background-color: rgba(165, 165, 141, 0.95);
 }
@@ -709,120 +759,33 @@ span.bolder {
   outline: none;
   font-size: 1.2em;
   font-weight: lighter;
-  color: rgb(93, 90, 90);
+  color: rgb(116, 18, 18);
   background-color: rgba(165, 165, 141, 0.95);
 }
 .search::placeholder {
   color: rgb(116, 18, 18);
   text-align: center;
-  font-weight: bolder;
-  font-size: 1rem;
-}
-/*Header Search*/
-.header-search-wrapper {
-  width: 60vw;
-  height: 30px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 0.5vw;
-  border-radius: 10px;
-  background-color: rgba(165, 165, 141, 0.95);
-  margin-left: 10vw;
-  color: black;
-  border:2px solid black;
-}
-.header-search-wrapper i {
-  cursor: pointer;
-}
-.headerSearch {
-  padding-left: 250px;
-  width:45vw;
-  height: 2rem;
-  outline: none;
-  border-radius: 10px;
-  border: 0.5px solid transparent;
-  text-align: center;
-  outline: none;
-  font-size: 1.2em;
-  font-weight: lighter;
-  background-color: rgba(165, 165, 141, 0.95);
-  color: rgb(93, 90, 90);
-}
-.headerSearch::placeholder {
-  color: rgb(116, 18, 18);
-  text-align: center;
-  font-weight: lighter;
-  font-size: 1rem;
-}
-.headerLogo {
-  outline:none;
   font-weight: bold;
-  font-style: italic;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* //Overview 601// */
+/* Sterlo */
 
 .overviewDiv {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 500px 100px;
+  grid-template-rows: 500px 10px;
   grid-gap: 10px;
   grid-template-areas:
     'a b';
 }
 
 .overviewBox2 {
-  /* position: 'relative'; */
-  /* float: 'right'; */
   grid-area: b;
   background: rgba(165, 165, 141, 0.95);
   padding-left: 10px;
   padding-top: 5px;
-  /* border: 2px solid orange; */
 }
 
 .description {
@@ -861,11 +824,8 @@ span.bolder {
 #mainImage {
   position: absolute;
   border: 2px solid #a5a58d;
-  /* max-width: 100%;
-  max-height: 100%; */
-  /* object-fit: cover; */
-  width: 560px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   display: block;
   border-radius: 5px;
   z-index: 2;
@@ -882,7 +842,6 @@ span.bolder {
   width: 104px;
   height: 54%;
   overflow: auto;
-
 
 }
 
@@ -931,11 +890,6 @@ span.bolder {
   bottom: 21%;
 }
 
-.down:active .carousel{
-  animation: scrollTop: (e.currentTarget).position().top + $('.carousel').scrollTop()
-    }, 'slow')
-}
-
 .left {
   left: 120px;
 }
@@ -968,7 +922,7 @@ span.bolder {
   width: 100%;
   height: 100%;
   z-index: 3;
-  cursor: url("./images/plusSign.png"), pointer;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   /* Why isn't this link working? */
@@ -980,6 +934,23 @@ span.bolder {
   width: 600px;
   height: 550px;
   align-items: center;
+}
+
+.carouselEx {
+  position: absolute;
+  bottom: 10%;
+}
+
+.faRing {
+  color: goldenrod;
+  padding: 2px;
+  font-size: 2.5em;
+}
+
+.faCircle {
+  color: rgb(27, 85, 27);
+  padding: 2px;
+  font-size: 2.5em;
 }
 
 .salePrice {
@@ -1003,6 +974,7 @@ span.bolder {
   text-decoration: none;
   border-radius: 50%;
   border: 1px solid rgba(88, 47, 14, 1);
+  margin-bottom: 2%;
 }
 
 .fa-facebook {
