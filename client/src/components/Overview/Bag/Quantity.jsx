@@ -25,7 +25,7 @@ const Quantity = (props) => {
 
   return (
     <span>
-      <select name='QuantitySelect' style={{color: "rgba(88, 47, 14)"}} disabled={!selectedSize.quantity} onChange={event => handleChange(event)}>
+      <select name='QuantitySelect' className='selectQuantity' disabled={!selectedSize.quantity} onChange={event => handleChange(event)}>
         {optionsArr.map(opt => <option value={opt} key={opt}>{opt}</option>)}
       </select>
     </span>

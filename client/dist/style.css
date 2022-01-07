@@ -765,8 +765,8 @@ span.bolder {
 
 .overviewDiv {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 500px 10px;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 575px 10px;
   grid-gap: 10px;
   grid-template-areas:
     'a b';
@@ -788,21 +788,22 @@ span.bolder {
   display: inline-flex;
   flex-wrap: wrap;
   height: auto;
-  width: 50%;
+  width: 70%;
 }
 
 .stylePic {
   margin: 0 15px 0;
-  width: 3em;
-  height: 3em;
+  width: 4em;
+  height: 4em;
   border-radius: 50%;
   border: 1px solid rgba(88, 47, 14, 1);
 }
 
 .selectedStyle {
   position: absolute;
-  left: 50px;
-  top: 15px;
+  font-size: 1.25em;
+  left: 80%;
+  top: 3%;
 }
 
 .overviewBox1 {
@@ -831,7 +832,7 @@ span.bolder {
   display: flex;
   position: absolute;
   width: 104px;
-  height: 54%;
+  height: 47%;
   overflow: auto;
 
 }
@@ -868,7 +869,7 @@ span.bolder {
   z-index: 3;
   font-size: 1em;
   filter:drop-shadow(1px 3px 1px black);
-  left: 8%;
+  left: 7%;
 }
 
 .up {
@@ -878,15 +879,15 @@ span.bolder {
 
 .down {
   position: absolute;
-  bottom: 21%;
+  bottom: 28%;
 }
 
 .left {
-  left: 120px;
+  left: 22%;
 }
 
 .right {
-  right: 25px;
+  right: 5%;
 }
 
 .leftEx {
@@ -957,10 +958,39 @@ span.bolder {
   font-weight: bold;
 }
 
+.sizeSelect {
+  color: rgba(88, 47, 14);
+  width: 60%;
+  font-size: 1em;
+  height: 2em;
+  background-color: rgba(221, 190, 169, .6);
+  margin-right: 2%;
+  border-radius: 2%;
+  margin-bottom: 2%;
+  margin-top: 1%;
+}
+
+.selectQuantity {
+  color: rgba(88, 47, 14);
+  width: 15%;
+  height: 2em;
+  font-size: 1em;
+  border-radius: 5%;
+  background-color: rgba(255, 232, 214, .8);
+}
+
+.bagButton {
+  color: rgba(88, 47, 14);
+  width: 30%;
+  height: 2em;
+  font-size: 1em;
+  border-radius: 5%;
+  margin-left: 30%;
+}
+
 .overviewFA {
-  padding: 15px;
-  font-size: 30px;
-  width: 15px;
+  padding: 3%;
+  font-size: 1em;
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
@@ -968,7 +998,7 @@ span.bolder {
   margin-bottom: 2%;
 }
 
-.fa-facebook {
+.faFacebook {
   background: #3B5998;
   color: white;
   margin-right: 2px;
@@ -978,13 +1008,13 @@ span.bolder {
   opacity: 0.7;
 }
 
-.fa-twitter {
+.faTwitter {
   background: #55ACEE;
   color: white;
   margin-right: 2px;
 }
 
-.fa-pinterest {
+.faPinterest {
   background: #E60023;
   color: white;
 }
