@@ -26,7 +26,7 @@ const Answers = (props) => {
 
   return (
     <div className="eachAnswer">
-      <div className="answerBody">{body}</div>
+      <strong className="qLabel">A: </strong>{body}
       <div>{photos.map(photo =>
         <AnswerPhoto key={photo.id} photo={photo} />
       )}</div>

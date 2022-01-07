@@ -616,6 +616,9 @@ span.bolder {
   flex-direction:row;
   justify-content:space-between;
 }
+.eachPhotoRow {
+  margin: 0.25em;
+}
 /* Question List */
 .qaa {
   margin-top: 70px;
