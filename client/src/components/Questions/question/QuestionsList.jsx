@@ -20,9 +20,6 @@ const QuestionsList = () => {
   var displayedQuestions = questions.slice(0, numOfQuestions)
 
   const afterThree = search.split('').slice(2, search.length - 1).join('')
-  console.log('split::::', search.split(''))
-  console.log('after3::::', afterThree)
-
 
   function fetchQuestions() {
     axios
