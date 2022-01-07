@@ -3,8 +3,7 @@ import { FaCartArrowDown } from 'react-icons/fa';
 
 import AppContext from '../App/AppContext.jsx';
 
-const Header = (props) => {
-  const [search, setSearch] = useState('')
+const Header = ({ headerSelect }) => {
   return (
     <div className='header'>
       <p className="title">
@@ -15,16 +14,13 @@ const Header = (props) => {
       </p>
 
       <FaCartArrowDown className='cartIcon' />
-
-        <input className="headerSearch" type="text" placeholder="Search Product" value={search}
-          onChange={(e) => {
-            setSearch(event.target.value)
-          }} />
-          {/* <i className="fas fa-search searchIcon"></i> */}
+      <select id="products" onChange={headerSelect}>
+        <option value="44388">Camo Onesie</option>
+        <option value="44390">Morning Joggers</option>
+        <option value="44391">Slackers Slacks</option>
+        <option value="44392">Heir Force Ones</option>
+      </select>
     </div>
-
-
-
   )
 }
 export default Header

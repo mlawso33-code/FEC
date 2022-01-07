@@ -25,8 +25,8 @@ const Answers = (props) => {
   }
 
   return (
-    <span className="eachAnswer">
-      <div className="answerBody">{body}</div>
+    <div className="eachAnswer">
+      <strong className="qLabel">A: </strong>{body}
       <div>{photos.map(photo =>
         <AnswerPhoto key={photo.id} photo={photo} />
       )}</div>
@@ -35,7 +35,7 @@ const Answers = (props) => {
         Helpful? <a href='' className="blackText" onClick={incrementHelpful}>Yes</a>
         <span className="helpfulNum"> ({helpful})</span>
       </span>
-    </span>
+    </div>
   )
 }
 

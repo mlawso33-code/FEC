@@ -29,7 +29,7 @@ const AnswerModal = (props) => {
       axios
         .post(`/api/qa/questions/${question_id}/answers`, valueObj)
         .then(res => alert('Answer submitted!'))
-        .then(res => props.fetchAnswers)
+        .then(res => props.fetchAnswers())
         .then(props.toggle)
 
     }

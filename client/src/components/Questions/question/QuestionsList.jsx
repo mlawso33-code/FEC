@@ -53,15 +53,15 @@ const QuestionsList = () => {
         <input className="search" type="search" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={search}
           onChange={(e) => {
             setSearch(event.target.value)
-          }} />
+          }} onFocus={(e) => e.target.placeholder =''} onBlur={(e) => e.target.placeholder = "HAVE A QUESTION? SEARCH FOR ANSWERS..."}/>
         <i className="fas fa-search"></i>
       </form>
       <br />
       <div className="questionsList">
         {displayedQuestions.filter((val) => {
-          if (search === '') {
+          if (search === ''|| (search.length > 0 && !afterThree)) {
             return val
-          } else if (val.question_body.toLowerCase().includes(afterThree.toLowerCase())) {
+          } else if (afterThree && val.question_body.toLowerCase().includes(search)) {
             return val
           }
         }).map((question =>
@@ -69,7 +69,6 @@ const QuestionsList = () => {
         ))
         }
       </div>
-      <br />
       <div className="questionButtons">
         {questions.length > 2 && (
           <div>
