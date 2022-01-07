@@ -28,7 +28,7 @@ const App = () => {
         product
       }} >
         <Header />
-        {/* <Overview /> */}
+        <Overview />
         {/* <RelatedItems /> */}
         {<Questions />}
         <RatingsAndReviews />
