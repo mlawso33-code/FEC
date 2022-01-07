@@ -40,7 +40,7 @@ const UploadPhoto = (props) => {
         <small>Preview :</small>
         <div>{image ? <img src={image} alt="test" width="150" height="100" /> : null}</div>
         <br />
-        <button onClick={e => handleUpload(image)} disabled={disabled}>Upload</button>
+        <button className= "questionButton" onClick={e => handleUpload(image)} disabled={disabled}>Upload</button>
       </div>
       <br />
       <span>Remaining uploads: {counter}</span>

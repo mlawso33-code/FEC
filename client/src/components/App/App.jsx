@@ -10,6 +10,8 @@ import RatingsAndReviews from '../Ratings&Reviews/Ratings&Reviews.jsx';
 
 const App = () => {
   const [product, setProduct] = useState({});
+  const [metaData, setMetaData] = useState({})
+  const averageRating = getAvgRating(metaData.ratings)
 
   function fetchProduct(product_id) {
     axios.get(`/api/products/${product_id}`)
@@ -17,20 +19,42 @@ const App = () => {
 
   }
 
+  function fetchMetaData() {
+    axios.get(`/api/reviews/meta/?product_id=${product.id}`)
+      .then(response => setMetaData(response.data))
+  }
+
+  function getAvgRating(ratings) {
+    let totalStars = 0
+    let totalRatings = 0
+
+    for (let star in ratings) {
+      totalStars += star * Number(ratings[star])
+      totalRatings += Number(ratings[star])
+    }
+
+    return (Math.round((totalStars / totalRatings) * 10) / 10).toString()
+  }
+
   useEffect(() => {
     fetchProduct(44388)
   }, [])
 
+  useEffect(() => {
+    if(JSON.stringify(product) !== '{}') {
+      fetchMetaData()
+    }
+  }, [product])
 
   return (
     <div>
       <AppContext.Provider value={{
-        product
+        product, metaData, averageRating
       }} >
         <Header />
         <Overview />
         {/* <RelatedItems /> */}
-        {<Questions />}
+        <Questions />
         <RatingsAndReviews />
       </AppContext.Provider>
     </div>

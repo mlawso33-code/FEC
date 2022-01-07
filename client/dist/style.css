@@ -21,6 +21,7 @@ body {
   height: 100px;
   width: 100%;
   background-color: rgba(165, 165, 141, 0.95);
+  margin-bottom: 5px;
 }
 
 /*
@@ -303,6 +304,7 @@ hr {
   position: relative;
   margin: auto;
   display: block;
+  z-Index: 1000;
   width: 80%;
   max-width: 1000px;
   max-height: 800px;
@@ -442,7 +444,7 @@ cursor: pointer;
   font-size: medium;
 }
 .greyText {
-  color:grey;
+  color:black;
   font-size: large;
   font-weight: lighter;
 }
@@ -461,10 +463,14 @@ span.helpfulNum {
 }
 /* Answers */
 .closeX {
-  color: black;
-  float: right;
+  position: absolute;
+  top: 12px;
+  right: 25px;
+  color: rgba(88, 47, 14, 1);
+  font-size: 40px;
+  font-weight: bold;
   cursor: pointer;
-}
+  }
 .photoStyle {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -505,17 +511,43 @@ span.bolder {
   font-size: 10px;
 }
 /*Answer Modal*/
-.answer_modal {
+.answerModal {
   position: fixed;
-  background-color: lightgrey;
-  top: 5%;
-  left: 30%;
-  width: 40%;
-  padding: 20px;
-  border-radius: 5px;
-  border: 2px solid black;
-  overflow: auto;
-  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height:100%;
+  padding-top: 100px;
+  z-index: 5;
+}
+.answerModalContent {
+  position: relative;
+  margin: auto;
+  display: block;
+  z-Index: 1000;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 800px;
+  background-color: rgba(165, 165, 141, 1);
+  overflow-y: auto;
+}
+.answerModalHeader {
+  padding-top: 40px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid rgba(88, 47, 14, 1);
+  background-color: #b7b7a4;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.answerModalBody {
+  font-size: 25px;
+  margin-left: 20px;
+}
+.answerModalPhoto {
+  margin-left: 20px;
 }
  label {
   font-weight: bolder;
@@ -609,16 +641,39 @@ span.bolder {
 }
 /*Question Modal*/
 .questionModal {
-  background-color: lightgrey;
   position: fixed;
-  top: 5%;
-  left: 30%;
-  width: 40%;
-  padding: 20px;
-  border-radius: 5px;
-  border: 2px solid black;
-  overflow: auto;
-  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height:100%;
+  padding-top: 100px;
+  z-index: 5;
+}
+.questionModalContent {
+  position: relative;
+  margin: auto;
+  display: block;
+  z-Index: 1000;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 800px;
+  background-color: rgba(165, 165, 141, 1);
+  overflow-y: auto;
+}
+.questionModalHeader {
+  padding-top: 40px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid rgba(88, 47, 14, 1);
+  background-color: #b7b7a4;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.questionModalBody {
+  font-size: 25px;
+  margin-left: 20px;
 }
 /* Search */
 .search-wrapper {
@@ -706,7 +761,7 @@ span.bolder {
   grid-template-rows: 500px 100px;
   grid-gap: 10px;
   grid-template-areas:
-    'a b'
+    'a b';
 }
 
 .overviewBox2 {
@@ -714,6 +769,8 @@ span.bolder {
   /* float: 'right'; */
   grid-area: b;
   background: rgba(165, 165, 141, 0.95);
+  padding-left: 10px;
+  padding-top: 5px;
   /* border: 2px solid orange; */
 }
 
@@ -734,7 +791,7 @@ span.bolder {
   width: 3em;
   height: 3em;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid rgba(88, 47, 14, 1);
 }
 
 .selectedStyle {
@@ -752,7 +809,7 @@ span.bolder {
 
 #mainImage {
   position: absolute;
-  border: 2px solid white;
+  border: 2px solid #a5a58d;
   /* max-width: 100%;
   max-height: 100%; */
   /* object-fit: cover; */
@@ -774,6 +831,8 @@ span.bolder {
   width: 104px;
   height: 54%;
   overflow: auto;
+
+
 }
 
 .carouselItem {
@@ -821,12 +880,25 @@ span.bolder {
   bottom: 21%;
 }
 
+.down:active .carousel{
+  animation: scrollTop: (e.currentTarget).position().top + $('.carousel').scrollTop()
+    }, 'slow')
+}
+
 .left {
-  left: 100px;
+  left: 120px;
 }
 
 .right {
   right: 25px;
+}
+
+.leftEx {
+  left: 200px;
+}
+
+.rightEx {
+  right: 200px;
 }
 
 .exit {
@@ -869,7 +941,7 @@ span.bolder {
 }
 
 .price {
-  color: black;
+  font-weight: bold;
 }
 
 .overviewFA {
@@ -879,17 +951,13 @@ span.bolder {
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
+  border: 1px solid rgba(88, 47, 14, 1);
 }
 
 .fa-facebook {
   background: #3B5998;
   color: white;
-  padding: 15px;
-  font-size: 30px;
-  width: 15px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
+  margin-right: 2px;
 }
 
 .overviewFA:hover {
@@ -899,6 +967,7 @@ span.bolder {
 .fa-twitter {
   background: #55ACEE;
   color: white;
+  margin-right: 2px;
 }
 
 .fa-pinterest {

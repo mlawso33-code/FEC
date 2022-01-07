@@ -44,11 +44,13 @@ const AnswerModal = (props) => {
   }
 
   return (
-    <div>
-      <div className="answer_modal">
-        <form onSubmit={handleSubmitAnswer}>
+    <div className="answerModal">
+      <div className="answerModalContent">
+        <div className="answerModalHeader">
           <span className="closeX" onClick={props.toggle}>X</span>
-          <u><h3>Add your answer!</h3></u>
+          <div>Add your answer!</div>
+        </div>
+        <form className="answerModalBody" onSubmit={handleSubmitAnswer}>
           <small className="greyText"><span className="redText">* </span>required</small>
           <br />
           <br />
@@ -67,11 +69,13 @@ const AnswerModal = (props) => {
             <textarea rows="5" cols="33" value={body} placeholder="Type answer here..." maxLength="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
           <br />
-          <input type="submit" value="Submit Answer" />
+          <input className="questionButton" type="submit" value="Submit Answer" />
         </form>
         <br />
-        <strong>Image Upload</strong>
-        <UploadPhoto photos={photos} image={image} onChange={handleChange} upload={handleUpload} />
+        <div className="answerModalPhoto">
+          <strong>Image Upload</strong>
+          <UploadPhoto photos={photos} image={image} onChange={handleChange} upload={handleUpload} />
+        </div>
       </div>
     </div>
   )

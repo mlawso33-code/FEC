@@ -1,7 +1,7 @@
 import React from "react"
 import Rating from 'react-rating'
 
-const AvgStarRating = ({rating}) => {
+const AvgStarRating = ({ rating }) => {
   return (
     <Rating
       emptySymbol="fa fa-star-o singleStar"

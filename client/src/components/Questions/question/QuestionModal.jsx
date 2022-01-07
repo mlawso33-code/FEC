@@ -31,11 +31,13 @@ const QuestionModal = (props) => {
   }
 
   return (
-    <div>
-      <div className="questionModal">
-        <form onSubmit={handleSubmitQuestion}>
+    <div className="questionModal">
+      <div className="questionModalContent">
+        <div className="questionModalHeader">
           <span className="closeX" onClick={props.toggle}>X</span>
           <h3>Ask a question!</h3>
+        </div>
+        <form className="questionModalBody" onSubmit={handleSubmitQuestion}>
           <small className="greyText"><span className="redText">* </span> required</small>
           <br />
           <br />
@@ -54,7 +56,7 @@ const QuestionModal = (props) => {
             <textarea rows="5" cols="65" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
           <br />
-          <input type="submit" value="Submit Question" />
+          <input className="questionButton" type="submit" value="Submit Question" />
         </form>
       </div>
     </div>
