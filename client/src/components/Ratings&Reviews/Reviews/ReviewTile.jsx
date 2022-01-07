@@ -1,11 +1,11 @@
-import React, {useState, useContext} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import StarRating from './StarRating.jsx';
 import moment from 'moment';
 import ReviewPhoto from './ReviewPhoto.jsx';
 
-const ReviewTile = ({review}) => {
-  const {review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos} = review
+const ReviewTile = ({ review }) => {
+  const { review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos } = review
   const [fullReview, setFullReview] = useState(false)
   const [reported, setReported] = useState(false)
   const [helpful, setHelpful] = useState(helpfulness)
@@ -39,18 +39,17 @@ const ReviewTile = ({review}) => {
       {/* Review head */}
       <StarRating rating={rating}/>
       <div className='nameNdateReview'>
-        {/* Conditionally render icon if user is verified */}
-        <i className="fa fa-check-circle" aria-hidden="true"></i>
+        <i className='fa fa-check-circle' aria-hidden='true'></i>
         <span>{reviewer_name}, {moment(date).format('LL')} </span>
       </div>
 
-      <div className="reviewSummary">{summary}</div>
+      <div className='reviewSummary'>{summary}</div>
 
       {/* Review body */}
       <div>
         {fullReview
           ? <p>{body}</p>
-          : <p className="reviewTileBody">{body}</p>
+          : <p className='reviewTileBody'>{body}</p>
         }
 
         {body.length > 250 && !fullReview &&
@@ -68,7 +67,7 @@ const ReviewTile = ({review}) => {
       {/* Conditionally render div if recommended */}
       {recommend &&
         <div className='recommendedProduct'>
-          <i className="fa fa-check" aria-hidden="true"></i>
+          <i className='fa fa-check' aria-hidden='true'></i>
           <span>I recommend this product</span>
         </div>
       }

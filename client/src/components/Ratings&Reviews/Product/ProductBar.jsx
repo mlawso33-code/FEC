@@ -1,12 +1,12 @@
-import React from "react"
+import React from 'react'
 
-const ProductBar = ({chartic}) => {
+const ProductBar = ({ chartic }) => {
   const value = (Number(chartic.value) / 5 ) * 100
 
   const barStyle = {
     height: 12,
     width: '95%',
-    backgroundColor: "#e0e0de",
+    backgroundColor: '#e0e0de',
     borderRadius: 50,
     marginBottom: 5
   }
@@ -20,7 +20,7 @@ const ProductBar = ({chartic}) => {
   return (
     <div style={barStyle}>
       <div style={arrowStyle}>
-        <i className="fa fa-chevron-circle-down" aria-hidden="true"></i>
+        <i className='fa fa-chevron-circle-down' aria-hidden='true'></i>
       </div>
     </div>
   )

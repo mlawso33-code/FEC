@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import AppContext from '../App/AppContext.jsx'
 import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
@@ -10,7 +10,6 @@ const RatingsAndReviews = () => {
   const { product } = useContext(AppContext)
   const product_id = product.id
   const [reviews, setReviews] = useState([])
-  // const [metaData, setMetaData] = useState({})
   const [filteredReviews, setFilteredReviews] = useState([])
   const [filtersApplied, setFiltersApplied] = useState([])
 
@@ -39,17 +38,22 @@ const RatingsAndReviews = () => {
       .then(response => setReviews(response.data.results))
   }
 
-  // function fetchMetaData() {
-  //   axios.get(`/api/reviews/meta/?product_id=${product_id}`)
-  //     .then(response => setMetaData(response.data))
-  // }
-
   useEffect(() => {
     if(JSON.stringify(product) !== '{}') {
       fetchReviews()
-      // fetchMetaData()
     }
   }, [product])
+
+  // useEffect(() => {
+  //   var newFiltered = [];
+  //   for (let filter of filtersApplied) {
+  //     let portion = reviews.filter(review => review.rating === Number(filter))
+  //     console.log(portion)
+  //     newFiltered.concat(portion)
+  //   }
+  //   console.log(newFiltered)
+  //   setFilteredReviews(newFiltered)
+  // }, [reviews])
 
   function handleSortChange(event) {
     axios.get(`/api/reviews/?page=1&count=100&sort=${event.target.value}&product_id=${product_id}`)
@@ -64,7 +68,6 @@ const RatingsAndReviews = () => {
 
       <div className='ratingsANDreviews'>
         <RatingBreakdown />
-
         <ReviewList />
         <ProductBreakdown />
       </div>

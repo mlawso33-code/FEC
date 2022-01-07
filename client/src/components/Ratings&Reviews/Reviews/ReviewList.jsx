@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import RatingsAndReviewsContext from '../RatingsandReviewsContext.jsx'
 import ReviewTile from './ReviewTile.jsx'
 import SortDropDown from './SortDropDown.jsx'
@@ -6,7 +6,7 @@ import NewReview from './NewReview.jsx'
 
 
 const ReviewList = () => {
-  const { reviews, filteredReviews} = useContext(RatingsAndReviewsContext)
+  const { reviews, filteredReviews } = useContext(RatingsAndReviewsContext)
   const [numOfDisplayed, setNumOfDisplayed] = useState(2)
   const [addingReview, setAddingReview] = useState(false)
   let allReviews = []
@@ -33,7 +33,7 @@ const ReviewList = () => {
 
   return (
     <div className='reviewList'>
-      <div className="numReviews">
+      <div className='numReviews'>
         {reviews.length} reviews, sorted by <SortDropDown />
       </div>
 
