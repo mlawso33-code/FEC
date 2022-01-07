@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import RatingsAndReviewsContext from '../RatingsandReviewsContext.jsx'
 import ReviewTile from './ReviewTile.jsx'
 import SortDropDown from './SortDropDown.jsx'
@@ -33,7 +33,7 @@ const ReviewList = () => {
 
   return (
     <div className='reviewList'>
-      <div className="numReviews">
+      <div className='numReviews'>
         {reviews.length} reviews, sorted by <SortDropDown />
       </div>
 
