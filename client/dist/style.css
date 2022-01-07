@@ -208,10 +208,10 @@ a {
 }
 
 .reviewTileBody {
-  white-space: nowrap;
+  display: -webkit-box;
   overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 250ch;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .tileAnchor {
