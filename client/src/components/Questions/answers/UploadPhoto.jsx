@@ -47,7 +47,7 @@ const UploadPhoto = (props) => {
       <br />
       <small>Uploaded photos: </small>
       <div className="photoRow">
-        <span>{photos.length > 0 && photos.map((img, i) => <img src={img} alt={`photo ${i}`} width="100" height="50" key={i} />)} </span>
+        <span>{photos.length > 0 && photos.map((img, i) => <img className="eachPhotoRow" src={img} alt={`photo ${i}`} width="100" height="50" key={i} /> )} </span>
       </div>
     </div>
   );
