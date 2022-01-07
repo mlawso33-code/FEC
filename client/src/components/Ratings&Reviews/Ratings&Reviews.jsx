@@ -60,7 +60,7 @@ const RatingsAndReviews = () => {
     <RatingsAndReviewsContext.Provider value={{
       product_id, reviews, handleSortChange, filterList, filteredReviews, filtersApplied, clearAllFilters
     }}>
-      <h1 className='ratingsTitle' id='linkHere'>Ratings &amp; Reviews</h1>
+      <h1 className='ratingsTitle' id='RatingsLink'>Ratings &amp; Reviews</h1>
 
       <div className='ratingsANDreviews'>
         <RatingBreakdown />

@@ -54,7 +54,7 @@ const App = () => {
         <Header />
         <Overview />
         {/* <RelatedItems /> */}
-        {<Questions />}
+        <Questions />
         <RatingsAndReviews />
       </AppContext.Provider>
     </div>

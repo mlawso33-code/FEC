@@ -28,7 +28,7 @@ const Overview = () => {
   }
 
   useEffect(() => {
-    if(Object.keys(product)) {
+    if(Object.keys(product).length) {
       fetchStyles()
     }
   }, [product])
