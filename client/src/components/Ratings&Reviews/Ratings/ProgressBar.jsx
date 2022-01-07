@@ -1,8 +1,6 @@
 import React from 'react';
 
-const ProgressBar = (props) => {
-  const { percent } = props
-
+const ProgressBar = ({ percent }) => {
   const containerStyle = {
     display: 'inline-block',
     height: 12,

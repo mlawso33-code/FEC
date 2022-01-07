@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductBar = ({chartic}) => {
+const ProductBar = ({ chartic }) => {
   const value = (Number(chartic.value) / 5 ) * 100
 
   const barStyle = {

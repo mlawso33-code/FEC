@@ -6,7 +6,7 @@ import NewReview from './NewReview.jsx'
 
 
 const ReviewList = () => {
-  const { reviews, filteredReviews} = useContext(RatingsAndReviewsContext)
+  const { reviews, filteredReviews } = useContext(RatingsAndReviewsContext)
   const [numOfDisplayed, setNumOfDisplayed] = useState(2)
   const [addingReview, setAddingReview] = useState(false)
   let allReviews = []

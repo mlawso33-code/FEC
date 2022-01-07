@@ -5,7 +5,7 @@ import moment from 'moment';
 import ReviewPhoto from './ReviewPhoto.jsx';
 
 const ReviewTile = ({ review }) => {
-  const {review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos} = review
+  const { review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos } = review
   const [fullReview, setFullReview] = useState(false)
   const [reported, setReported] = useState(false)
   const [helpful, setHelpful] = useState(helpfulness)
