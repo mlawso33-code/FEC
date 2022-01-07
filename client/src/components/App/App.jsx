@@ -12,6 +12,7 @@ const App = () => {
   const [product, setProduct] = useState({});
   const [metaData, setMetaData] = useState({})
   const averageRating = getAvgRating(metaData.ratings)
+  let {id} = product
 
   function fetchProduct(product_id) {
     axios.get(`/api/products/${product_id}`)
@@ -36,6 +37,11 @@ const App = () => {
     return (Math.round((totalStars / totalRatings) * 10) / 10).toString()
   }
 
+  function headerSelect(e) {
+    id = Number(e.target.value)
+    fetchProduct(id)
+  }
+
   useEffect(() => {
     fetchProduct(44388)
   }, [])
@@ -51,7 +57,7 @@ const App = () => {
       <AppContext.Provider value={{
         product, metaData, averageRating
       }} >
-        <Header />
+        <Header headerSelect={headerSelect}/>
         <Overview />
         {/* <RelatedItems /> */}
         <Questions />

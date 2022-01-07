@@ -34,6 +34,16 @@ body {
   align-items: center;
   overflow: hidden;
 }
+#products {
+  padding: .5em;
+  font-size: .75em;
+  font-family: elvish;
+  margin-left:55%;
+  background-color: rgba(255, 232, 214, .8);
+  filter:drop-shadow(1px 3px 1px black);
+  outline: 1px solid rgba(88, 47, 14, 1);
+}
+
 
 .title {
   font-size: 2em;
