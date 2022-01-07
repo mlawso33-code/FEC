@@ -24,10 +24,7 @@ const SizeSelect = (props) => {
 
   return (
     <span>
-      <select name='SelectSize' style={{color: "rgba(88, 47, 14)"}} onChange={event => handleChange(event)}>
-        {/* <option value=''>SELECT SIZE</option> */}
-
-         {/* Doesn't like 'selected' / assigning value to select does nothing */}
+      <select name='SelectSize' className='sizeSelect' onChange={event => handleChange(event)}>
 
         {sizeArr.map(opt => <option value={JSON.stringify({size: opt.size, quantity: opt.quantity, id: opt.id})} key={opt.id}>{opt.size}</option>)}
       </select>

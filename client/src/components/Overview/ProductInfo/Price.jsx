@@ -8,15 +8,15 @@ const Price = () => {
     <div>
       {sale &&
       <>
-        <span className='salePrice' style={{fontFamily: 'elvish'}}>{price} </span>
-        <span className='oldPrice' style={{fontFamily: 'elvish'}}>{currentStyle.original_price}</span>
+        <span className='salePrice' style={{fontFamily: 'elvish'}}>{`$${price}`} </span>
+        <span className='oldPrice' style={{fontFamily: 'elvish'}}>{`$${currentStyle.original_price}`}</span>
       </>
       }
       {currentStyle &&
       <>
         {sale === false &&
         <>
-          <span className='price' style={{fontFamily: 'elvish'}}>{currentStyle.original_price}</span>
+          <span className='price' style={{fontFamily: 'elvish'}}>{`$${currentStyle.original_price}`}</span>
         </>
         }
       </>

@@ -8,7 +8,7 @@ const StyleOptions = () => {
 
   return (
     <div style={{display: 'inline-block', height: 'auto'}}>
-      <div>Options</div>
+      <div style={{marginBottom: '2%', fontSize: '1.1em'}}>Options</div>
       {styles.length &&
       <>
       <div className='stylePics'>

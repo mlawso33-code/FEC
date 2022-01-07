@@ -6,7 +6,7 @@ const Category = () => {
   const { product } = useContext(AppContext);
 
   return (
-    <div style={{fontFamily: 'elvish', margin: '0px'}}>
+    <div style={{fontFamily: 'elvish', margin: '0px', fontSize: '1.2em'}}>
       {product.category}
 
     </div>

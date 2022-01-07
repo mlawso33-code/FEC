@@ -64,6 +64,10 @@ const Overview = () => {
         <MainImg />
         <ProductOverview />
       </OverviewContext.Provider>
+      <div className='description'>
+        <div className='descriptionSlogan'>{product.slogan}</div>
+        <div className='descriptionInfo'>{product.description}</div>
+      </div>
     </div>
   )
     } else {
