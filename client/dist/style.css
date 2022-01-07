@@ -683,6 +683,7 @@ span.bolder {
 .questionButton {
   background-color: transparent;
   border: 2px solid rgba(88, 47, 14, 1);
+  border-radius:5%;
   font-size: 20px;
   font-weight: bold;
   padding: 20px;
