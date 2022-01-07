@@ -60,7 +60,6 @@ const IndividualQuestion = (props) => {
         </div>
         <br />
         <div>
-          <strong className="qLabel">A: </strong>
           <AnswersList question_id={question_id} question={props.question}
             fetchQuestions={props.fetchQuestions} fetchAnswers={fetchAnswers} answers={answers} />
         </div>

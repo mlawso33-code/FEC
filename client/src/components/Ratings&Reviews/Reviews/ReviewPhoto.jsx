@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from 'react';
 
 const ReviewPhoto = ({ photo }) => {
   const [show, setShow] = useState(false)
@@ -16,9 +16,9 @@ const ReviewPhoto = ({ photo }) => {
       <img src={photo.url} className='reviewTilePhoto' onClick={showModal}/>
 
       {show &&
-        <div className="photoModal">
-            <span className="photoModalHeader" onClick={closeModal}>&times;</span>
-            <img src={photo.url} className="photoModalContent"/>
+        <div className='photoModal'>
+            <span className='photoModalHeader' onClick={closeModal}>&times;</span>
+            <img src={photo.url} className='photoModalContent'/>
         </div>
       }
     </span>
