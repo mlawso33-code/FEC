@@ -13,13 +13,12 @@ const AnswerPhoto = ({ photo }) => {
 
   return (
     <div>
-      <br />
       <span>
         <img src={photo.url} className="photoStyle" onClick={showModal} width="150" height="100" />
         {show &&
-          <div className="modalStyle">
-            <span className="modalHeaderStyle" onClick={closeModal}>&times;</span>
-            <img src={photo.url} className="modalContentStyle" />
+          <div className="photoModal">
+            <span className="photoModalHeader" onClick={closeModal}>&times;</span>
+            <img src={photo.url} className="photoModalContent" />
           </div>
         }
       </span>

@@ -9,7 +9,7 @@ import QuestionsList from './question/QuestionsList.jsx';
 
 const Questions = () => {
   return (
-    <div>
+    <div className="qaa">
       <h1 className="questionsTitle">Questions &amp; Answers</h1>
       <div>
         <QuestionsList />

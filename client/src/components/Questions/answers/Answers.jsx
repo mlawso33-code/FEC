@@ -25,7 +25,7 @@ const Answers = (props) => {
   }
 
   return (
-    <span className="eachAnswer">
+    <div className="eachAnswer">
       <div className="answerBody">{body}</div>
       <div>{photos.map(photo =>
         <AnswerPhoto key={photo.id} photo={photo} />
@@ -35,7 +35,7 @@ const Answers = (props) => {
         Helpful? <a href='' className="blackText" onClick={incrementHelpful}>Yes</a>
         <span className="helpfulNum"> ({helpful})</span>
       </span>
-    </span>
+    </div>
   )
 }
 

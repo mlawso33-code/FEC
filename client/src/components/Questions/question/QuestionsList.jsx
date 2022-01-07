@@ -69,7 +69,6 @@ const QuestionsList = () => {
         ))
         }
       </div>
-      <br />
       <div className="questionButtons">
         {questions.length > 2 && (
           <div>
