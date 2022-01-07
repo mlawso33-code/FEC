@@ -642,13 +642,10 @@ span.bolder {
 }
 
 .overviewBox2 {
-  /* position: 'relative'; */
-  /* float: 'right'; */
   grid-area: b;
   background: rgba(165, 165, 141, 0.95);
   padding-left: 10px;
   padding-top: 5px;
-  /* border: 2px solid orange; */
 }
 
 .description {
@@ -687,11 +684,8 @@ span.bolder {
 #mainImage {
   position: absolute;
   border: 2px solid #a5a58d;
-  /* max-width: 100%;
-  max-height: 100%; */
-  /* object-fit: cover; */
-  width: 560px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   display: block;
   border-radius: 5px;
   z-index: 2;
@@ -708,7 +702,6 @@ span.bolder {
   width: 104px;
   height: 54%;
   overflow: auto;
-
 
 }
 
@@ -757,11 +750,6 @@ span.bolder {
   bottom: 21%;
 }
 
-.down:active .carousel{
-  animation: scrollTop: (e.currentTarget).position().top + $('.carousel').scrollTop()
-    }, 'slow')
-}
-
 .left {
   left: 120px;
 }
@@ -794,7 +782,7 @@ span.bolder {
   width: 100%;
   height: 100%;
   z-index: 3;
-  cursor: url("./images/plusSign.png"), pointer;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   /* Why isn't this link working? */
@@ -806,6 +794,23 @@ span.bolder {
   width: 600px;
   height: 550px;
   align-items: center;
+}
+
+.carouselEx {
+  position: absolute;
+  bottom: 10%;
+}
+
+.faRing {
+  color: goldenrod;
+  padding: 2px;
+  font-size: 2.5em;
+}
+
+.faCircle {
+  color: rgb(27, 85, 27);
+  padding: 2px;
+  font-size: 2.5em;
 }
 
 .salePrice {
@@ -829,6 +834,7 @@ span.bolder {
   text-decoration: none;
   border-radius: 50%;
   border: 1px solid rgba(88, 47, 14, 1);
+  margin-bottom: 2%;
 }
 
 .fa-facebook {
