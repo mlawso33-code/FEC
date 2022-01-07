@@ -75,7 +75,6 @@ const NewReview = ({ closeModal }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // Do all the manditory checks
     let areErrors = false
     let errors = 'You must enter the following:\n'
 
