@@ -441,80 +441,54 @@ cursor: pointer;
 /* Global CSS */
 .redText {
   color:red;
+  font-size: medium;
 }
 .greyText {
-  color:grey;
+  color:black;
+  font-size: large;
+  font-weight: lighter;
 }
 .blackText {
   font-weight: bolder;
 }
 .width50 {
   width:50%;
-}
-.questionsTitle {
-  font-size: 22px;
-  font-weight: normal;
+  border-bottom: solid 2px black;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
 }
 span.helpfulNum {
   font-size: smaller;
 }
 /* Answers */
-.answer_modal {
-  background-color: white;
-  position: fixed;
-  top: 5%;
-  left: 30%;
-  width: 40%;
-  padding: 20px;
-  border-radius: 5px;
-  border: 2px solid black;
-  overflow: auto;
-}
 .closeX {
-  color: black;
-  float: right;
-  cursor: pointer;
-}
-.photoStyle {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;
-  cursor: pointer;
-}
-.modalStyle {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-top: 100px;
-  background: rgba(0, 0, 0, 0.6)
-}
-.modalContentStyle {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 1000px
-}
-.modalHeaderStyle {
   position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #fff;
+  top: 12px;
+  right: 25px;
+  color: rgba(88, 47, 14, 1);
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
+  }
+.photoStyle {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 150px;
+  cursor: pointer;
+  margin-left: 45px;
 }
 .eachAnswer {
-  margin-bottom:10px;
+  margin-bottom:15px;
 }
 .answerBody {
   font-weight: lighter;
+  margin-left:25px;
 }
 .answererDetails {
-  margin-left: 20px;
+  margin-left: 45px;
   font-size: small;
+  font-style: italic;
 }
 span.bolder {
   font-weight: bolder;
@@ -525,7 +499,7 @@ span.bolder {
 .showHide {
   font-size: 0.8em;
   font-weight: 60;
-  color: grey;
+  color: rgb(116, 18, 18);
   cursor: pointer;
   margin-left: 25px;
   text-decoration: underline;
@@ -536,9 +510,56 @@ span.bolder {
   color: yellow;
   font-size: 10px;
 }
+/*Answer Modal*/
+.answerModal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height:100%;
+  padding-top: 100px;
+  z-index: 5;
+}
+.answerModalContent {
+  position: relative;
+  margin: auto;
+  display: block;
+  z-Index: 1000;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 700px;
+  background-color: rgba(165, 165, 141, 1);
+  overflow-y: auto;
+}
+.answerModalHeader {
+  padding-top: 40px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid rgba(88, 47, 14, 1);
+  background-color: #b7b7a4;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.answerModalBody {
+  font-size: 25px;
+  margin-left: 20px;
+}
+.answerModalPhoto {
+  margin-left: 20px;
+}
+ label {
+  font-weight: bolder;
+  font-size: large;
+}
 /* Photo */
 .urlInput {
   width:50%;
+  border-bottom: solid 2px black;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
 }
 .photoRow {
   display: flex;
@@ -546,8 +567,17 @@ span.bolder {
   justify-content:space-between;
 }
 /* Question List */
+.questionsTitle {
+  font-size: 22px;
+  font-weight: normal;
+  background-color: rgba(165, 165, 141, 0.95);
+}
+.entireQuestions {
+  background-color:rgba(165, 165, 141, 0.95)
+}
 .eachQuestion {
   margin-bottom: 5px;
+  border-bottom: solid 2px lightgrey;
 }
 .questionBody {
   font-size: larger;
@@ -574,6 +604,7 @@ span.bolder {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: rgba(165, 165, 141, 0.95);
 }
 .questionButton {
   background-color: transparent;
@@ -581,7 +612,6 @@ span.bolder {
   font-size: 20px;
   font-weight: bold;
   padding: 20px;
-  margin-right: 20px;
 }
 .questionButton:hover {
   background-color: black;
@@ -592,45 +622,181 @@ span.bolder {
   flex-direction: row;
   margin-top: 10px;
 }
-.inputStyle {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  width: 80%;
-  background: #f1f1f1;
-}
-.buttonStyle {
-  width: auto;
-  padding: 10px;
-  background: black;
-  color: white;
-  font-size: 17px;
-  cursor: pointer;
-}
-/* .questionBorder {
-  border:solid 10px;
-} */
 .questionsList {
   max-height: 55vh;
   overflow-y: scroll;
   margin-bottom: 20px;
+  background-color: rgba(165, 165, 141, 0.95);
 }
-
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #e0e0de;
   border-radius: 50px;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent
 }
+/*Question Modal*/
+.questionModal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height:100%;
+  padding-top: 100px;
+  z-index: 5;
+}
+.questionModalContent {
+  position: relative;
+  margin: auto;
+  display: block;
+  z-Index: 1000;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 800px;
+  background-color: rgba(165, 165, 141, 1);
+  overflow-y: auto;
+}
+.questionModalHeader {
+  padding-top: 40px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid rgba(88, 47, 14, 1);
+  background-color: #b7b7a4;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.questionModalBody {
+  font-size: 25px;
+  margin-left: 20px;
+}
+/* Search */
+.search-wrapper {
+  width: 60vw;
+  height: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.5vw;
+  border-radius: 10px;
+  background-color: white;
+  margin-left: 10vw;
+  color: black;
+  border:2px solid black;
+}
+.search-wrapper i {
+  cursor: pointer;
+}
+.search {
+  width:45vw;
+  height: 2rem;
+  outline: none;
+  border-radius: 10px;
+  border: 0.5px solid transparent;
+  text-align: center;
+  outline: none;
+  font-size: 1.2em;
+  font-weight: lighter;
+  color: rgb(93, 90, 90);
+}
+.search::placeholder {
+  color: grey;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 1rem;
+}
+/*Header Search*/
+.header-search-wrapper {
+  width: 60vw;
+  height: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.5vw;
+  border-radius: 10px;
+  background-color: rgba(165, 165, 141, 0.95);
+  margin-left: 10vw;
+  color: black;
+  border:2px solid black;
+}
+.header-search-wrapper i {
+  cursor: pointer;
+}
+.headerSearch {
+  padding-left: 250px;
+  width:45vw;
+  height: 2rem;
+  outline: none;
+  border-radius: 10px;
+  border: 0.5px solid transparent;
+  text-align: center;
+  outline: none;
+  font-size: 1.2em;
+  font-weight: lighter;
+  background-color: rgba(165, 165, 141, 0.95);
+  color: rgb(93, 90, 90);
+}
+.headerSearch::placeholder {
+  color: grey;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 1rem;
+}
+.headerLogo {
+  outline:none;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 15px;
+}
 
-/* STERLO */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* //Overview 601// */
 
 .overviewDiv {
   display: grid;

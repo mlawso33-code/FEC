@@ -11,7 +11,6 @@ const QuestionModal = (props) => {
   const [body, setBody] = useState('')
   const product_id = props.product_id
 
-
   function handleSubmitQuestion(event) {
     event.preventDefault()
     var valueObj = {
@@ -31,32 +30,33 @@ const QuestionModal = (props) => {
     }
   }
 
-
   return (
-    <div>
-      <div style={modal_content}>
-        <form onSubmit={handleSubmitQuestion}>
-          <span style={close} onClick={props.toggle}>X</span>
+    <div className="questionModal">
+      <div className="questionModalContent">
+        <div className="questionModalHeader">
+          <span className="closeX" onClick={props.toggle}>X</span>
           <h3>Ask a question!</h3>
-          <small style={greyText}><span style={redText}>*</span> are required</small>
+        </div>
+        <form className="questionModalBody" onSubmit={handleSubmitQuestion}>
+          <small className="greyText"><span className="redText">* </span> required</small>
           <br />
           <br />
-          <span style={redText}>*</span><label>Username:
+          <span className="redText">*</span><label>Username:
             <br />
-            <input style={width50} type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
+            <input className="width50" type="text" value={name} placeholder="Example: jack543!" max="60" onChange={e => setUser(e.target.value)} /></label>
           <br />
           <br />
-          <span style={redText}>*</span><label>Email:
+          <span className="redText">* </span><label>Email:
             <br />
-            <input style={width50} type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
+            <input className="width50" type="email" value={email} placeholder="Example: jack@email.com" max="60" onChange={e => setEmail(e.target.value)} /> </label>
           <br />
           <br />
-          <span style={redText}>*</span><label>Question:
+          <span className="redText">* </span><label>Question:
             <br />
-            <textarea rows="5" cols="33" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
+            <textarea rows="5" cols="65" value={body} placeholder="Type question here..." max="1000" onChange={e => setBody(e.target.value)} /></label>
           <br />
           <br />
-          <input type="submit" value="Submit Question" />
+          <input className="questionButton" type="submit" value="Submit Question" />
         </form>
       </div>
     </div>
@@ -64,30 +64,3 @@ const QuestionModal = (props) => {
 }
 
 export default QuestionModal
-
-const redText = {
-  color:"red"
-}
-const greyText = {
-  color:"grey"
-}
-const width50 = {
-  width:"50%"
-}
-
-const modal_content = {
-  backgroundColor: "white",
-  position: "fixed",
-  top: "20%",
-  left: "30%",
-  width: "40%",
-  padding: "20px",
-  borderRadius: "5px",
-  border: "2px solid black"
-}
-
-const close = {
-  color: "Black",
-  float: "right",
-  cursor: "pointer"
-}
