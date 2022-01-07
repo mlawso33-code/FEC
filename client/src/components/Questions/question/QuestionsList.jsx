@@ -19,7 +19,7 @@ const QuestionsList = () => {
 
   var displayedQuestions = questions.slice(0, numOfQuestions)
 
-  const afterThree = search.split('').slice(3, search.length - 1).join('')
+  const afterThree = search.split('').slice(2, search.length - 1).join('')
 
   function fetchQuestions() {
     axios
@@ -49,15 +49,13 @@ const QuestionsList = () => {
 
   return (
     <div>
-      <div>
-        <form>
-          <input className="inputStyle" type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={search}
-            onChange={(e) => {
-              setSearch(event.target.value)
-            }} />
-          <button type="submit" className="buttonStyle"><i className="fas fa-search"></i></button>
-        </form>
-      </div>
+      <form className="search-wrapper">
+        <input className="search" type="search" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={search}
+          onChange={(e) => {
+            setSearch(event.target.value)
+          }} />
+        <i className="fas fa-search"></i>
+      </form>
       <br />
       <div className="questionsList">
         {displayedQuestions.filter((val) => {
