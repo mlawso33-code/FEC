@@ -7,8 +7,8 @@ import NewReviewPhoto from "./NewReviewPhoto.jsx"
 import axios from "axios"
 
 const NewReview = ({ closeModal }) => {
-  const { product } = useContext(AppContext)
-  const { product_id, metaData } = useContext(RatingsAndReviewsContext)
+  const { product, metaData } = useContext(AppContext)
+  const { product_id } = useContext(RatingsAndReviewsContext)
   const characteristics = getCharacteristics(metaData.characteristics)
   const [rate, setRate] = useState(0)
   const [recommened, setRecommended] = useState(true)

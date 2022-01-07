@@ -1,9 +1,10 @@
 import React, { useContext } from "react"
-import RatingsAndReviewsContext from "../RatingsandReviewsContext.jsx"
+// import RatingsAndReviewsContext from "../RatingsandReviewsContext.jsx"
+import AppContext from "../../App/AppContext.jsx"
 import ProductBar from "./ProductBar.jsx"
 
 const ProductBreakdown = () => {
-  const { metaData } = useContext(RatingsAndReviewsContext)
+  const { metaData } = useContext(AppContext)
   const chartics = metaData.characteristics
 
   return (
