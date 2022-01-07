@@ -15,23 +15,13 @@ const MainImg = () => {
     setPopup(!popup);
   }
 
-
-
-  // function handleScrollClick (event) {
-  //   let currentIndex = currentStyle.photos.map((photo) => photo.url).indexOf(currentPic);
-
-  //   if (event.target.className.baseVal === 'mainArrows right') {
-  //     console.log('right')
-  //     setCurrentPic(currentStyle.photos[currentIndex + 1].url);
-  //   } else {
-  //     setCurrentPic(currentStyle.photos[currentIndex - 1].url);
-  //     console.log('eep')
-  //   }
-  // }
-
   function handleRightClick (event) {
     let currentIndex = currentStyle.photos.map((photo) => photo.url).indexOf(currentPic);
       setCurrentPic(currentStyle.photos[currentIndex + 1].url);
+
+      // $('.carousel').animate({
+      //   scrollTop: $(e.currentTarget).position().top + $('.carousel').scrollTop()
+      //   }, 'slow')
   }
 
   function handleLeftClick (event) {
@@ -66,14 +56,19 @@ const MainImg = () => {
 
         <div className='popup' style={{display: popup ? 'flex' : 'none'}}>
 
-<InnerImageZoom
-  className='popupImg' src={currentPic}
-  zoomScale={2.5}
-  movetype='hover'
-/>
+         <InnerImageZoom
+           className='popupImg' src={currentPic}
+           zoomScale={2.5}
+           movetype='hover'
+         />
+         <FaTimes className='exit' onClick={event => handleClick(event)}/>
 
-<FaTimes className='exit' onClick={event => handleClick(event)}/>
-
+         {currentStyle.photos[0].url !== currentPic &&
+            <FaArrowLeft className='mainArrows leftEx' onClick={(event) => handleLeftClick(event)} />
+          }
+          {currentStyle.photos[currentStyle.photos.length - 1].url !== currentPic &&
+            <FaArrowRight className='mainArrows rightEx'onClick={(event) => handleRightClick(event)} />
+          }
 </div>
 
     </div>
