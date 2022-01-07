@@ -15,7 +15,7 @@ const Ratings = () => {
   return (
     <div>
       <AvgStarRating rating={averageRating}/>
-      <a onClick={e => handleClick(e)}>Read all reviews</a>
+      <a style={{textDecoration: 'underline', fontSize: '1.1em'}} onClick={e => handleClick(e)}>Read all reviews</a>
     </div>
   )
 }

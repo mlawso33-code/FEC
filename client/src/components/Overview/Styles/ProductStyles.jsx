@@ -8,9 +8,9 @@ const ProductStyles = () => {
 
   return (
     <div>
-      <span>
+      <span style={{marginBottom: '1%', fontSize: '1.2em'}}>
         Style:
-      <span style={{fontFamily: 'elvish', margin: '0px', fontSize: '.85em'}}>{`  ${currentStyle && currentStyle.name}`} </span>
+      <span style={{fontFamily: 'elvish', margin: '0px', fontSize: '1em'}}>{`  ${currentStyle && currentStyle.name}`} </span>
       </span>
       <StyleOptions />
 
