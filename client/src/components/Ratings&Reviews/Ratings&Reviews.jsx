@@ -44,6 +44,17 @@ const RatingsAndReviews = () => {
     }
   }, [product])
 
+  // useEffect(() => {
+  //   var newFiltered = [];
+  //   for (let filter of filtersApplied) {
+  //     let portion = reviews.filter(review => review.rating === Number(filter))
+  //     console.log(portion)
+  //     newFiltered.concat(portion)
+  //   }
+  //   console.log(newFiltered)
+  //   setFilteredReviews(newFiltered)
+  // }, [reviews])
+
   function handleSortChange(event) {
     axios.get(`/api/reviews/?page=1&count=100&sort=${event.target.value}&product_id=${product_id}`)
       .then(response => setReviews(response.data.results))

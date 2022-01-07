@@ -89,6 +89,7 @@ a {
 
 /* Ratings */
 .ratingsTitle {
+  font-family: elvish;
   font-size: 25px;
   font-weight: bold;
   background-color: rgba(165, 165, 141, 0.95);
@@ -119,6 +120,7 @@ a {
 
 .percentRecommended {
   margin-bottom: 20px;
+  font-size: 17px;
 }
 
 .ratingBody {
@@ -201,7 +203,7 @@ a {
 }
 
 .allTiles {
-  max-height: 58vh;
+  max-height: 56vh;
   overflow-y: scroll;
   margin-bottom: 20px;
 }
@@ -222,6 +224,7 @@ a {
 
 .reviewButton {
   background-color: transparent;
+  border-radius: 5%;
   border: 2px solid rgba(88, 47, 14, 1);
   color: rgba(88, 47, 14, 1);
   font-size: 20px;
@@ -365,6 +368,7 @@ hr {
   padding-top: 40px;
   font-size: 40px;
   font-weight: bold;
+  font-family: elvish;
   text-align: center;
   border-bottom: 2px solid rgba(88, 47, 14, 1);
   background-color: #b7b7a4;
@@ -378,6 +382,7 @@ right: 25px;
 color: rgba(88, 47, 14, 1);
 font-size: 40px;
 font-weight: bold;
+font-family: Arial, Helvetica, sans-serif;
 cursor: pointer;
 }
 
@@ -685,6 +690,12 @@ span.bolder {
   background: #e0e0de;
   border-radius: 50px;
 }
+
+.carousel::-webkit-scrollbar-thumb {
+  background: rgba(224, 224, 222, 0.6);
+  border-radius: 50px;
+}
+
 ::-webkit-scrollbar-track {
   background: transparent
 }
