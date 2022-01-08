@@ -4,7 +4,7 @@ import axios from 'axios';
 import Header from '../Header/Header.jsx'
 import Overview from '../Overview/Overview.jsx';
 import Questions from '../Questions/Questions.jsx';
-import RatingsAndReviews from '../Ratings&Reviews/Ratings&Reviews.jsx';
+import RatingsAndReviews from '../RatingsAndReviews/RatingsAndReviews.jsx';
 // import Related from '../Related/Related.jsx';
 
 
