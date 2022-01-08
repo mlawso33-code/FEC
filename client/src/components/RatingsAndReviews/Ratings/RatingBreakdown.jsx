@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import AppContext from '../../App/AppContext.jsx'
-import RatingsAndReviewsContext from '../RatingsandReviewsContext.jsx'
+import RatingsAndReviewsContext from '../RatingsAndReviewsContext.jsx'
 import AvgStarRating from './AvgStarRating.jsx'
 import BreakDown from './BreakDown.jsx'
 
