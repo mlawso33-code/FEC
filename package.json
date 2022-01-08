@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "",
-    "react-dev": "webpack --config ./webpack.config.js --mode development -w",
-    "start": "nodemon server/index.js "
+    "react-dev": "webpack serve --open --config webpack.dev.js",
+    "start": "nodemon server/index.js ",
+    "react-prod": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
