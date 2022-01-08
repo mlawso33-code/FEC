@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import OverviewContext from '../OverviewContext.jsx';
 import AppContext from '../../App/AppContext.jsx';
-import AvgStarRating from '../..//Ratings/AvgStarRating.jsx';
+import AvgStarRating from '../../RatingsAndReviews/Ratings/AvgStarRating.jsx';
 
 const Ratings = () => {
   const { styles } = useContext(OverviewContext);
