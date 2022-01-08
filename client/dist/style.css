@@ -662,6 +662,7 @@ span.bolder {
   flex-direction: row;
 }
 .qLabel {
+  margin-left: 5px;
   margin-right: 5px;
   font-size: larger;
 }
@@ -1082,4 +1083,40 @@ span.bolder {
 .faPinterest {
   background: #E60023;
   color: white;
+}
+
+.iiz {
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+
+.iiz__img {
+  width: 600px;
+  height: 550px;
+  display: block;
+}
+
+.iiz__zoom-img {
+  width: auto !important;
+  max-width: none !important;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.iiz__zoom-img--visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  cursor: -webkit-zoom-out;
+  cursor: zoom-out;
+  -ms-touch-action: none;
+  touch-action: none;
 }
