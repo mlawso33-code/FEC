@@ -7,7 +7,7 @@ const Header = ({ headerSelect }) => {
   return (
     <div className='header'>
       <p className="title">
-        Nanya
+        Nenya
       </p>
       <p className='tagline'>
         Shopping with great power
