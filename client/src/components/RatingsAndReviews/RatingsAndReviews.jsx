@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import AppContext from '../App/AppContext.jsx'
-import RatingsAndReviewsContext from './RatingsandReviewsContext.jsx'
+import RatingsAndReviewsContext from './RatingsAndReviewsContext.jsx'
 import ReviewList from './Reviews/ReviewList.jsx'
 import RatingBreakdown from './Ratings/RatingBreakdown.jsx'
 import ProductBreakdown from './Product/ProductBreakdown.jsx'

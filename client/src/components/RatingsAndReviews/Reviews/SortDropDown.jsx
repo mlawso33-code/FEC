@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import RatingsAndReviewsContext from '../RatingsandReviewsContext.jsx'
+import RatingsAndReviewsContext from '../RatingsAndReviewsContext.jsx'
 
 const SortDropDown = () => {
   const { handleSortChange } = useContext(RatingsAndReviewsContext)
