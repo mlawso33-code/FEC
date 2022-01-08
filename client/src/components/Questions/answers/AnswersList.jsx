@@ -1,10 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
-import moment from 'moment';
+import React, { useState, useEffect} from 'react';
 
-import AppContext from '../../App/AppContext.jsx';
-
-import IndividualQuestion from '../question/IndividualQuestion.jsx';
 import Answers from './Answers.jsx';
 
 const AnswersList = (props) => {

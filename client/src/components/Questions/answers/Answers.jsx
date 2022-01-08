@@ -2,9 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
-import AppContext from '../../App/AppContext.jsx';
-
-import AnswersList from './AnswersList.jsx';
 import AnswerPhoto from './AnswerPhoto.jsx';
 
 const Answers = (props) => {

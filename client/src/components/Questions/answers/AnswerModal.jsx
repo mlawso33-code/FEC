@@ -1,9 +1,6 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import moment from 'moment';
 
-import AppContext from '../../App/AppContext.jsx';
-import IndividualQuestion from '../question/IndividualQuestion.jsx';
 import UploadPhoto from './UploadPhoto.jsx';
 
 const AnswerModal = (props) => {

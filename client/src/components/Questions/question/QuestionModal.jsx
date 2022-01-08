@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import axios from 'axios';
-import moment from 'moment';
-
-import AppContext from '../../App/AppContext.jsx';
-import QuestionsList from './QuestionsList.jsx';
 
 const QuestionModal = (props) => {
   const [name, setUser] = useState('')
