@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import OverviewContext from '../OverviewContext.jsx';
 
-const Quantity = (props) => {
+const Quantity = () => {
 
   const{selectedSize, setSelectedQuantity} = useContext(OverviewContext);
 

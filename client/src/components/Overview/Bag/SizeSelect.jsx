@@ -1,16 +1,13 @@
 import React, {useContext} from 'react';
 import OverviewContext from '../OverviewContext.jsx';
 
-
-const SizeSelect = (props) => {
+const SizeSelect = () => {
 
   const {setSelectedSize, currentStyle} = useContext(OverviewContext);
 
   function handleChange (event) {
     setSelectedSize(JSON.parse(event.target.value));
   }
-
-  //cats
 
   function sizes () {
     let sizeA = [{size: 'SELECT SIZE', id: 'null'}];

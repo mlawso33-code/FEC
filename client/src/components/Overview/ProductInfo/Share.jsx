@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React from 'react';
 import { FaTwitter, FaFacebook, FaPinterest} from 'react-icons/fa';
 
 const Share = () => {

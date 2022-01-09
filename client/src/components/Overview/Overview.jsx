@@ -71,7 +71,7 @@ const Overview = () => {
     </div>
   )
     } else {
-      return ('loading')
+      return ('loading...')
     }
 }
 
