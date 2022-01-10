@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
-
-import AppContext from '../../App/AppContext.jsx';
 
 import AnswersList from '../answers/AnswersList.jsx';
 import AnswerModal from '../answers/AnswerModal.jsx';
@@ -61,7 +59,7 @@ const IndividualQuestion = (props) => {
         <br />
         <div>
           <AnswersList question_id={question_id} question={props.question}
-            fetchQuestions={props.fetchQuestions} fetchAnswers={fetchAnswers} answers={answers} />
+            fetchAnswers={fetchAnswers} answers={answers} />
         </div>
       </div>
     </div>

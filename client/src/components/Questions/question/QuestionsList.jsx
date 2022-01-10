@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
-import AppContext from '../../App/AppContext.jsx';
-import QuestionContext from './QuestionContext.jsx';
-
 import IndividualQuestion from './IndividualQuestion.jsx';
 import QuestionModal from './QuestionModal.jsx';
 
