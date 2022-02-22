@@ -1,5 +1,4 @@
-import React, {useState, useContext} from 'react';
-import AppContext from '../../App/AppContext.jsx';
+import React, {useContext} from 'react';
 import OverviewContext from '../OverviewContext.jsx';
 import StylePic from './StylePic.jsx';
 

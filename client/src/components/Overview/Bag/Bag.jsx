@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import BagButton from './BagButton.jsx';
 import Quantity from './Quantity.jsx';
 import SizeSelect from './SizeSelect.jsx';

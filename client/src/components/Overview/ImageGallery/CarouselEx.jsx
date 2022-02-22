@@ -6,7 +6,7 @@ import { FaRing, FaTree} from 'react-icons/fa';
 const CarouselEx = (props) => {
   const{currentPic, setCurrentPic} = useContext(OverviewContext);
 
-  function handleClick (event) {
+  function handleClick () {
     setCurrentPic(props.picEx.url)
   }
 
@@ -14,8 +14,8 @@ const CarouselEx = (props) => {
     <span>
 
     {currentPic === props.picEx.url ?
-     <FaRing className='faRing' onClick={event => handleClick(event)}/> :
-     <FaTree className='faCircle' onClick={event => handleClick(event)}/>
+     <FaRing className='faRing' onClick={() => handleClick()}/> :
+     <FaTree className='faCircle' onClick={() => handleClick()}/>
     }
     </span>
   )

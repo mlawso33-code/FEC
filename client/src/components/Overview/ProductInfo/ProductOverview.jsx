@@ -1,6 +1,4 @@
-import React, {useState, useContext} from 'react';
-import OverviewContext from '../OverviewContext.jsx';
-import AppContext from '../../App/AppContext.jsx';
+import React from 'react';
 import Category from './Category.jsx';
 import Price from './Price.jsx';
 import ProductName from './ProductName.jsx';
@@ -11,7 +9,6 @@ import Bag from '../Bag/Bag.jsx';
 
 
 const ProductOverview = () => {
-  const { product } = useContext(AppContext);
 
   return (
     <div>
@@ -26,11 +23,6 @@ const ProductOverview = () => {
 
         <Share />
       </div>
-
-      {/* <div className='description'>
-        <h3>{product.slogan}</h3>
-        <p>{product.description}</p>
-      </div> */}
 
     </div>
   )

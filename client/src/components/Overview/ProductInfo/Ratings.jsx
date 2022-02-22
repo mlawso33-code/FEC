@@ -1,11 +1,9 @@
-import React, {useState, useContext} from 'react';
-import OverviewContext from '../OverviewContext.jsx';
+import React, {useContext} from 'react';
 import AppContext from '../../App/AppContext.jsx';
 import AvgStarRating from '../../RatingsAndReviews/Ratings/AvgStarRating.jsx';
 
 const Ratings = () => {
-  const { styles } = useContext(OverviewContext);
-  const { product, averageRating } = useContext(AppContext);
+  const { averageRating } = useContext(AppContext);
 
   function handleClick (e) {
     let ratingId = document.getElementById("RatingsLink")

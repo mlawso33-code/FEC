@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext} from 'react';
 import OverviewContext from '../OverviewContext.jsx';
 import StyleOptions from './StyleOptions.jsx';
 

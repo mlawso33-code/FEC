@@ -5,7 +5,6 @@ import Header from '../Header/Header.jsx'
 import Overview from '../Overview/Overview.jsx';
 import Questions from '../Questions/Questions.jsx';
 import RatingsAndReviews from '../RatingsAndReviews/RatingsAndReviews.jsx';
-// import Related from '../Related/Related.jsx';
 
 
 const App = () => {
@@ -59,7 +58,6 @@ const App = () => {
       }} >
         <Header headerSelect={headerSelect}/>
         <Overview />
-        {/* <RelatedItems /> */}
         <Questions />
         <RatingsAndReviews />
       </AppContext.Provider>

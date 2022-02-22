@@ -8,12 +8,11 @@ const StylePic = (props) => {
   function handleClick(event) {
     event.preventDefault();
     setCurrentStyle(props.item);
-
   }
-//woof
+
   return (
     <div style={{width: '25%', position: 'relative'}} onClick={event => handleClick(event)}>
-      <img src={props.item.photos[0].thumbnail_url} className='stylePic'/>
+      <img src={props.item.photos[0].thumbnail_url.slice(0, -2) + '1'} className='stylePic'/>
       { (currentStyle === props.item) && <FaCheckCircle className='selectedStyle' styles={{}}/> }
     </div>
   )

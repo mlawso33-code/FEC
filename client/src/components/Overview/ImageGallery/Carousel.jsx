@@ -5,17 +5,19 @@ import OverviewContext from '../OverviewContext.jsx';
 const Carousel = (props) => {
   const{currentPic, setCurrentPic} = useContext(OverviewContext);
 
-  function handleClick (event) {
-    setCurrentPic(props.pic.url)
+  let pic = props.pic.url;
+  let editedURL = pic.slice(0, pic.indexOf('&w=')) + '&w=600&q=1';
+
+  function handleClick () {
+    setCurrentPic(editedURL);
   }
 
 
   return (
     <span>
-      <img src={props.pic.url} className={currentPic === props.pic.url ? 'selectedCarouselItem' :'carouselItem'} onClick={event => handleClick(event)}/>
+      <img src={props.pic.url} className={currentPic === props.pic.url ? 'selectedCarouselItem' :'carouselItem'} onClick={() => handleClick()}/>
     </span>
   )
 }
-//there's got to be a cleaner way to highlight?
 
 export default Carousel;
